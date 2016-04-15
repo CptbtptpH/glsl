@@ -124,6 +124,10 @@ void  drawScene()
 	glEnd();
 
 }
+
+
+
+void key_callback(GLFWwindow* window, int key, int scancode, int action, int mode);
 int _tmain(int argc, _TCHAR* argv[])
 {
 	
@@ -140,7 +144,7 @@ int _tmain(int argc, _TCHAR* argv[])
 	}
 	/* Make the window's context current */
 	glfwMakeContextCurrent(window);
-
+	glfwSetKeyCallback(window, key_callback);
 	glewExperimental = GL_TRUE; 
 	GLenum err = glewInit();
 	const unsigned char * ver = glGetString(GL_VERSION);
@@ -178,3 +182,9 @@ int _tmain(int argc, _TCHAR* argv[])
 	return 0;
 }
 
+void key_callback(GLFWwindow* window, int key, int scancode, int action, int mode)
+{
+	if (key == GLFW_KEY_ESCAPE && action == GLFW_PRESS)
+		glfwSetWindowShouldClose(window, GL_TRUE);
+
+}

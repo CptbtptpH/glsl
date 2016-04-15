@@ -27,6 +27,12 @@ GLuint VAOs[NumVAOs];
 GLuint Buffers[NumBuffers];
 
 const GLuint NumVertices =3;
+GLuint g_program = 0;
+
+ActiveEngine::aeMat4f viewMat4;
+ActiveEngine::aeMat4f model;
+ActiveEngine::aeMat4f projection;
+
 void InitShader()
 {
 
@@ -52,8 +58,8 @@ void InitShader()
 		{ GL_FRAGMENT_SHADER, "../shaders/triangles.frag" },
 		{ GL_NONE, NULL },
 	};
-	GLuint program = Program::Load(shaders);
-	glUseProgram(program);
+	 g_program = Program::Load(shaders);
+	 glUseProgram(g_program);
 
 	glVertexAttribPointer(vPosition, 3, GL_FLOAT, GL_FALSE,6 * sizeof(GLfloat), (GLvoid*)0);
 	glEnableVertexAttribArray(vPosition);
@@ -68,13 +74,31 @@ void initScene(int w, int h)
 {
 
 	glViewport(0, 0, (GLint)w, (GLint)h);
+	ActiveEngine::aeMat4f ad;
+	ad.Perspective(45, (GLfloat)w / (GLfloat)h, 0.1, 100.0);
+
+	ActiveEngine::aeMat4f regid;
+ 
+	regid.Translate(0, 0, -1); // 相机位置
+	 
+	viewMat4 = ad*regid;
 
 	InitShader();
 
 }
-
 void  drawScene()
 {
+
+	GLint modelLoc = glGetUniformLocation(g_program, "model");
+	GLint viewLoc = glGetUniformLocation(g_program, "view");
+	GLint projLoc = glGetUniformLocation(g_program, "projection");
+	// Pass them to the shaders
+
+	glUniformMatrix4fv(modelLoc, 1, GL_FALSE,viewMat4.get() );
+	glUniformMatrix4fv(viewLoc, 1, GL_FALSE, viewMat4.get());
+	glUniformMatrix4fv(projLoc, 1, GL_FALSE, projection.get());
+
+
 	glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
 	glClear(GL_COLOR_BUFFER_BIT);
 	glBindVertexArray(VAOs[Triangles]);
@@ -152,5 +176,25 @@ int _tmain(int argc, _TCHAR* argv[])
 void key_callback(GLFWwindow* window, int key, int scancode, int action, int mode)
 {
 	if (key == GLFW_KEY_ESCAPE && action == GLFW_PRESS)
+	{
 		glfwSetWindowShouldClose(window, GL_TRUE);
+	}
+	else if (GLFW_KEY_A== key && action == GLFW_PRESS)
+	{
+	 
+		ActiveEngine::aeMat4f regid;
+		static float pox = -0.0;
+		regid.Translate(pox, 0, 0); // 相机位置
+		pox = pox + 0.01;
+		viewMat4 = viewMat4*regid;
+	}
+	else if (GLFW_KEY_D == key && action == GLFW_PRESS)
+	{
+
+		ActiveEngine::aeMat4f regid;
+		static float pox = -0.0;
+		regid.Translate(pox, 0, 0); // 相机位置
+		pox = pox - 0.01;
+		viewMat4 = viewMat4*regid;
+	}
 }
