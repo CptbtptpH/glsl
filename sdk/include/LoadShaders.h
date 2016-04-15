@@ -53,8 +53,8 @@ struct Program
 		while (shadersInfo[index].type != GL_NONE)
 		{
 			char* souce = readShaderSource(shadersInfo[index].filename);
-			printf("\n\n------------------shader文本信息----------------------\n");
-			printf(souce);
+		//	printf("\n\n------------------shader文本信息----------------------\n");
+		//	printf(souce);
 			AttachShader(prog, shadersInfo[index].type, souce);
 			index++;
 		}

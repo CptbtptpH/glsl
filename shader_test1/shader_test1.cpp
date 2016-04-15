@@ -20,25 +20,26 @@ GLFWwindow* window;
 
 enum VAO_IDs { Triangles, NumVAOs };
 enum Buffer_IDs { ArrayBuffer, NumBuffers };
-enum Attrib_IDs { vPosition = 0 };
+enum Attrib_IDs { vPosition = 0 ,
+				   vColor =1};
 
 GLuint VAOs[NumVAOs];
 GLuint Buffers[NumBuffers];
 
-const GLuint NumVertices = 6;
+const GLuint NumVertices =3;
 void InitShader()
 {
+
+
+	GLfloat vertices[] = {
+		// Positions         // Colors
+		0.5f, -0.5f,0.0f, 1.0f, 0.0f, 0.0f,  // Bottom Right
+		-0.5f, -0.5f, 0.0f,0.0f, 1.0f, 0.0f,  // Bottom Left
+		0.0f, 0.5f, 0.0f,0.0f, 0.0f, 1.0f   // Top 
+	};
+
 	glGenVertexArrays(NumVAOs, VAOs);
 	glBindVertexArray(VAOs[Triangles]);
-
-	GLfloat vertices[NumVertices][2] = {
-		{ -0.90, -0.90 },
-		{ 0.85, -0.90 },
-		{ -0.90, 0.85 },
-		{ 0.90, -0.85 },
-		{ 0.90, 0.90 },
-		{ -0.85, 0.90 }
-	};
 
 	glGenBuffers(NumBuffers, Buffers);
 	glBindBuffer(GL_ARRAY_BUFFER, Buffers[ArrayBuffer]);
@@ -54,9 +55,13 @@ void InitShader()
 	GLuint program = Program::Load(shaders);
 	glUseProgram(program);
 
-	glVertexAttribPointer(vPosition, 2, GL_FLOAT,
-		GL_FALSE, 0, 0);
+	glVertexAttribPointer(vPosition, 3, GL_FLOAT, GL_FALSE,6 * sizeof(GLfloat), (GLvoid*)0);
 	glEnableVertexAttribArray(vPosition);
+	
+	glVertexAttribPointer(vColor, 3, GL_FLOAT, GL_FALSE, 6* sizeof(GLfloat), (GLvoid*)( 3* sizeof(GLfloat)));
+	glEnableVertexAttribArray(vColor);
+
+	glBindVertexArray(0); // Unbind VAO
 }
 
 void initScene(int w, int h)
