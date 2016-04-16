@@ -8,7 +8,6 @@
  
 
 #ifdef _MSC_VER
-#pragma comment(lib,"glu32.lib")
 #pragma comment(lib,"opengl32.lib")
 #pragma comment(lib,"glfwLib64/glfw3.lib")
 #pragma comment(lib,"glfwLib64/glfw3dll.lib")
