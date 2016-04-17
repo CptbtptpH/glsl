@@ -146,7 +146,11 @@ public:
 		C[2].W = -1;// -2.0f*(far*near) / (far - near);
 		C[3].Z = -2.0f*(far*near) / (far - near);
 	}
-	 
+	aeVOID LookAt(aeVec3f pos, aeVec3f des, aeVec3f org)
+	{
+		Identity();
+	
+	}
 	/**
 		\brief 平移
 		\param x X轴方向平移量

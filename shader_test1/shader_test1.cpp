@@ -6,6 +6,11 @@
 
 #include "stdafx.h"
 
+
+#include "public/dataType.h"
+
+#include "math/MyMath.h"
+#include "math/Vector.h"
 #include "math/Matrix.h"
 
 #include <iostream>
@@ -16,8 +21,6 @@
 #include "LoadShaders.h"
 
 GLFWwindow* window;
-
-
 
 enum VAO_IDs { Triangles, NumVAOs };
 enum Buffer_IDs { ArrayBuffer, NumBuffers };
@@ -36,8 +39,6 @@ ActiveEngine::aeMat4f projection;
 
 void InitShader()
 {
-
-
 	GLfloat vertices[] = {
 		// Positions         // Colors
 		0.5f, -0.5f,0.0f, 1.0f, 0.0f, 0.0f,  // Bottom Right
@@ -76,13 +77,16 @@ void initScene(int w, int h)
 
 	glViewport(0, 0, (GLint)w, (GLint)h);
 	ActiveEngine::aeMat4f ad;
-	ad.Perspective(45, (GLfloat)w / (GLfloat)h, 0.1, 100.0);
+	ad.Perspective(45.0f, (GLfloat)w / (GLfloat)h, 0.1, 100.0);
+	projection = ad;
 
 	ActiveEngine::aeMat4f regid;
  
+	regid.LookAt(aeVec3f({ 0.0f, 0.0f, -5.0f }), aeVec3f(0.0f, 0.0f, 0.0f), aeVec3f(0.0f, 0.0f, 1.0f));
+
 	regid.Translate(0, 0, -1); // 相机位置
-	 
-	viewMat4 = ad*regid;
+	
+	viewMat4 = regid;
 
 	InitShader();
 
@@ -95,7 +99,7 @@ void  drawScene()
 	GLint projLoc = glGetUniformLocation(g_program, "projection");
 	// Pass them to the shaders
 
-	glUniformMatrix4fv(modelLoc, 1, GL_FALSE,viewMat4.get() );
+	glUniformMatrix4fv(modelLoc, 1, GL_FALSE,model.get() );
 	glUniformMatrix4fv(viewLoc, 1, GL_FALSE, viewMat4.get());
 	glUniformMatrix4fv(projLoc, 1, GL_FALSE, projection.get());
 
@@ -119,15 +123,15 @@ void resizeGL(GLFWwindow*, int w, int h)
 }
 // Function prototypes
 void key_callback(GLFWwindow* window, int key, int scancode, int action, int mode);
+const int WindowWidth = 800;
+const int WindowHeight = 600;
 int _tmain(int argc, _TCHAR* argv[])
 {
-
-
 	if (!glfwInit())
 		return -1;
 
 	/* Create a windowed mode window and its OpenGL context */
-	window = glfwCreateWindow(800, 600, "Hello World", NULL, NULL);
+	window = glfwCreateWindow(WindowWidth, WindowHeight, "Hello World", NULL, NULL);
 	if (!window)
 	{
 		glfwTerminate();
@@ -140,35 +144,28 @@ int _tmain(int argc, _TCHAR* argv[])
 	GLenum err = glewInit();
 	const unsigned char * ver = glGetString(GL_VERSION);
 
+	printf("openglVersion-%s.\r\n", ver);
 	if (GLEW_OK != err)
 	{
 		printf("init GLEW error!\n");
-
 		return 0;
 	}
 	else
 	{
 		printf("init GLEW ok!\n");
-		printf("openglVersion-%s.\r\n", ver);
-
 	}
-	initScene(800, 600);
+	initScene(WindowWidth, WindowHeight);
+
 	glfwSetWindowSizeCallback(window, resizeGL);
 
 	while (!glfwWindowShouldClose(window))
 	{
 		glfwPollEvents(); // 传递消息鼠标键盘等
 
-
-
-
 		drawScene();
 
- 
 		glfwSwapBuffers(window);
-
 	}
-
 	glfwTerminate();
 	return 0;
 }
