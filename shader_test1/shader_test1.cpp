@@ -44,9 +44,9 @@ void InitShader()
 {
 	GLfloat vertices[] = {
 		// Positions         // Colors
-		0.5f, -0.5f,0.0f, 1.0f, 0.0f, 0.0f,  // Bottom Right
-		-0.5f, -0.5f, 0.0f,0.0f, 1.0f, 0.0f,  // Bottom Left
-		0.0f, 0.5f, 0.0f,0.0f, 0.0f, 1.0f   // Top 
+		0.5f, -0.5f,-1.0f, 1.0f, 0.0f, 0.0f,  // Bottom Right
+		-0.5f, -0.5f, -1.0f, 0.0f, 1.0f, 0.0f,  // Bottom Left
+		0.0f, 0.5f, -1.0f, 0.0f, 0.0f, 1.0f   // Top 
 	};
 
 	glGenVertexArrays(NumVAOs, VAOs);
@@ -80,15 +80,15 @@ void initScene(int w, int h)
 
 	glViewport(0, 0, (GLint)w, (GLint)h);
 	ActiveEngine::aeMat4f projMat;
-	projMat.Perspective(45.0f, (GLfloat)w / (GLfloat)h, .1, 100.0);
+	projMat.Perspective(45.0f, (GLfloat)w / (GLfloat)h, 0.1f, 100.0f);
 	projection = projMat;
 
 	ActiveEngine::aeMat4f viewMat;
 	// œ‡ª˙Œª÷√
 	//viewMat.LookAt(aeVec3f({ 0.0f,-0.0f, -2.0f }), aeVec3f({0.0f, 0.0f, 0.0f }), aeVec3f({ 0.0f, 1.0f, 0.0f }));
 	//viewMat.Translate(0, 0, -3);
-	aeVec3f eye = aeVec3f({ 0.0f, -0.0f, -0.0f });
-	aeVec3f center = aeVec3f({ -1.0f, -0.0f, -0.0f });
+	aeVec3f eye = aeVec3f({ 0.0f, -0.0f,2.0f });
+	aeVec3f center = aeVec3f({ 0.0f, 1.0f, -0.0f });
 	aeVec3f up = aeVec3f({ 0.0f, 1.0f, 0.0f });
 	
 	aeVec3f d = center - eye;
@@ -126,14 +126,19 @@ void initScene(int w, int h)
 	rotMat.C[2].Z = d.Z;
 
 	aeMat4f result = tranMat * rotMat;
-	 
+	
 	viewMat = result;
 
 	model = aeMat4f();
 
 	MVPmat.Identity();
 	MVPmat = projection *viewMat *model;
-
+	aeVec4f pt1 = MVPmat * aeVec4f({ 0.5f, -0.5f, -1.0f, 1.0f });
+	aeVec4f pt2 = MVPmat * aeVec4f({-0.5f, -0.5f, -1.0f, 1.0f });
+	aeVec4f pt3 = MVPmat * aeVec4f({ 0.0f, 0.5f, -1.0f, 1.0f });
+	pt1 = pt1 / pt1.W;
+	pt2 = pt2 / pt2.W;
+	pt3 = pt3 / pt3.W;
 	InitShader();
 
 }
