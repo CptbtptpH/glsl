@@ -88,21 +88,21 @@ void initScene(int w, int h)
 	//viewMat.LookAt(aeVec3f({ 0.0f,-0.0f, -2.0f }), aeVec3f({0.0f, 0.0f, 0.0f }), aeVec3f({ 0.0f, 1.0f, 0.0f }));
 	//viewMat.Translate(0, 0, -3);
 	aeVec3f eye = aeVec3f({ 0.0f, -0.0f,2.0f });
-	aeVec3f center = aeVec3f({ 0.0f, 1.0f, -0.0f });
+	aeVec3f center = aeVec3f({1.0f, 0.0f, 0.0f });
 	aeVec3f up = aeVec3f({ 0.0f, 1.0f, 0.0f });
 	
 	aeVec3f d = center - eye;
 	d.Normalize();
 
-	aeVec3f r = Cross(up, d);
+	aeVec3f r = Cross(d, up);
 	r.Normalize();
 
-	aeVec3f u = Cross(d, r);
+	aeVec3f u = Cross(r,d );
 	u.Normalize();
 
-	aeFLOAT x = Dot(eye, r);
-	aeFLOAT y = Dot(eye, u);
-	aeFLOAT z = Dot(eye, d);
+	aeFLOAT x = -Dot(r, eye);
+	aeFLOAT y = -Dot(u, eye);
+	aeFLOAT z = -Dot(d, eye);
 
 
 	aeMat4f tranMat;
@@ -125,7 +125,11 @@ void initScene(int w, int h)
 	rotMat.C[2].Y = u.Z;
 	rotMat.C[2].Z = d.Z;
 
-	aeMat4f result = tranMat * rotMat;
+	rotMat.C[3].X = Dot(r, eye);
+	rotMat.C[3].Y = Dot(u, eye);
+	rotMat.C[3].Z = Dot(d, eye);
+ 
+	aeMat4f result = rotMat; //* tranMat;
 	
 	viewMat = result;
 
@@ -133,12 +137,16 @@ void initScene(int w, int h)
 
 	MVPmat.Identity();
 	MVPmat = projection *viewMat *model;
+
 	aeVec4f pt1 = MVPmat * aeVec4f({ 0.5f, -0.5f, -1.0f, 1.0f });
 	aeVec4f pt2 = MVPmat * aeVec4f({-0.5f, -0.5f, -1.0f, 1.0f });
 	aeVec4f pt3 = MVPmat * aeVec4f({ 0.0f, 0.5f, -1.0f, 1.0f });
 	pt1 = pt1 / pt1.W;
 	pt2 = pt2 / pt2.W;
 	pt3 = pt3 / pt3.W;
+
+	// matrix test
+	 
 	InitShader();
 
 }
