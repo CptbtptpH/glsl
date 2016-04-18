@@ -9,9 +9,12 @@
 
 #include "public/dataType.h"
 
-#include "math/MyMath.h"
+//#include "math/MyMath.h"
 #include "math/Vector.h"
+
 #include "math/Matrix.h"
+
+using namespace ActiveEngine;
 
 #include <iostream>
 #include <iomanip>
@@ -36,7 +39,7 @@ GLuint g_program = 0;
 ActiveEngine::aeMat4f viewMat4;
 ActiveEngine::aeMat4f model;
 ActiveEngine::aeMat4f projection;
-
+ActiveEngine::aeMat4f MVPmat;
 void InitShader()
 {
 	GLfloat vertices[] = {
@@ -76,17 +79,60 @@ void initScene(int w, int h)
 {
 
 	glViewport(0, 0, (GLint)w, (GLint)h);
-	ActiveEngine::aeMat4f ad;
-	ad.Perspective(45.0f, (GLfloat)w / (GLfloat)h, 0.1, 100.0);
-	projection = ad;
+	ActiveEngine::aeMat4f projMat;
+	projMat.Perspective(45.0f, (GLfloat)w / (GLfloat)h, .1, 100.0);
+	projection = projMat;
 
-	ActiveEngine::aeMat4f regid;
- 
-	regid.LookAt(aeVec3f({ 0.0f, 0.0f, -5.0f }), aeVec3f(0.0f, 0.0f, 0.0f), aeVec3f(0.0f, 0.0f, 1.0f));
-
-	regid.Translate(0, 0, -1); // 相机位置
+	ActiveEngine::aeMat4f viewMat;
+	// 相机位置
+	//viewMat.LookAt(aeVec3f({ 0.0f,-0.0f, -2.0f }), aeVec3f({0.0f, 0.0f, 0.0f }), aeVec3f({ 0.0f, 1.0f, 0.0f }));
+	//viewMat.Translate(0, 0, -3);
+	aeVec3f eye = aeVec3f({ 0.0f, -0.0f, -0.0f });
+	aeVec3f center = aeVec3f({ -1.0f, -0.0f, -0.0f });
+	aeVec3f up = aeVec3f({ 0.0f, 1.0f, 0.0f });
 	
-	viewMat4 = regid;
+	aeVec3f d = center - eye;
+	d.Normalize();
+
+	aeVec3f r = Cross(up, d);
+	r.Normalize();
+
+	aeVec3f u = Cross(d, r);
+	u.Normalize();
+
+	aeFLOAT x = Dot(eye, r);
+	aeFLOAT y = Dot(eye, u);
+	aeFLOAT z = Dot(eye, d);
+
+
+	aeMat4f tranMat;
+	tranMat.Identity();
+	tranMat.C[3].X = x;// Dot(r, eye);
+	tranMat.C[3].Y = y;// Dot(u, eye);
+	tranMat.C[3].Z = z;// Dot(d, eye);
+
+	aeMat4f rotMat;
+	rotMat.Identity();
+	rotMat.C[0].X = r.X;
+	rotMat.C[0].Y = u.X;
+	rotMat.C[0].Z = d.X;
+
+	rotMat.C[1].X = r.Y;
+	rotMat.C[1].Y = u.Y;
+	rotMat.C[1].Z = d.Y;
+
+	rotMat.C[2].X = r.Z;
+	rotMat.C[2].Y = u.Z;
+	rotMat.C[2].Z = d.Z;
+
+	aeMat4f result = tranMat * rotMat;
+	 
+	viewMat = result;
+
+	model = aeMat4f();
+
+	MVPmat.Identity();
+	MVPmat = projection *viewMat *model;
 
 	InitShader();
 
@@ -97,13 +143,13 @@ void  drawScene()
 	GLint modelLoc = glGetUniformLocation(g_program, "model");
 	GLint viewLoc = glGetUniformLocation(g_program, "view");
 	GLint projLoc = glGetUniformLocation(g_program, "projection");
-	// Pass them to the shaders
-
+	GLint MVP = glGetUniformLocation(g_program, "MVP");
+ 
 	glUniformMatrix4fv(modelLoc, 1, GL_FALSE,model.get() );
 	glUniformMatrix4fv(viewLoc, 1, GL_FALSE, viewMat4.get());
 	glUniformMatrix4fv(projLoc, 1, GL_FALSE, projection.get());
-
-
+	glUniformMatrix4fv(MVP, 1, GL_FALSE, MVPmat.get());
+	 
 	glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
 	glClear(GL_COLOR_BUFFER_BIT);
 	glBindVertexArray(VAOs[Triangles]);
@@ -179,20 +225,10 @@ void key_callback(GLFWwindow* window, int key, int scancode, int action, int mod
 	}
 	else if (GLFW_KEY_A== key && action == GLFW_PRESS)
 	{
-	 
-		ActiveEngine::aeMat4f regid;
-		static float pox = -0.0;
-		regid.Translate(pox, 0, 0); // 相机位置
-		pox = pox + 0.01;
-		viewMat4 = viewMat4*regid;
+
 	}
 	else if (GLFW_KEY_D == key && action == GLFW_PRESS)
 	{
 
-		ActiveEngine::aeMat4f regid;
-		static float pox = -0.0;
-		regid.Translate(pox, 0, 0); // 相机位置
-		pox = pox - 0.01;
-		viewMat4 = viewMat4*regid;
 	}
 }
