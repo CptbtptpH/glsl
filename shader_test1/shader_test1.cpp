@@ -202,7 +202,7 @@ void InitShader()
 
 	glEnable(GL_DEPTH_TEST);
 }
-
+aeVec3f viewPos = aeVec3f({4.0f, 4.0f, 4.0f });
 void initScene(int w, int h)
 {
 
@@ -210,7 +210,7 @@ void initScene(int w, int h)
  
 	projectionMat.Perspective(45.0f, (GLfloat)w / (GLfloat)h, 0.1f, 100.0f);
  
-	viewMat.LookAt(aeVec3f({ 4.0f,4.0f, 4.0f }), aeVec3f({0.0f, 0.0f, 0.0f }), aeVec3f({ 0.0f, 1.0f, 0.0f }));
+	viewMat.LookAt(viewPos, aeVec3f({ 0.0f, 0.0f, 0.0f }), aeVec3f({ 0.0f, 1.0f, 0.0f }));
 
 	modelMat = aeMat4f();
 	
@@ -219,7 +219,7 @@ void initScene(int w, int h)
 	InitShader();
 
 }
-aeVec3f lightPos = aeVec3f({2.0f, 2.0f, -2.0f });
+aeVec3f lightPos = aeVec3f({0.0f, 0.8f, 0.0f });
 
 void  drawScene()
 {
@@ -231,7 +231,11 @@ void  drawScene()
 	GLint objectColorLoc = glGetUniformLocation(g_program, "objectColor");
 	GLint lightColorLoc = glGetUniformLocation(g_program, "lightColor");
 	GLint lightPosLoc = glGetUniformLocation(g_program, "lightPos");
-	
+	GLint viewPosLoc = glGetUniformLocation(g_program, "viewPos");
+	//lightPos.X= sin(glfwGetTime()) * 1.0f;
+	//lightPos.Y = cos(glfwGetTime() )*1.0f;
+	lightPos.Y = 1.5 + sin(glfwGetTime()*0.5f);
+	glUniform3f(viewPosLoc, viewPos.X, viewPos.Y, viewPos.Z);
 	glUniform3f(lightPosLoc, lightPos.X, lightPos.Y, lightPos.Z);
 
 	glUniform3f(objectColorLoc, 1.0f, 0.5f, 0.31f);
@@ -262,7 +266,7 @@ void  drawScene()
  
 	aeMat4f lightModelMat = aeMat4f();
 	lightModelMat.Translate(lightPos.X, lightPos.Y, lightPos.Z);
-	lightModelMat.Scale(0.5f, 0.5f, 0.5f);
+	lightModelMat.Scale(0.1f, 0.1f, 0.1f);
 
 	glUniformMatrix4fv(modelLoc, 1, GL_FALSE, lightModelMat.get());
 	glUniformMatrix4fv(viewLoc, 1, GL_FALSE, viewMat.get());
@@ -282,7 +286,7 @@ void resizeGL(GLFWwindow*, int w, int h)
 	// 重置当前的视口  
 	glViewport(0, 0, (GLint)w, (GLint)h);
   
-	projectionMat.Perspective(75.0f, (GLfloat)w / (GLfloat)h, 0.1f, 100.0f);
+	projectionMat.Perspective(45.0f, (GLfloat)w / (GLfloat)h, 0.1f, 100.0f);
  
 	return;
 
