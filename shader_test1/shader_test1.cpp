@@ -225,7 +225,11 @@ void  drawScene()
 	GLint modelLoc = glGetUniformLocation(g_program, "model");
 	GLint viewLoc = glGetUniformLocation(g_program, "view");
 	GLint projLoc = glGetUniformLocation(g_program, "projection");
- 
+	GLint objectColorLoc = glGetUniformLocation(g_program, "objectColor");
+	GLint lightColorLoc = glGetUniformLocation(g_program, "lightColor");
+
+	glUniform3f(objectColorLoc, 1.0f, 0.5f, 0.31f);
+	glUniform3f(lightColorLoc, 1.0f, 1.0f, 1.0f); //
 	//modelMat.Rotate((GLfloat)glfwGetTime() * 0.01f, 1.0f, 1.0f, 0.0f);
 
  
@@ -264,6 +268,7 @@ void  drawScene()
 	glDrawArrays(GL_TRIANGLES, 0, NumVertices);
 
 	glBindVertexArray(0);
+
 	modelMat.Identity();
 }
 void resizeGL(GLFWwindow*, int w, int h)
