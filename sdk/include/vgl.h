@@ -8,7 +8,7 @@
 #include "FreeImage.h"
 #include "gl/glu.h"
 #ifdef _MSC_VER
-#pragma comment(lib,"FreeImage/FreeImage.lib")
+//#pragma comment(lib,"FreeImage/FreeImage.lib")
 #pragma comment(lib,"opengl32.lib")
 #pragma comment(lib,"glu32.lib")
 #pragma comment(lib,"glfwLib64/glfw3.lib")

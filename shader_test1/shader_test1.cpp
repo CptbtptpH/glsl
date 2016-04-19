@@ -10,7 +10,7 @@
 #include "public/dataType.h"
 
 //#include "math/MyMath.h"
-#include "math/Vector.h"
+//#include "math/Vector.h"
 
 #include "math/Matrix.h"
 
@@ -31,7 +31,8 @@ enum Attrib_IDs
 { 
 	vPosition = 0 ,
 	vColor =1,
-	vTexture = 2
+	vTexture = 2,
+	vNormal = 3
 };
 
 GLuint VAOs[NumVAOs];
@@ -49,48 +50,48 @@ ActiveEngine::aeMat4f MVPmat;
 
 GLuint gl_texID;
 GLuint gl_texID1;
-GLuint LoadTexture(char* imgName, int & width, int & height)
-{
-	if (nullptr == imgName)
-		return -1;
-
-	FREE_IMAGE_FORMAT  fif = FIF_UNKNOWN;
-	FIBITMAP *dib = nullptr;
-
-	fif = FreeImage_GetFileType(imgName, 0);
-	if (fif == FIF_UNKNOWN)
-		fif = FreeImage_GetFIFFromFilename(imgName);
-	if (fif == FIF_UNKNOWN)
-		printf("图片格式不支持\n");
-
-	if (FreeImage_FIFSupportsReading(fif))
-		dib = FreeImage_Load(fif, imgName);
-	BYTE *bits = FreeImage_GetBits(dib);
-	//get the image width and height
-	width = FreeImage_GetWidth(dib);
-	height = FreeImage_GetHeight(dib);
-	//if this somehow one of these failed (they shouldn't), return failure
-	if ((bits == 0) || (width == 0) || (height == 0))
-		printf("图片加载错误\n");
-
-	GLuint texID = 0;
-	glGenTextures(1, &texID);
-	glBindTexture(GL_TEXTURE_2D, texID);
-	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);	// Set texture wrapping to GL_REPEAT (usually basic wrapping method)
-	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
-	// Set texture filtering parameters
-	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
-	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
-
-	glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, width, height, 0, GL_BGR, GL_UNSIGNED_BYTE, bits);
-	glGenerateMipmap(GL_TEXTURE_2D);
-	if (dib != nullptr) // 释放资源
-		FreeImage_Unload(dib);
-
-	glBindTexture(GL_TEXTURE_2D, 0);
-
-	return texID;
-}
+//GLuint LoadTexture(char* imgName, int & width, int & height)
+//{
+//	if (nullptr == imgName)
+//		return -1;
+//
+//	FREE_IMAGE_FORMAT  fif = FIF_UNKNOWN;
+//	FIBITMAP *dib = nullptr;
+//
+//	fif = FreeImage_GetFileType(imgName, 0);
+//	if (fif == FIF_UNKNOWN)
+//		fif = FreeImage_GetFIFFromFilename(imgName);
+//	if (fif == FIF_UNKNOWN)
+//		printf("图片格式不支持\n");
+//
+//	if (FreeImage_FIFSupportsReading(fif))
+//		dib = FreeImage_Load(fif, imgName);
+//	BYTE *bits = FreeImage_GetBits(dib);
+//	//get the image width and height
+//	width = FreeImage_GetWidth(dib);
+//	height = FreeImage_GetHeight(dib);
+//	//if this somehow one of these failed (they shouldn't), return failure
+//	if ((bits == 0) || (width == 0) || (height == 0))
+//		printf("图片加载错误\n");
+//
+//	GLuint texID = 0;
+//	glGenTextures(1, &texID);
+//	glBindTexture(GL_TEXTURE_2D, texID);
+//	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);	// Set texture wrapping to GL_REPEAT (usually basic wrapping method)
+//	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
+//	// Set texture filtering parameters
+//	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+//	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+//
+//	glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, width, height, 0, GL_BGR, GL_UNSIGNED_BYTE, bits);
+//	glGenerateMipmap(GL_TEXTURE_2D);
+//	if (dib != nullptr) // 释放资源
+//		FreeImage_Unload(dib);
+//
+//	glBindTexture(GL_TEXTURE_2D, 0);
+//
+//	return texID;
+//}
 void InitShader()
 {
 	//texture 
@@ -98,9 +99,9 @@ void InitShader()
 	int width = 0;
 	int height = 0;
 	char * imgName = "box.jpg";
-	gl_texID = LoadTexture(imgName, width, height);
+	//gl_texID = LoadTexture(imgName, width, height);
 	imgName = "dog.jpg";
-	gl_texID1 = LoadTexture(imgName, width, height);
+	//gl_texID1 = LoadTexture(imgName, width, height);
 	
 
 	//GLfloat vertices[] = {
@@ -111,47 +112,47 @@ void InitShader()
 	//	1.0f, -1.0f, 0.0f, 0.0f, 1.0f, 1.0f, 0.0f, 1.0f,
 	//};
 	GLfloat vertices[] = {
-		-0.5f, -0.5f, -0.5f,
-		0.5f, -0.5f, -0.5f,
-		0.5f, 0.5f, -0.5f,
-		0.5f, 0.5f, -0.5f,
-		-0.5f, 0.5f, -0.5f,
-		-0.5f, -0.5f, -0.5f,
+		-0.5f, -0.5f, -0.5f, 0.0f, 0.0f, -1.0f,
+		0.5f, -0.5f, -0.5f, 0.0f, 0.0f, -1.0f,
+		0.5f, 0.5f, -0.5f, 0.0f, 0.0f, -1.0f,
+		0.5f, 0.5f, -0.5f, 0.0f, 0.0f, -1.0f,
+		-0.5f, 0.5f, -0.5f, 0.0f, 0.0f, -1.0f,
+		-0.5f, -0.5f, -0.5f, 0.0f, 0.0f, -1.0f,
 
-		-0.5f, -0.5f, 0.5f,
-		0.5f, -0.5f, 0.5f,
-		0.5f, 0.5f, 0.5f,
-		0.5f, 0.5f, 0.5f,
-		-0.5f, 0.5f, 0.5f,
-		-0.5f, -0.5f, 0.5f,
+		-0.5f, -0.5f, 0.5f, 0.0f, 0.0f, 1.0f,
+		0.5f, -0.5f, 0.5f, 0.0f, 0.0f, 1.0f,
+		0.5f, 0.5f, 0.5f, 0.0f, 0.0f, 1.0f,
+		0.5f, 0.5f, 0.5f, 0.0f, 0.0f, 1.0f,
+		-0.5f, 0.5f, 0.5f, 0.0f, 0.0f, 1.0f,
+		-0.5f, -0.5f, 0.5f, 0.0f, 0.0f, 1.0f,
 
-		-0.5f, 0.5f, 0.5f,
-		-0.5f, 0.5f, -0.5f,
-		-0.5f, -0.5f, -0.5f,
-		-0.5f, -0.5f, -0.5f,
-		-0.5f, -0.5f, 0.5f,
-		-0.5f, 0.5f, 0.5f,
+		-0.5f, 0.5f, 0.5f, -1.0f, 0.0f, 0.0f,
+		-0.5f, 0.5f, -0.5f, -1.0f, 0.0f, 0.0f,
+		-0.5f, -0.5f, -0.5f, -1.0f, 0.0f, 0.0f,
+		-0.5f, -0.5f, -0.5f, -1.0f, 0.0f, 0.0f,
+		-0.5f, -0.5f, 0.5f, -1.0f, 0.0f, 0.0f,
+		-0.5f, 0.5f, 0.5f, -1.0f, 0.0f, 0.0f,
 
-		0.5f, 0.5f, 0.5f,
-		0.5f, 0.5f, -0.5f,
-		0.5f, -0.5f, -0.5f,
-		0.5f, -0.5f, -0.5f,
-		0.5f, -0.5f, 0.5f,
-		0.5f, 0.5f, 0.5f,
+		0.5f, 0.5f, 0.5f, 1.0f, 0.0f, 0.0f,
+		0.5f, 0.5f, -0.5f, 1.0f, 0.0f, 0.0f,
+		0.5f, -0.5f, -0.5f, 1.0f, 0.0f, 0.0f,
+		0.5f, -0.5f, -0.5f, 1.0f, 0.0f, 0.0f,
+		0.5f, -0.5f, 0.5f, 1.0f, 0.0f, 0.0f,
+		0.5f, 0.5f, 0.5f, 1.0f, 0.0f, 0.0f,
 
-		-0.5f, -0.5f, -0.5f,
-		0.5f, -0.5f, -0.5f,
-		0.5f, -0.5f, 0.5f,
-		0.5f, -0.5f, 0.5f,
-		-0.5f, -0.5f, 0.5f,
-		-0.5f, -0.5f, -0.5f,
+		-0.5f, -0.5f, -0.5f, 0.0f, -1.0f, 0.0f,
+		0.5f, -0.5f, -0.5f, 0.0f, -1.0f, 0.0f,
+		0.5f, -0.5f, 0.5f, 0.0f, -1.0f, 0.0f,
+		0.5f, -0.5f, 0.5f, 0.0f, -1.0f, 0.0f,
+		-0.5f, -0.5f, 0.5f, 0.0f, -1.0f, 0.0f,
+		-0.5f, -0.5f, -0.5f, 0.0f, -1.0f, 0.0f,
 
-		-0.5f, 0.5f, -0.5f,
-		0.5f, 0.5f, -0.5f,
-		0.5f, 0.5f, 0.5f,
-		0.5f, 0.5f, 0.5f,
-		-0.5f, 0.5f, 0.5f,
-		-0.5f, 0.5f, -0.5f
+		-0.5f, 0.5f, -0.5f, 0.0f, 1.0f, 0.0f,
+		0.5f, 0.5f, -0.5f, 0.0f, 1.0f, 0.0f,
+		0.5f, 0.5f, 0.5f, 0.0f, 1.0f, 0.0f,
+		0.5f, 0.5f, 0.5f, 0.0f, 1.0f, 0.0f,
+		-0.5f, 0.5f, 0.5f, 0.0f, 1.0f, 0.0f,
+		-0.5f, 0.5f, -0.5f, 0.0f, 1.0f, 0.0f
 	};
 	ShaderInfo shaders[] =
 	{
@@ -182,9 +183,10 @@ void InitShader()
 
 	 glUseProgram(g_program);
 
-	glVertexAttribPointer(vPosition, 3, GL_FLOAT, GL_FALSE,3 * sizeof(GLfloat), (GLvoid*)0);
+	glVertexAttribPointer(vPosition, 3, GL_FLOAT, GL_FALSE,6 * sizeof(GLfloat), (GLvoid*)0);
 	glEnableVertexAttribArray(vPosition);
-
+	glVertexAttribPointer(vNormal, 3, GL_FLOAT, GL_FALSE, 6 * sizeof(GLfloat), (GLvoid*)(3 * sizeof(GLfloat)));
+	glEnableVertexAttribArray(vNormal);
 	glBindVertexArray(0); // Unbind VAO
 
 
@@ -194,8 +196,8 @@ void InitShader()
 	// We only need to bind to the VBO (to link it with glVertexAttribPointer), no need to fill it; the VBO's data already contains all we need.
 	glBindBuffer(GL_ARRAY_BUFFER, Buffers[ArrayBuffer]);
 	// Set the vertex attributes (only position data for the lamp))
-	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(GLfloat), (GLvoid*)0);
-	glEnableVertexAttribArray(0);
+	glVertexAttribPointer(vPosition, 3, GL_FLOAT, GL_FALSE,6 * sizeof(GLfloat), (GLvoid*)0);
+	glEnableVertexAttribArray(vPosition);
 	glBindVertexArray(0);
 
 	glEnable(GL_DEPTH_TEST);
@@ -217,7 +219,7 @@ void initScene(int w, int h)
 	InitShader();
 
 }
-aeVec3f lightColor = aeVec3f({ 2.0f,2.0f, -2.0f });
+aeVec3f lightPos = aeVec3f({2.0f, 2.0f, -2.0f });
 
 void  drawScene()
 {
@@ -225,8 +227,12 @@ void  drawScene()
 	GLint modelLoc = glGetUniformLocation(g_program, "model");
 	GLint viewLoc = glGetUniformLocation(g_program, "view");
 	GLint projLoc = glGetUniformLocation(g_program, "projection");
+
 	GLint objectColorLoc = glGetUniformLocation(g_program, "objectColor");
 	GLint lightColorLoc = glGetUniformLocation(g_program, "lightColor");
+	GLint lightPosLoc = glGetUniformLocation(g_program, "lightPos");
+	
+	glUniform3f(lightPosLoc, lightPos.X, lightPos.Y, lightPos.Z);
 
 	glUniform3f(objectColorLoc, 1.0f, 0.5f, 0.31f);
 	glUniform3f(lightColorLoc, 1.0f, 1.0f, 1.0f); //
@@ -255,7 +261,7 @@ void  drawScene()
 	//modelMat.Rotate((GLfloat)glfwGetTime() * 0.01f, 1.0f, 1.0f, 0.0f);
  
 	aeMat4f lightModelMat = aeMat4f();
-	lightModelMat.Translate(lightColor.X, lightColor.Y, lightColor.Z);
+	lightModelMat.Translate(lightPos.X, lightPos.Y, lightPos.Z);
 	lightModelMat.Scale(0.5f, 0.5f, 0.5f);
 
 	glUniformMatrix4fv(modelLoc, 1, GL_FALSE, lightModelMat.get());
