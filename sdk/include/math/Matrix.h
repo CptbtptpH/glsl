@@ -139,87 +139,41 @@ public:
 	aeVOID Perspective(aeFLOAT fov, aeFLOAT aspect, aeFLOAT near, aeFLOAT far)
 	{
 		Identity();
-		fov = (fov / 180.0f)*c_PI;
-		C[0].X = 1.0f /(aspect * tanf(fov / 2));
-		C[1].Y = 1.0f / tanf(fov / 2);
+		aeFLOAT tanHalfFovy = tan((fov / 180.0f)*c_PI/2);
+		C[0].X = 1.0f / (aspect * tanHalfFovy);
+		C[1].Y = 1.0f / tanHalfFovy;
 		C[2].Z = -(far + near) / (far - near);
 		C[2].W = -1;// -2.0f*(far*near) / (far - near);
 		C[3].Z = -2.0f*(far*near) / (far - near);
+		C[3].W = 0.0f;
 	}
-	aeVOID LookAt(aeVec3f pos, aeVec3f des, aeVec3f up)
+	aeVOID LookAt(aeVec3f eye, aeVec3f center, aeVec3f up)
 	{
-		Identity();
-		aeVec3f d = des - pos;
+		aeVec3f d = center - eye;
 		d.Normalize();
 
-		aeVec3f r = Cross(up, d);
+		aeVec3f r = Cross(d, up);
 		r.Normalize();
 
-		aeVec3f u = Cross(d, r);
+		aeVec3f u = Cross(r, d);
 		u.Normalize();
-
-		aeFLOAT x = Dot(r, pos);
-		aeFLOAT y = Dot(u, pos);
-		aeFLOAT z = Dot(d, pos);
-		pos = -pos;
-
-		aeMat4f tranMat;
-		tranMat.Identity();
-		tranMat.C[0].W = Dot(r,pos);
-		tranMat.C[1].W = Dot(u, pos);
-		tranMat.C[2].W = Dot(d, pos);
-
-		aeMat4f rotMat;
-		rotMat.Identity();
-		rotMat.C[0].X = r.X;
-		rotMat.C[0].Y = r.Y;
-		rotMat.C[0].Z = r.Z;
-
-		rotMat.C[1].X = u.X;
-		rotMat.C[1].Y = u.Y;
-		rotMat.C[1].Z = u.Z;
-
-		rotMat.C[2].X = d.X;
-		rotMat.C[2].Y = d.Y;
-		rotMat.C[2].Z = d.Z;
-
 		
-
-		//Element(0, 0) = r.X;
-		//Element(0, 1) = u.X;
-		//Element(0, 2) = d.X;
-		//Element(0, 3) = x;
-
-		//Element(1, 0) = r.Y;
-		//Element(1, 1) = u.Y;
-		//Element(1, 2) = d.Y;
-		//Element(1, 3) = y;
-
-		//Element(2, 0) = r.Z;
-		//Element(2, 1) = u.Z;
-		//Element(2, 2) = d.Z;
-		//Element(2, 3) = z;
-
- 		/*C[0].X = r.X;
+		Identity();
+		C[0].X = r.X;
 		C[0].Y = u.X;
 		C[0].Z = -d.X;
-		C[0].W = 0.0f;
 
 		C[1].X = r.Y;
 		C[1].Y = u.Y;
 		C[1].Z = -d.Y;
-		C[1].W = 0.0f;
 
 		C[2].X = r.Z;
 		C[2].Y = u.Z;
 		C[2].Z = -d.Z;
-		C[2].W = 0.0f;
 
-
-		C[3].X = x;
-		C[3].Y = y;
-		C[3].Z = z;
-		C[3].W = 1.0f;	 */
+		C[3].X = -Dot(r, eye);
+		C[3].Y = -Dot(u, eye);
+		C[3].Z = -Dot(-d, eye);
 	}
 	/**
 		\brief 平移

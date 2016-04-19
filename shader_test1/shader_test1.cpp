@@ -36,9 +36,10 @@ GLuint Buffers[NumBuffers];
 const GLuint NumVertices =3;
 GLuint g_program = 0;
 
-ActiveEngine::aeMat4f viewMat4;
-ActiveEngine::aeMat4f model;
-ActiveEngine::aeMat4f projection;
+ActiveEngine::aeMat4f viewMat;
+ActiveEngine::aeMat4f modelMat;
+ActiveEngine::aeMat4f projectionMat;
+
 ActiveEngine::aeMat4f MVPmat;
 void InitShader()
 {
@@ -79,73 +80,14 @@ void initScene(int w, int h)
 {
 
 	glViewport(0, 0, (GLint)w, (GLint)h);
-	ActiveEngine::aeMat4f projMat;
-	projMat.Perspective(45.0f, (GLfloat)w / (GLfloat)h, 0.1f, 100.0f);
-	projection = projMat;
-
-	ActiveEngine::aeMat4f viewMat;
-	// 相机位置
-	//viewMat.LookAt(aeVec3f({ 0.0f,-0.0f, -2.0f }), aeVec3f({0.0f, 0.0f, 0.0f }), aeVec3f({ 0.0f, 1.0f, 0.0f }));
-	//viewMat.Translate(0, 0, -3);
-	aeVec3f eye = aeVec3f({ 0.0f, -0.0f,2.0f });
-	aeVec3f center = aeVec3f({1.0f, 0.0f, 0.0f });
-	aeVec3f up = aeVec3f({ 0.0f, 1.0f, 0.0f });
-	
-	aeVec3f d = center - eye;
-	d.Normalize();
-
-	aeVec3f r = Cross(d, up);
-	r.Normalize();
-
-	aeVec3f u = Cross(r,d );
-	u.Normalize();
-
-	aeFLOAT x = -Dot(r, eye);
-	aeFLOAT y = -Dot(u, eye);
-	aeFLOAT z = -Dot(d, eye);
-
-
-	aeMat4f tranMat;
-	tranMat.Identity();
-	tranMat.C[3].X = x;// Dot(r, eye);
-	tranMat.C[3].Y = y;// Dot(u, eye);
-	tranMat.C[3].Z = z;// Dot(d, eye);
-
-	aeMat4f rotMat;
-	rotMat.Identity();
-	rotMat.C[0].X = r.X;
-	rotMat.C[0].Y = u.X;
-	rotMat.C[0].Z = d.X;
-
-	rotMat.C[1].X = r.Y;
-	rotMat.C[1].Y = u.Y;
-	rotMat.C[1].Z = d.Y;
-
-	rotMat.C[2].X = r.Z;
-	rotMat.C[2].Y = u.Z;
-	rotMat.C[2].Z = d.Z;
-
-	rotMat.C[3].X = Dot(r, eye);
-	rotMat.C[3].Y = Dot(u, eye);
-	rotMat.C[3].Z = Dot(d, eye);
  
-	aeMat4f result = rotMat; //* tranMat;
-	
-	viewMat = result;
+	projectionMat.Perspective(75.0f, (GLfloat)w / (GLfloat)h, 0.1f, 100.0f);
+ 
+	viewMat.LookAt(aeVec3f({ 0.0f,0.0f, 12.0f }), aeVec3f({0.0f, 0.0f, 0.0f }), aeVec3f({ 0.0f, 1.0f, 0.0f }));
 
-	model = aeMat4f();
+	modelMat = aeMat4f();
 
-	MVPmat.Identity();
-	MVPmat = projection *viewMat *model;
-
-	aeVec4f pt1 = MVPmat * aeVec4f({ 0.5f, -0.5f, -1.0f, 1.0f });
-	aeVec4f pt2 = MVPmat * aeVec4f({-0.5f, -0.5f, -1.0f, 1.0f });
-	aeVec4f pt3 = MVPmat * aeVec4f({ 0.0f, 0.5f, -1.0f, 1.0f });
-	pt1 = pt1 / pt1.W;
-	pt2 = pt2 / pt2.W;
-	pt3 = pt3 / pt3.W;
-
-	// matrix test
+	//MVPmat = projectionMat *viewMat *modelMat;
 	 
 	InitShader();
 
@@ -156,12 +98,12 @@ void  drawScene()
 	GLint modelLoc = glGetUniformLocation(g_program, "model");
 	GLint viewLoc = glGetUniformLocation(g_program, "view");
 	GLint projLoc = glGetUniformLocation(g_program, "projection");
-	GLint MVP = glGetUniformLocation(g_program, "MVP");
+	
  
-	glUniformMatrix4fv(modelLoc, 1, GL_FALSE,model.get() );
-	glUniformMatrix4fv(viewLoc, 1, GL_FALSE, viewMat4.get());
-	glUniformMatrix4fv(projLoc, 1, GL_FALSE, projection.get());
-	glUniformMatrix4fv(MVP, 1, GL_FALSE, MVPmat.get());
+	glUniformMatrix4fv(modelLoc, 1, GL_FALSE,modelMat.get() );
+	glUniformMatrix4fv(viewLoc, 1, GL_FALSE, viewMat.get());
+	glUniformMatrix4fv(projLoc, 1, GL_FALSE, projectionMat.get());
+	
 	 
 	glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
 	glClear(GL_COLOR_BUFFER_BIT);
@@ -171,12 +113,11 @@ void  drawScene()
 }
 void resizeGL(GLFWwindow*, int w, int h)
 {
-
 	// 重置当前的视口  
 	glViewport(0, 0, (GLint)w, (GLint)h);
-
-	//InitShader();
-
+  
+	projectionMat.Perspective(75.0f, (GLfloat)w / (GLfloat)h, 0.1f, 100.0f);
+ 
 	return;
 
 }
