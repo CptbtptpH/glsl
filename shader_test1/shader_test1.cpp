@@ -37,7 +37,7 @@ enum Attrib_IDs
 GLuint VAOs[NumVAOs];
 GLuint Buffers[NumBuffers];
 
-const GLuint NumVertices =4;
+const GLuint NumVertices = 36;
 GLuint g_program = 0;
 
 ActiveEngine::aeMat4f viewMat;
@@ -47,26 +47,24 @@ ActiveEngine::aeMat4f projectionMat;
 ActiveEngine::aeMat4f MVPmat;
 
 GLuint gl_texID;
-
-void InitShader()
+GLuint gl_texID1;
+GLuint LoadTexture(char* imgName, int & width, int & height)
 {
-	//texture 
+	if (nullptr == imgName)
+		return -1;
+
 	FREE_IMAGE_FORMAT  fif = FIF_UNKNOWN;
-	FIBITMAP *dib  = nullptr;
-	BYTE* bits = nullptr;
-	unsigned int width = 0;
-	unsigned int height = 0;
-	
-	char * imageName = "box.jpg";
-	fif = FreeImage_GetFileType(imageName, 0);
+	FIBITMAP *dib = nullptr;
+
+	fif = FreeImage_GetFileType(imgName, 0);
 	if (fif == FIF_UNKNOWN)
-		fif = FreeImage_GetFIFFromFilename(imageName);
+		fif = FreeImage_GetFIFFromFilename(imgName);
 	if (fif == FIF_UNKNOWN)
 		printf("图片格式不支持\n");
 
 	if (FreeImage_FIFSupportsReading(fif))
-		dib = FreeImage_Load(fif, imageName);
-	bits = FreeImage_GetBits(dib);
+		dib = FreeImage_Load(fif, imgName);
+	BYTE *bits = FreeImage_GetBits(dib);
 	//get the image width and height
 	width = FreeImage_GetWidth(dib);
 	height = FreeImage_GetHeight(dib);
@@ -74,9 +72,9 @@ void InitShader()
 	if ((bits == 0) || (width == 0) || (height == 0))
 		printf("图片加载错误\n");
 
-	
-	glGenTextures(1, &gl_texID);
-	glBindTexture(GL_TEXTURE_2D, gl_texID);
+	GLuint texID = 0;
+	glGenTextures(1, &texID);
+	glBindTexture(GL_TEXTURE_2D, texID);
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);	// Set texture wrapping to GL_REPEAT (usually basic wrapping method)
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
 	// Set texture filtering parameters
@@ -90,15 +88,70 @@ void InitShader()
 
 	glBindTexture(GL_TEXTURE_2D, 0);
 
+	return texID;
+}
+void InitShader()
+{
+	//texture 
 
+	int width = 0;
+	int height = 0;
+	char * imgName = "box.jpg";
+	gl_texID = LoadTexture(imgName, width, height);
+	imgName = "dog.jpg";
+	gl_texID1 = LoadTexture(imgName, width, height);
+	
+
+	//GLfloat vertices[] = {
+	//	// Positions         // Colors      // textue
+	//	-1.0f, -1.0f,0.0f, 1.0f, 0.0f, 0.0f, 1.0f,1.0f,  // Bottom Right
+	//	-1.0f, 1.0f, 0.0f, 0.0f, 1.0f, 0.0f, 1.0f, 0.0f, // Bottom Left
+	//	1.0f, 1.0f, 0.0f, 0.0f, 0.0f, 1.0f,  0.0f, 0.0f,// Top 
+	//	1.0f, -1.0f, 0.0f, 0.0f, 1.0f, 1.0f, 0.0f, 1.0f,
+	//};
 	GLfloat vertices[] = {
-		// Positions         // Colors      // textue
-		-0.5f, -0.5f,-1.0f, 1.0f, 0.0f, 0.0f, 1.0f,1.0f,  // Bottom Right
-		-0.5f, 0.5f, -1.0f, 0.0f, 1.0f, 0.0f, 1.0f, 0.0f, // Bottom Left
-		0.5f, 0.5f, -1.0f, 0.0f, 0.0f, 1.0f,  0.0f, 0.0f,// Top 
-		0.5f, -0.5f, -1.0f, 0.0f, 1.0f, 1.0f, 0.0f, 1.0f,
-	};
+		-0.5f, -0.5f, -0.5f, 0.0f, 0.0f,
+		0.5f, -0.5f, -0.5f, 1.0f, 0.0f,
+		0.5f, 0.5f, -0.5f, 1.0f, 1.0f,
+		0.5f, 0.5f, -0.5f, 1.0f, 1.0f,
+		-0.5f, 0.5f, -0.5f, 0.0f, 1.0f,
+		-0.5f, -0.5f, -0.5f, 0.0f, 0.0f,
 
+		-0.5f, -0.5f, 0.5f, 0.0f, 0.0f,
+		0.5f, -0.5f, 0.5f, 1.0f, 0.0f,
+		0.5f, 0.5f, 0.5f, 1.0f, 1.0f,
+		0.5f, 0.5f, 0.5f, 1.0f, 1.0f,
+		-0.5f, 0.5f, 0.5f, 0.0f, 1.0f,
+		-0.5f, -0.5f, 0.5f, 0.0f, 0.0f,
+
+		-0.5f, 0.5f, 0.5f, 1.0f, 0.0f,
+		-0.5f, 0.5f, -0.5f, 1.0f, 1.0f,
+		-0.5f, -0.5f, -0.5f, 0.0f, 1.0f,
+		-0.5f, -0.5f, -0.5f, 0.0f, 1.0f,
+		-0.5f, -0.5f, 0.5f, 0.0f, 0.0f,
+		-0.5f, 0.5f, 0.5f, 1.0f, 0.0f,
+
+		0.5f, 0.5f, 0.5f, 1.0f, 0.0f,
+		0.5f, 0.5f, -0.5f, 1.0f, 1.0f,
+		0.5f, -0.5f, -0.5f, 0.0f, 1.0f,
+		0.5f, -0.5f, -0.5f, 0.0f, 1.0f,
+		0.5f, -0.5f, 0.5f, 0.0f, 0.0f,
+		0.5f, 0.5f, 0.5f, 1.0f, 0.0f,
+
+		-0.5f, -0.5f, -0.5f, 0.0f, 1.0f,
+		0.5f, -0.5f, -0.5f, 1.0f, 1.0f,
+		0.5f, -0.5f, 0.5f, 1.0f, 0.0f,
+		0.5f, -0.5f, 0.5f, 1.0f, 0.0f,
+		-0.5f, -0.5f, 0.5f, 0.0f, 0.0f,
+		-0.5f, -0.5f, -0.5f, 0.0f, 1.0f,
+
+		-0.5f, 0.5f, -0.5f, 0.0f, 1.0f,
+		0.5f, 0.5f, -0.5f, 1.0f, 1.0f,
+		0.5f, 0.5f, 0.5f, 1.0f, 0.0f,
+		0.5f, 0.5f, 0.5f, 1.0f, 0.0f,
+		-0.5f, 0.5f, 0.5f, 0.0f, 0.0f,
+		-0.5f, 0.5f, -0.5f, 0.0f, 1.0f
+	};
 	glGenVertexArrays(NumVAOs, VAOs);
 	glBindVertexArray(VAOs[Triangles]);
 
@@ -116,15 +169,17 @@ void InitShader()
 	 g_program = Program::Load(shaders);
 	 glUseProgram(g_program);
 
-	glVertexAttribPointer(vPosition, 3, GL_FLOAT, GL_FALSE,8 * sizeof(GLfloat), (GLvoid*)0);
+	glVertexAttribPointer(vPosition, 3, GL_FLOAT, GL_FALSE,5 * sizeof(GLfloat), (GLvoid*)0);
 	glEnableVertexAttribArray(vPosition);
 	
-	glVertexAttribPointer(vColor, 3, GL_FLOAT, GL_FALSE, 8* sizeof(GLfloat), (GLvoid*)( 3* sizeof(GLfloat)));
-	glEnableVertexAttribArray(vColor);
+//	glVertexAttribPointer(vColor, 3, GL_FLOAT, GL_FALSE, 8* sizeof(GLfloat), (GLvoid*)( 3* sizeof(GLfloat)));
+//	glEnableVertexAttribArray(vColor);
 
-	glVertexAttribPointer(vTexture, 2, GL_FLOAT, GL_FALSE, 8 * sizeof(GLfloat), (GLvoid*)(6 * sizeof(GLfloat)));
+	glVertexAttribPointer(vTexture, 2, GL_FLOAT, GL_FALSE, 5 * sizeof(GLfloat), (GLvoid*)(3 * sizeof(GLfloat)));
 	glEnableVertexAttribArray(vTexture);
 	glBindVertexArray(0); // Unbind VAO
+
+	glEnable(GL_DEPTH_TEST);
 }
 
 void initScene(int w, int h)
@@ -132,24 +187,42 @@ void initScene(int w, int h)
 
 	glViewport(0, 0, (GLint)w, (GLint)h);
  
-	projectionMat.Perspective(75.0f, (GLfloat)w / (GLfloat)h, 0.1f, 100.0f);
+	projectionMat.Perspective(45.0f, (GLfloat)w / (GLfloat)h, 0.1f, 100.0f);
  
-	viewMat.LookAt(aeVec3f({ 0.0f,0.0f, 2.0f }), aeVec3f({0.0f, 0.0f, 0.0f }), aeVec3f({ 0.0f, 1.0f, 0.0f }));
+	viewMat.LookAt(aeVec3f({ 0.0f,2.0f, 4.0f }), aeVec3f({0.0f, 0.0f, 0.0f }), aeVec3f({ 0.0f, 1.0f, 0.0f }));
 
 	modelMat = aeMat4f();
-
+	
 	//MVPmat = projectionMat *viewMat *modelMat;
 	 
 	InitShader();
 
 }
+aeVec3f cubePositions[] = {
+
+	aeVec3f({ 0.0f, 0.0f, 0.0f }),
+	aeVec3f({ 2.0f, 5.0f, -15.0f }),
+	aeVec3f({-1.5f, -2.2f, -2.5f }),
+	aeVec3f({ -3.8f, -2.0f, -12.3f }),
+
+	aeVec3f({ 2.4f, -0.4f, -3.5f }),
+	aeVec3f({ -1.7f, 3.0f, -7.5f }),
+
+	aeVec3f({ 1.3f, -2.0f, -2.5f }),
+	aeVec3f({ 1.5f, 2.0f, -2.5f }),
+
+	aeVec3f({ 1.5f, 0.2f, -1.5f }),
+	aeVec3f({ -1.3f, 1.0f, -1.5 })
+};
 void  drawScene()
 {
 
 	GLint modelLoc = glGetUniformLocation(g_program, "model");
 	GLint viewLoc = glGetUniformLocation(g_program, "view");
 	GLint projLoc = glGetUniformLocation(g_program, "projection");
-	
+
+	//modelMat.Rotate((GLfloat)glfwGetTime() * 0.01f, 1.0f, 1.0f, 0.0f);
+
  
 	glUniformMatrix4fv(modelLoc, 1, GL_FALSE,modelMat.get() );
 	glUniformMatrix4fv(viewLoc, 1, GL_FALSE, viewMat.get());
@@ -157,11 +230,37 @@ void  drawScene()
 	
 	 
 	glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
-	glClear(GL_COLOR_BUFFER_BIT);
+	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
+	glActiveTexture(GL_TEXTURE0);
 	glBindTexture(GL_TEXTURE_2D, gl_texID);
+	glUniform1i(glGetUniformLocation(g_program, "ourTexture1"), 0);
+	glActiveTexture(GL_TEXTURE1);
+	glBindTexture(GL_TEXTURE_2D, gl_texID1);
+	glUniform1i(glGetUniformLocation(g_program, "ourTexture2"), 1);
+	
 	glBindVertexArray(VAOs[Triangles]);
-	glDrawArrays(GL_QUADS, 0, NumVertices);
+
+
+	GLfloat radius = 20.0f;
+	GLfloat camX = sin(glfwGetTime()) * radius;
+	GLfloat camZ = cos(glfwGetTime()) * radius;
+
+	viewMat.LookAt(aeVec3f({ camX, 0.0f, camZ }), aeVec3f({ 0.0f, 0.0f, 0.0f }), aeVec3f({ 0.0f, 1.0f, 0.0f }));
+
+	glUniformMatrix4fv(viewLoc, 1, GL_FALSE, viewMat.get());
+	for (GLuint i = 0; i < 10; i++)
+	{
+		modelMat.Identity();
+		modelMat.Translate(cubePositions[i].X, cubePositions[i].Y, cubePositions[i].Z);
+		GLfloat angle = 20.0f * i;
+		modelMat.Rotate(angle,  1.0f, 0.3f, 0.5f );
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, modelMat.get());
+		glDrawArrays(GL_TRIANGLES, 0, NumVertices);
+
+	}
+
+	//glDrawArrays(GL_TRIANGLES, 0, NumVertices);
 	glBindVertexArray(0);
 }
 void resizeGL(GLFWwindow*, int w, int h)
