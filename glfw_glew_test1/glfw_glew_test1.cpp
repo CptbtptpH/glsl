@@ -28,18 +28,20 @@ void initScene(int w, int h)
 	glLoadIdentity();
 
 	// 设置视口的大小  
-	//gluPerspective(45.0, (GLfloat)w / (GLfloat)h, 0.1, 100.0);
+	gluPerspective(45.0, (GLfloat)w / (GLfloat)h, 3.99, 100.0);
 	
-	ActiveEngine::aeMat4f ad;
-	ad.Perspective(45, (GLfloat)w / (GLfloat)h, 0.1, 100.0);
+//	ActiveEngine::aeMat4f ad;
+//	ad.Perspective(45, (GLfloat)w / (GLfloat)h, 0.99, 100.0);
 
-	ActiveEngine::aeMat4f regid;
-	regid.Translate(-1, 0, -5); // 相机位置
+	//ActiveEngine::aeMat4f regid;
+	//regid.Translate(-1, 0, -5); // 相机位置
  
-	ad = ad*regid;
- 
-	float *mm = ad.get(); // 矩阵构成
-	glMultMatrixf(mm);
+	//ad = ad*regid;
+	
+//	float *mm = ad.get(); // 矩阵构成
+
+
+	//glMultMatrixf(mm);
 
 	// 选择模型观察矩阵  
 	glMatrixMode(GL_MODELVIEW);
@@ -79,7 +81,7 @@ void resizeGL (GLFWwindow*, int w, int h)
 	ad.Perspective(45, (GLfloat)w / (GLfloat)h, 0.1, 100.0);
 
 	ActiveEngine::aeMat4f regid;
-	regid.Translate(-1, 0, -5); // 相机位置
+	//regid.Translate(-1, 0, -5); // 相机位置
 
 	ad = ad*regid;
 
@@ -100,11 +102,10 @@ void  drawScene()
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 	glLoadIdentity(); 
 
-	ActiveEngine::aeMat4f regid;
-	regid.Translate(0, 0, -2); // 相机位置
-	float *CamPos = regid.get(); // 矩阵构成
-	//glMultMatrixf(CamPos);
-	glLoadMatrixf(CamPos);
+	//ActiveEngine::aeMat4f regid;
+	//regid.Translate(0, 0, -2); // 相机位置
+	//float *CamPos = regid.get(); // 矩阵构成
+	//glLoadMatrixf(CamPos);
 
 	glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
 	glClear(GL_COLOR_BUFFER_BIT);
@@ -114,13 +115,15 @@ void  drawScene()
 
 	glBegin(GL_QUADS);
 	glColor3f(1.0f, 0.0f, 0.0f);
-	glVertex3f(-1.0f, -1.0f, 1.0f);
+	glVertex3f(-1.0f, -1.0f, -5.0f);
 	glColor3f(0.0f, 1.0f, 0.0f);
-	glVertex3f(1.0f, -1.0f, 1.0f);
+	glVertex3f(1.0f, -1.0f, -5.0f);
 	glColor3f(0.0f, 0.0f, 1.0f);
-	glVertex3f(1.0f, 1.0f, 1.0f);
+
+	glVertex3f(1.0f, 1.0f, -5.0f);
+
 	glColor3f(1.0f, 1.0f, 0.0f);
-	glVertex3f(-1.0f, 1.0f, 1.0f);
+	glVertex3f(-1.0f, 1.0f,-5.0f);
 	glEnd();
 
 }
