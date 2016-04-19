@@ -39,6 +39,7 @@ GLuint Buffers[NumBuffers];
 
 const GLuint NumVertices = 36;
 GLuint g_program = 0;
+GLuint g_programLight = 0;
 
 ActiveEngine::aeMat4f viewMat;
 ActiveEngine::aeMat4f modelMat;
@@ -110,48 +111,67 @@ void InitShader()
 	//	1.0f, -1.0f, 0.0f, 0.0f, 1.0f, 1.0f, 0.0f, 1.0f,
 	//};
 	GLfloat vertices[] = {
-		-0.5f, -0.5f, -0.5f, 0.0f, 0.0f,
-		0.5f, -0.5f, -0.5f, 1.0f, 0.0f,
-		0.5f, 0.5f, -0.5f, 1.0f, 1.0f,
-		0.5f, 0.5f, -0.5f, 1.0f, 1.0f,
-		-0.5f, 0.5f, -0.5f, 0.0f, 1.0f,
-		-0.5f, -0.5f, -0.5f, 0.0f, 0.0f,
+		-0.5f, -0.5f, -0.5f,
+		0.5f, -0.5f, -0.5f,
+		0.5f, 0.5f, -0.5f,
+		0.5f, 0.5f, -0.5f,
+		-0.5f, 0.5f, -0.5f,
+		-0.5f, -0.5f, -0.5f,
 
-		-0.5f, -0.5f, 0.5f, 0.0f, 0.0f,
-		0.5f, -0.5f, 0.5f, 1.0f, 0.0f,
-		0.5f, 0.5f, 0.5f, 1.0f, 1.0f,
-		0.5f, 0.5f, 0.5f, 1.0f, 1.0f,
-		-0.5f, 0.5f, 0.5f, 0.0f, 1.0f,
-		-0.5f, -0.5f, 0.5f, 0.0f, 0.0f,
+		-0.5f, -0.5f, 0.5f,
+		0.5f, -0.5f, 0.5f,
+		0.5f, 0.5f, 0.5f,
+		0.5f, 0.5f, 0.5f,
+		-0.5f, 0.5f, 0.5f,
+		-0.5f, -0.5f, 0.5f,
 
-		-0.5f, 0.5f, 0.5f, 1.0f, 0.0f,
-		-0.5f, 0.5f, -0.5f, 1.0f, 1.0f,
-		-0.5f, -0.5f, -0.5f, 0.0f, 1.0f,
-		-0.5f, -0.5f, -0.5f, 0.0f, 1.0f,
-		-0.5f, -0.5f, 0.5f, 0.0f, 0.0f,
-		-0.5f, 0.5f, 0.5f, 1.0f, 0.0f,
+		-0.5f, 0.5f, 0.5f,
+		-0.5f, 0.5f, -0.5f,
+		-0.5f, -0.5f, -0.5f,
+		-0.5f, -0.5f, -0.5f,
+		-0.5f, -0.5f, 0.5f,
+		-0.5f, 0.5f, 0.5f,
 
-		0.5f, 0.5f, 0.5f, 1.0f, 0.0f,
-		0.5f, 0.5f, -0.5f, 1.0f, 1.0f,
-		0.5f, -0.5f, -0.5f, 0.0f, 1.0f,
-		0.5f, -0.5f, -0.5f, 0.0f, 1.0f,
-		0.5f, -0.5f, 0.5f, 0.0f, 0.0f,
-		0.5f, 0.5f, 0.5f, 1.0f, 0.0f,
+		0.5f, 0.5f, 0.5f,
+		0.5f, 0.5f, -0.5f,
+		0.5f, -0.5f, -0.5f,
+		0.5f, -0.5f, -0.5f,
+		0.5f, -0.5f, 0.5f,
+		0.5f, 0.5f, 0.5f,
 
-		-0.5f, -0.5f, -0.5f, 0.0f, 1.0f,
-		0.5f, -0.5f, -0.5f, 1.0f, 1.0f,
-		0.5f, -0.5f, 0.5f, 1.0f, 0.0f,
-		0.5f, -0.5f, 0.5f, 1.0f, 0.0f,
-		-0.5f, -0.5f, 0.5f, 0.0f, 0.0f,
-		-0.5f, -0.5f, -0.5f, 0.0f, 1.0f,
+		-0.5f, -0.5f, -0.5f,
+		0.5f, -0.5f, -0.5f,
+		0.5f, -0.5f, 0.5f,
+		0.5f, -0.5f, 0.5f,
+		-0.5f, -0.5f, 0.5f,
+		-0.5f, -0.5f, -0.5f,
 
-		-0.5f, 0.5f, -0.5f, 0.0f, 1.0f,
-		0.5f, 0.5f, -0.5f, 1.0f, 1.0f,
-		0.5f, 0.5f, 0.5f, 1.0f, 0.0f,
-		0.5f, 0.5f, 0.5f, 1.0f, 0.0f,
-		-0.5f, 0.5f, 0.5f, 0.0f, 0.0f,
-		-0.5f, 0.5f, -0.5f, 0.0f, 1.0f
+		-0.5f, 0.5f, -0.5f,
+		0.5f, 0.5f, -0.5f,
+		0.5f, 0.5f, 0.5f,
+		0.5f, 0.5f, 0.5f,
+		-0.5f, 0.5f, 0.5f,
+		-0.5f, 0.5f, -0.5f
 	};
+	ShaderInfo shaders[] =
+	{
+		{ GL_VERTEX_SHADER, "../shaders/triangles.vert" },
+		{ GL_FRAGMENT_SHADER, "../shaders/triangles.frag" },
+		{ GL_NONE, NULL },
+	};
+	 g_program = Program::Load(shaders);
+
+
+	 shaders[0] =
+	 { GL_VERTEX_SHADER, "../shaders/lamp.vert" };
+	 shaders[1] =
+	 { GL_FRAGMENT_SHADER, "../shaders/lamp.frag" };
+
+	 shaders[2] = { GL_NONE, NULL };
+	
+	 g_programLight = Program::Load(shaders);
+
+
 	glGenVertexArrays(NumVAOs, VAOs);
 	glBindVertexArray(VAOs[Triangles]);
 
@@ -160,24 +180,23 @@ void InitShader()
 	glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
 
 
-	ShaderInfo shaders[] =
-	{
-		{ GL_VERTEX_SHADER, "../shaders/triangles.vert" },
-		{ GL_FRAGMENT_SHADER, "../shaders/triangles.frag" },
-		{ GL_NONE, NULL },
-	};
-	 g_program = Program::Load(shaders);
 	 glUseProgram(g_program);
 
-	glVertexAttribPointer(vPosition, 3, GL_FLOAT, GL_FALSE,5 * sizeof(GLfloat), (GLvoid*)0);
+	glVertexAttribPointer(vPosition, 3, GL_FLOAT, GL_FALSE,3 * sizeof(GLfloat), (GLvoid*)0);
 	glEnableVertexAttribArray(vPosition);
-	
-//	glVertexAttribPointer(vColor, 3, GL_FLOAT, GL_FALSE, 8* sizeof(GLfloat), (GLvoid*)( 3* sizeof(GLfloat)));
-//	glEnableVertexAttribArray(vColor);
 
-	glVertexAttribPointer(vTexture, 2, GL_FLOAT, GL_FALSE, 5 * sizeof(GLfloat), (GLvoid*)(3 * sizeof(GLfloat)));
-	glEnableVertexAttribArray(vTexture);
 	glBindVertexArray(0); // Unbind VAO
+
+
+	GLuint lightVAO;
+	glGenVertexArrays(1, &lightVAO);
+	glBindVertexArray(lightVAO);
+	// We only need to bind to the VBO (to link it with glVertexAttribPointer), no need to fill it; the VBO's data already contains all we need.
+	glBindBuffer(GL_ARRAY_BUFFER, Buffers[ArrayBuffer]);
+	// Set the vertex attributes (only position data for the lamp))
+	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(GLfloat), (GLvoid*)0);
+	glEnableVertexAttribArray(0);
+	glBindVertexArray(0);
 
 	glEnable(GL_DEPTH_TEST);
 }
@@ -189,7 +208,7 @@ void initScene(int w, int h)
  
 	projectionMat.Perspective(45.0f, (GLfloat)w / (GLfloat)h, 0.1f, 100.0f);
  
-	viewMat.LookAt(aeVec3f({ 0.0f,2.0f, 4.0f }), aeVec3f({0.0f, 0.0f, 0.0f }), aeVec3f({ 0.0f, 1.0f, 0.0f }));
+	viewMat.LookAt(aeVec3f({ 4.0f,4.0f, 4.0f }), aeVec3f({0.0f, 0.0f, 0.0f }), aeVec3f({ 0.0f, 1.0f, 0.0f }));
 
 	modelMat = aeMat4f();
 	
@@ -198,70 +217,54 @@ void initScene(int w, int h)
 	InitShader();
 
 }
-aeVec3f cubePositions[] = {
+aeVec3f lightColor = aeVec3f({ 2.0f,2.0f, -2.0f });
 
-	aeVec3f({ 0.0f, 0.0f, 0.0f }),
-	aeVec3f({ 2.0f, 5.0f, -15.0f }),
-	aeVec3f({-1.5f, -2.2f, -2.5f }),
-	aeVec3f({ -3.8f, -2.0f, -12.3f }),
-
-	aeVec3f({ 2.4f, -0.4f, -3.5f }),
-	aeVec3f({ -1.7f, 3.0f, -7.5f }),
-
-	aeVec3f({ 1.3f, -2.0f, -2.5f }),
-	aeVec3f({ 1.5f, 2.0f, -2.5f }),
-
-	aeVec3f({ 1.5f, 0.2f, -1.5f }),
-	aeVec3f({ -1.3f, 1.0f, -1.5 })
-};
 void  drawScene()
 {
-
+	glUseProgram(g_program);
 	GLint modelLoc = glGetUniformLocation(g_program, "model");
 	GLint viewLoc = glGetUniformLocation(g_program, "view");
 	GLint projLoc = glGetUniformLocation(g_program, "projection");
-
+ 
 	//modelMat.Rotate((GLfloat)glfwGetTime() * 0.01f, 1.0f, 1.0f, 0.0f);
 
  
 	glUniformMatrix4fv(modelLoc, 1, GL_FALSE,modelMat.get() );
 	glUniformMatrix4fv(viewLoc, 1, GL_FALSE, viewMat.get());
 	glUniformMatrix4fv(projLoc, 1, GL_FALSE, projectionMat.get());
-	
-	 
+ 
 	glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
-	glActiveTexture(GL_TEXTURE0);
-	glBindTexture(GL_TEXTURE_2D, gl_texID);
-	glUniform1i(glGetUniformLocation(g_program, "ourTexture1"), 0);
-	glActiveTexture(GL_TEXTURE1);
-	glBindTexture(GL_TEXTURE_2D, gl_texID1);
-	glUniform1i(glGetUniformLocation(g_program, "ourTexture2"), 1);
-	
 	glBindVertexArray(VAOs[Triangles]);
 
+	glDrawArrays(GL_TRIANGLES, 0, NumVertices);
 
-	GLfloat radius = 20.0f;
-	GLfloat camX = sin(glfwGetTime()) * radius;
-	GLfloat camZ = cos(glfwGetTime()) * radius;
-
-	viewMat.LookAt(aeVec3f({ camX, 0.0f, camZ }), aeVec3f({ 0.0f, 0.0f, 0.0f }), aeVec3f({ 0.0f, 1.0f, 0.0f }));
-
-	glUniformMatrix4fv(viewLoc, 1, GL_FALSE, viewMat.get());
-	for (GLuint i = 0; i < 10; i++)
-	{
-		modelMat.Identity();
-		modelMat.Translate(cubePositions[i].X, cubePositions[i].Y, cubePositions[i].Z);
-		GLfloat angle = 20.0f * i;
-		modelMat.Rotate(angle,  1.0f, 0.3f, 0.5f );
-		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, modelMat.get());
-		glDrawArrays(GL_TRIANGLES, 0, NumVertices);
-
-	}
-
-	//glDrawArrays(GL_TRIANGLES, 0, NumVertices);
 	glBindVertexArray(0);
+
+	glUseProgram(g_programLight);
+
+	modelLoc = glGetUniformLocation(g_programLight, "model");
+	viewLoc = glGetUniformLocation(g_programLight, "view");
+	projLoc = glGetUniformLocation(g_programLight, "projection");
+
+	//modelMat.Rotate((GLfloat)glfwGetTime() * 0.01f, 1.0f, 1.0f, 0.0f);
+ 
+	aeMat4f lightModelMat = aeMat4f();
+	lightModelMat.Translate(lightColor.X, lightColor.Y, lightColor.Z);
+	lightModelMat.Scale(0.5f, 0.5f, 0.5f);
+
+	glUniformMatrix4fv(modelLoc, 1, GL_FALSE, lightModelMat.get());
+	glUniformMatrix4fv(viewLoc, 1, GL_FALSE, viewMat.get());
+	glUniformMatrix4fv(projLoc, 1, GL_FALSE, projectionMat.get());
+	 
+
+	glBindVertexArray(VAOs[Triangles]);
+
+	glDrawArrays(GL_TRIANGLES, 0, NumVertices);
+
+	glBindVertexArray(0);
+	modelMat.Identity();
 }
 void resizeGL(GLFWwindow*, int w, int h)
 {
