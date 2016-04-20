@@ -43,13 +43,16 @@ void main()
 
 	float distance = length(light.position - FragPos);
 	float attenuation = 1/(light.constant + light.linear*distance+light.quadratic*(distance*distance));
-    vec3 ambient = vec3(texture(material.diffuse, TexCoords)) * light.ambient;
-
+ 
 	vec3 norm = normalize(Normal);
 	// ·½Ïò¹â
 	vec3 lightDir =  normalize(light.position - FragPos);
 	
-	// diffuse
+	float theta = dot(lightDir,normalize(-light.direction));
+	if( theta > light.cutOff)
+	{
+	vec3 ambient = vec3(texture(material.diffuse, TexCoords)) * light.ambient;
+			// diffuse
 	float diff = max(dot(norm,lightDir),0.0);
 	vec3 diffuse = (diff*vec3(texture(material.diffuse, TexCoords)))* light.diffuse;
 
@@ -61,4 +64,11 @@ void main()
 	vec3 result = ambient + diffuse+specular;
 
     fColor = vec4(result*attenuation, 1.0f);
+	}
+	else
+	{
+		  vec3 ambient = vec3(texture(material.diffuse, TexCoords)) * light.ambient;
+		  fColor = vec4(ambient, 1.0f);
+	}
+ 
 }

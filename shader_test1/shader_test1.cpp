@@ -229,7 +229,7 @@ void InitShader()
 	glUniform1f(glGetUniformLocation(g_program, "light.linear"), 0.09);
 	glUniform1f(glGetUniformLocation(g_program, "light.quadratic"), 0.032);
 	// ¾Û¹âµÆ½Ç¶È
-	glUniform1f(glGetUniformLocation(g_program, "light.cutOff"), 0.77f);
+	glUniform1f(glGetUniformLocation(g_program, "light.cutOff"),c_PI *12.0f/180.0f);
 	
 	glEnable(GL_DEPTH_TEST);
 }
