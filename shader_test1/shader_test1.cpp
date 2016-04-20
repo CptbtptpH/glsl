@@ -31,14 +31,14 @@ enum Attrib_IDs
 { 
 	vPosition = 0 ,
 	vNormal = 1,
-	vColor =2,
-	vTexture = 3
+	vTexture = 2,
+	vColor = 3
 };
 
 GLuint VAOs[NumVAOs];
 GLuint Buffers[NumBuffers];
 
-const GLuint NumVertices = 42;
+const GLuint NumVertices = 36;
 GLuint g_program = 0;
 GLuint g_programLight = 0;
 
@@ -50,58 +50,62 @@ ActiveEngine::aeMat4f MVPmat;
 
 GLuint gl_texID;
 GLuint gl_texID1;
-//GLuint LoadTexture(char* imgName, int & width, int & height)
-//{
-//	if (nullptr == imgName)
-//		return -1;
-//
-//	FREE_IMAGE_FORMAT  fif = FIF_UNKNOWN;
-//	FIBITMAP *dib = nullptr;
-//
-//	fif = FreeImage_GetFileType(imgName, 0);
-//	if (fif == FIF_UNKNOWN)
-//		fif = FreeImage_GetFIFFromFilename(imgName);
-//	if (fif == FIF_UNKNOWN)
-//		printf("图片格式不支持\n");
-//
-//	if (FreeImage_FIFSupportsReading(fif))
-//		dib = FreeImage_Load(fif, imgName);
-//	BYTE *bits = FreeImage_GetBits(dib);
-//	//get the image width and height
-//	width = FreeImage_GetWidth(dib);
-//	height = FreeImage_GetHeight(dib);
-//	//if this somehow one of these failed (they shouldn't), return failure
-//	if ((bits == 0) || (width == 0) || (height == 0))
-//		printf("图片加载错误\n");
-//
-//	GLuint texID = 0;
-//	glGenTextures(1, &texID);
-//	glBindTexture(GL_TEXTURE_2D, texID);
-//	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);	// Set texture wrapping to GL_REPEAT (usually basic wrapping method)
-//	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
-//	// Set texture filtering parameters
-//	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
-//	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
-//
-//	glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, width, height, 0, GL_BGR, GL_UNSIGNED_BYTE, bits);
-//	glGenerateMipmap(GL_TEXTURE_2D);
-//	if (dib != nullptr) // 释放资源
-//		FreeImage_Unload(dib);
-//
-//	glBindTexture(GL_TEXTURE_2D, 0);
-//
-//	return texID;
-//}
+GLuint LoadTexture(char* imgName, int & width, int & height)
+{
+	if (nullptr == imgName)
+		return -1;
+
+	FREE_IMAGE_FORMAT  fif = FIF_UNKNOWN;
+	FIBITMAP *dib = nullptr;
+
+	fif = FreeImage_GetFileType(imgName, 0);
+	if (fif == FIF_UNKNOWN)
+		fif = FreeImage_GetFIFFromFilename(imgName);
+	if (fif == FIF_UNKNOWN)
+		printf("图片格式不支持\n");
+
+	if (FreeImage_FIFSupportsReading(fif))
+		dib = FreeImage_Load(fif, imgName);
+	BYTE *bits = FreeImage_GetBits(dib);
+	//get the image width and height
+	width = FreeImage_GetWidth(dib);
+	height = FreeImage_GetHeight(dib);
+	//if this somehow one of these failed (they shouldn't), return failure
+	if ((bits == 0) || (width == 0) || (height == 0))
+		printf("图片加载错误\n");
+
+	GLuint texID = 0;
+	glGenTextures(1, &texID);
+	glBindTexture(GL_TEXTURE_2D, texID);
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);	// Set texture wrapping to GL_REPEAT (usually basic wrapping method)
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
+	// Set texture filtering parameters
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+
+	glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, width, height, 0, GL_BGR, GL_UNSIGNED_BYTE, bits);
+	glGenerateMipmap(GL_TEXTURE_2D);
+	if (dib != nullptr) // 释放资源
+		FreeImage_Unload(dib);
+
+	glBindTexture(GL_TEXTURE_2D, 0);
+
+	return texID;
+}
+
+aeVec3f lightPos = aeVec3f({ 0.0f, 0.8f, 0.0f });
+
+
 void InitShader()
 {
 	//texture 
 
 	int width = 0;
 	int height = 0;
-	char * imgName = "box.jpg";
-	//gl_texID = LoadTexture(imgName, width, height);
-	imgName = "dog.jpg";
-	//gl_texID1 = LoadTexture(imgName, width, height);
+	char * imgName = "container2.png";
+	gl_texID = LoadTexture(imgName, width, height);
+	imgName = "container2_specular.jpg";
+	gl_texID1 = LoadTexture(imgName, width, height);
 	
 
 	//GLfloat vertices[] = {
@@ -112,54 +116,48 @@ void InitShader()
 	//	1.0f, -1.0f, 0.0f, 0.0f, 1.0f, 1.0f, 0.0f, 1.0f,
 	//};
 	GLfloat vertices[] = {
-		-0.5f, -0.5f, -0.5f, 0.0f, 0.0f, -1.0f,
-		0.5f, -0.5f, -0.5f, 0.0f, 0.0f, -1.0f,
-		0.5f, 0.5f, -0.5f, 0.0f, 0.0f, -1.0f,
-		0.5f, 0.5f, -0.5f, 0.0f, 0.0f, -1.0f,
-		-0.5f, 0.5f, -0.5f, 0.0f, 0.0f, -1.0f,
-		-0.5f, -0.5f, -0.5f, 0.0f, 0.0f, -1.0f,
+		// Positions          // Normals           // Texture Coords
+		-0.5f, -0.5f, -0.5f, 0.0f, 0.0f, -1.0f, 0.0f, 0.0f,
+		0.5f, -0.5f, -0.5f, 0.0f, 0.0f, -1.0f, 1.0f, 0.0f,
+		0.5f, 0.5f, -0.5f, 0.0f, 0.0f, -1.0f, 1.0f, 1.0f,
+		0.5f, 0.5f, -0.5f, 0.0f, 0.0f, -1.0f, 1.0f, 1.0f,
+		-0.5f, 0.5f, -0.5f, 0.0f, 0.0f, -1.0f, 0.0f, 1.0f,
+		-0.5f, -0.5f, -0.5f, 0.0f, 0.0f, -1.0f, 0.0f, 0.0f,
 
-		-0.5f, -0.5f, 0.5f, 0.0f, 0.0f, 1.0f,
-		0.5f, -0.5f, 0.5f, 0.0f, 0.0f, 1.0f,
-		0.5f, 0.5f, 0.5f, 0.0f, 0.0f, 1.0f,
-		0.5f, 0.5f, 0.5f, 0.0f, 0.0f, 1.0f,
-		-0.5f, 0.5f, 0.5f, 0.0f, 0.0f, 1.0f,
-		-0.5f, -0.5f, 0.5f, 0.0f, 0.0f, 1.0f,
+		-0.5f, -0.5f, 0.5f, 0.0f, 0.0f, 1.0f, 0.0f, 0.0f,
+		0.5f, -0.5f, 0.5f, 0.0f, 0.0f, 1.0f, 1.0f, 0.0f,
+		0.5f, 0.5f, 0.5f, 0.0f, 0.0f, 1.0f, 1.0f, 1.0f,
+		0.5f, 0.5f, 0.5f, 0.0f, 0.0f, 1.0f, 1.0f, 1.0f,
+		-0.5f, 0.5f, 0.5f, 0.0f, 0.0f, 1.0f, 0.0f, 1.0f,
+		-0.5f, -0.5f, 0.5f, 0.0f, 0.0f, 1.0f, 0.0f, 0.0f,
 
-		-0.5f, 0.5f, 0.5f, -1.0f, 0.0f, 0.0f,
-		-0.5f, 0.5f, -0.5f, -1.0f, 0.0f, 0.0f,
-		-0.5f, -0.5f, -0.5f, -1.0f, 0.0f, 0.0f,
-		-0.5f, -0.5f, -0.5f, -1.0f, 0.0f, 0.0f,
-		-0.5f, -0.5f, 0.5f, -1.0f, 0.0f, 0.0f,
-		-0.5f, 0.5f, 0.5f, -1.0f, 0.0f, 0.0f,
+		-0.5f, 0.5f, 0.5f, -1.0f, 0.0f, 0.0f, 1.0f, 0.0f,
+		-0.5f, 0.5f, -0.5f, -1.0f, 0.0f, 0.0f, 1.0f, 1.0f,
+		-0.5f, -0.5f, -0.5f, -1.0f, 0.0f, 0.0f, 0.0f, 1.0f,
+		-0.5f, -0.5f, -0.5f, -1.0f, 0.0f, 0.0f, 0.0f, 1.0f,
+		-0.5f, -0.5f, 0.5f, -1.0f, 0.0f, 0.0f, 0.0f, 0.0f,
+		-0.5f, 0.5f, 0.5f, -1.0f, 0.0f, 0.0f, 1.0f, 0.0f,
 
-		0.5f, 0.5f, 0.5f, 1.0f, 0.0f, 0.0f,
-		0.5f, 0.5f, -0.5f, 1.0f, 0.0f, 0.0f,
-		0.5f, -0.5f, -0.5f, 1.0f, 0.0f, 0.0f,
-		0.5f, -0.5f, -0.5f, 1.0f, 0.0f, 0.0f,
-		0.5f, -0.5f, 0.5f, 1.0f, 0.0f, 0.0f,
-		0.5f, 0.5f, 0.5f, 1.0f, 0.0f, 0.0f,
+		0.5f, 0.5f, 0.5f, 1.0f, 0.0f, 0.0f, 1.0f, 0.0f,
+		0.5f, 0.5f, -0.5f, 1.0f, 0.0f, 0.0f, 1.0f, 1.0f,
+		0.5f, -0.5f, -0.5f, 1.0f, 0.0f, 0.0f, 0.0f, 1.0f,
+		0.5f, -0.5f, -0.5f, 1.0f, 0.0f, 0.0f, 0.0f, 1.0f,
+		0.5f, -0.5f, 0.5f, 1.0f, 0.0f, 0.0f, 0.0f, 0.0f,
+		0.5f, 0.5f, 0.5f, 1.0f, 0.0f, 0.0f, 1.0f, 0.0f,
 
-		-0.5f, -0.5f, -0.5f, 0.0f, -1.0f, 0.0f,
-		0.5f, -0.5f, -0.5f, 0.0f, -1.0f, 0.0f,
-		0.5f, -0.5f, 0.5f, 0.0f, -1.0f, 0.0f,
-		0.5f, -0.5f, 0.5f, 0.0f, -1.0f, 0.0f,
-		-0.5f, -0.5f, 0.5f, 0.0f, -1.0f, 0.0f,
-		-0.5f, -0.5f, -0.5f, 0.0f, -1.0f, 0.0f,
+		-0.5f, -0.5f, -0.5f, 0.0f, -1.0f, 0.0f, 0.0f, 1.0f,
+		0.5f, -0.5f, -0.5f, 0.0f, -1.0f, 0.0f, 1.0f, 1.0f,
+		0.5f, -0.5f, 0.5f, 0.0f, -1.0f, 0.0f, 1.0f, 0.0f,
+		0.5f, -0.5f, 0.5f, 0.0f, -1.0f, 0.0f, 1.0f, 0.0f,
+		-0.5f, -0.5f, 0.5f, 0.0f, -1.0f, 0.0f, 0.0f, 0.0f,
+		-0.5f, -0.5f, -0.5f, 0.0f, -1.0f, 0.0f, 0.0f, 1.0f,
 
-		-0.5f, 0.5f, -0.5f, 0.0f, 1.0f, 0.0f,
-		0.5f, 0.5f, -0.5f, 0.0f, 1.0f, 0.0f,
-		0.5f, 0.5f, 0.5f, 0.0f, 1.0f, 0.0f,
-		0.5f, 0.5f, 0.5f, 0.0f, 1.0f, 0.0f,
-		-0.5f, 0.5f, 0.5f, 0.0f, 1.0f, 0.0f,
-		-0.5f, 0.5f, -0.5f, 0.0f, 1.0f, 0.0f,
-
-		-3.5f, -0.5f, -3.5f, 0.0f, 1.0f, 0.0f,
-		3.5f, -0.5f, -3.5f, 0.0f, 1.0f, 0.0f,
-		3.5f, -0.5f, 3.5f, 0.0f, 1.0f, 0.0f,
-		3.5f, -0.5f, 3.5f, 0.0f, 1.0f, 0.0f,
-		-3.5f, -0.5f, 3.5f, 0.0f, 1.0f, 0.0f,
-		-3.5f, -0.5f, -3.5f, 0.0f, 1.0f, 0.0f
+		-0.5f, 0.5f, -0.5f, 0.0f, 1.0f, 0.0f, 0.0f, 1.0f,
+		0.5f, 0.5f, -0.5f, 0.0f, 1.0f, 0.0f, 1.0f, 1.0f,
+		0.5f, 0.5f, 0.5f, 0.0f, 1.0f, 0.0f, 1.0f, 0.0f,
+		0.5f, 0.5f, 0.5f, 0.0f, 1.0f, 0.0f, 1.0f, 0.0f,
+		-0.5f, 0.5f, 0.5f, 0.0f, 1.0f, 0.0f, 0.0f, 0.0f,
+		-0.5f, 0.5f, -0.5f, 0.0f, 1.0f, 0.0f, 0.0f, 1.0f
 	};
 	ShaderInfo shaders[] =
 	{
@@ -190,12 +188,14 @@ void InitShader()
 
 	 glUseProgram(g_program);
 
-	glVertexAttribPointer(vPosition, 3, GL_FLOAT, GL_FALSE,6 * sizeof(GLfloat), (GLvoid*)0);
+	glVertexAttribPointer(vPosition, 3, GL_FLOAT, GL_FALSE,8 * sizeof(GLfloat), (GLvoid*)0);
 	glEnableVertexAttribArray(vPosition);
-	glVertexAttribPointer(vNormal, 3, GL_FLOAT, GL_FALSE, 6 * sizeof(GLfloat), (GLvoid*)(3 * sizeof(GLfloat)));
+	glVertexAttribPointer(vNormal, 3, GL_FLOAT, GL_FALSE, 8 * sizeof(GLfloat), (GLvoid*)(3 * sizeof(GLfloat)));
 	glEnableVertexAttribArray(vNormal);
-	glBindVertexArray(0); // Unbind VAO
+	glVertexAttribPointer(vTexture, 2, GL_FLOAT, GL_FALSE, 8 * sizeof(GLfloat), (GLvoid*)(6 * sizeof(GLfloat)));
+	glEnableVertexAttribArray(vTexture);
 
+	glBindVertexArray(0); // Unbind VAO
 
 	GLuint lightVAO;
 	glGenVertexArrays(1, &lightVAO);
@@ -206,6 +206,18 @@ void InitShader()
 	glVertexAttribPointer(vPosition, 3, GL_FLOAT, GL_FALSE,6 * sizeof(GLfloat), (GLvoid*)0);
 	glEnableVertexAttribArray(vPosition);
 	glBindVertexArray(0);
+
+
+	//GLint matAmbientLoc = glGetUniformLocation(g_program, "material.ambient");
+//	GLint matDiffuseLoc = glGetUniformLocation(g_program, "material.diffuse");
+	//GLint matSpecularLoc = glGetUniformLocation(g_program, "material.specular");
+	GLint matShineLoc = glGetUniformLocation(g_program, "material.shininess");
+
+	//glUniform3f(matAmbientLoc, 1.0f, 1.0f, 0.0f);
+//	glUniform3f(matDiffuseLoc, 1.0f, 1.0f, 0.0f);
+	//glUniform3f(matSpecularLoc, 0.5f, 0.5f, 0.5f);
+	glUniform1f(matShineLoc, 32.0f);
+
 
 	glEnable(GL_DEPTH_TEST);
 }
@@ -224,9 +236,7 @@ void initScene(int w, int h)
 	//MVPmat = projectionMat *viewMat *modelMat;
 	 
 	InitShader();
-
 }
-aeVec3f lightPos = aeVec3f({0.0f, 0.8f, 0.0f });
 
 void  drawScene()
 {
@@ -235,21 +245,33 @@ void  drawScene()
 	GLint viewLoc = glGetUniformLocation(g_program, "view");
 	GLint projLoc = glGetUniformLocation(g_program, "projection");
 
-	GLint objectColorLoc = glGetUniformLocation(g_program, "objectColor");
-	GLint lightColorLoc = glGetUniformLocation(g_program, "lightColor");
-	GLint lightPosLoc = glGetUniformLocation(g_program, "lightPos");
+	//GLint objectColorLoc = glGetUniformLocation(g_program, "objectColor");
+
 	GLint viewPosLoc = glGetUniformLocation(g_program, "viewPos");
-	
+	glUniform3f(viewPosLoc, viewPos.X, viewPos.Y, viewPos.Z);
+
+	//  灯光信息的渐变
+	GLint lightPosLoc = glGetUniformLocation(g_program, "light.position");
+	GLint lightAmbientLoc = glGetUniformLocation(g_program, "light.ambient");
+	GLint lightDiffuseLoc = glGetUniformLocation(g_program, "light.diffuse");
+	GLint lightSpecularLoc = glGetUniformLocation(g_program, "light.specular");
+ 
 	lightPos.X= sin(glfwGetTime()) * 1.0f;
 	//lightPos.Y = cos(glfwGetTime() )*1.0f;
-
 	lightPos.Y = 1.6 + sin(glfwGetTime()*0.5f);
+	glUniform3f(lightPosLoc, lightPos.X, lightPos.Y, lightPos.Z);
+	//aeVec3f lightAmbient = aeVec3f({ sin(glfwGetTime()*0.5f), sin(glfwGetTime()*0.5f), sin(glfwGetTime()*0.5f) });
+	//aeVec3f lightDiffuse = aeVec3f({ sin(glfwGetTime()*0.2f), sin(glfwGetTime()*0.6f), sin(glfwGetTime()*0.9f) });
 
-	glUniform3f(viewPosLoc, viewPos.X, viewPos.Y, viewPos.Z);
+	glUniform3f(lightAmbientLoc, 0.2f, 0.2f, 0.2f);
+	glUniform3f(lightDiffuseLoc, 0.5f, 0.5f, 0.5f);
+	glUniform3f(lightSpecularLoc, 1.0f, 1.0f, 1.0f);
+
+
 	glUniform3f(lightPosLoc, lightPos.X, lightPos.Y, lightPos.Z);
 
-	glUniform3f(objectColorLoc, 1.0f, 0.5f, 0.31f);
-	glUniform3f(lightColorLoc, 1.0f, 1.0f, 1.0f); 
+	//glUniform3f(objectColorLoc, 0.0f, 1.0f, 0.0f);
+ 
 
 	//modelMat.Rotate((GLfloat)glfwGetTime() * 0.01f, 1.0f, 1.0f, 0.0f);
 
@@ -259,6 +281,14 @@ void  drawScene()
 	glUniformMatrix4fv(viewLoc, 1, GL_FALSE, viewMat.get());
 	glUniformMatrix4fv(projLoc, 1, GL_FALSE, projectionMat.get());
  
+	glActiveTexture(GL_TEXTURE0);
+	glBindTexture(GL_TEXTURE_2D, gl_texID);
+	glUniform1i(glGetUniformLocation(g_program, "material.diffuse"), 0);
+
+	glActiveTexture(GL_TEXTURE1);
+	glBindTexture(GL_TEXTURE_2D, gl_texID1);
+	glUniform1i(glGetUniformLocation(g_program, "material.specular"), 1);
+
 	glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
@@ -268,6 +298,7 @@ void  drawScene()
 
 	glBindVertexArray(0);
 
+	/////////////////////灯光渲染///////////////////
 	glUseProgram(g_programLight);
 
 	modelLoc = glGetUniformLocation(g_programLight, "model");
