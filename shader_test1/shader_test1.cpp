@@ -221,9 +221,16 @@ void InitShader()
 	glUniform1f(matShineLoc, 32.0f);
 
 
-
+	// 方向光
 	GLint lightDirPos = glGetUniformLocation(g_program, "light.direction");
 	glUniform3f(lightDirPos, -0.2f, -1.0f, -0.3f);
+	// 点光源
+	glUniform1f(glGetUniformLocation(g_program, "light.constant"), 1.0f);
+	glUniform1f(glGetUniformLocation(g_program, "light.linear"), 0.09);
+	glUniform1f(glGetUniformLocation(g_program, "light.quadratic"), 0.032);
+	// 聚光灯角度
+	glUniform1f(glGetUniformLocation(g_program, "light.cutOff"), 0.77f);
+	
 	glEnable(GL_DEPTH_TEST);
 }
 aeVec3f viewPos = aeVec3f({4.0f, 4.0f, 4.0f });
@@ -272,7 +279,7 @@ void  drawScene()
 	GLint lightDiffuseLoc = glGetUniformLocation(g_program, "light.diffuse");
 	GLint lightSpecularLoc = glGetUniformLocation(g_program, "light.specular");
  
-	lightPos.X= sin(glfwGetTime()) * 1.0f;
+	lightPos.X= 2+sin(glfwGetTime()) * 1.0f;
 	//lightPos.Y = cos(glfwGetTime() )*1.0f;
 	lightPos.Y = 1.6 + sin(glfwGetTime()*0.5f);
 	glUniform3f(lightPosLoc, lightPos.X, lightPos.Y, lightPos.Z);

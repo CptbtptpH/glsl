@@ -18,6 +18,10 @@ struct Light
     vec3 ambient; 
     vec3 diffuse; 
     vec3 specular; 
+	float constant;
+	float linear;
+	float quadratic;
+	float cutOff;// 聚光灯
 };
 uniform Light light;
 
@@ -37,11 +41,13 @@ void main()
 {
 	float ambientStrength = 0.2f;
 
+	float distance = length(light.position - FragPos);
+	float attenuation = 1/(light.constant + light.linear*distance+light.quadratic*(distance*distance));
     vec3 ambient = vec3(texture(material.diffuse, TexCoords)) * light.ambient;
 
 	vec3 norm = normalize(Normal);
 	// 方向光
-	vec3 lightDir = normalize(-light.direction);// normalize(light.position - FragPos);
+	vec3 lightDir =  normalize(light.position - FragPos);
 	
 	// diffuse
 	float diff = max(dot(norm,lightDir),0.0);
@@ -54,5 +60,5 @@ void main()
 	vec3 specular = vec3(texture(material.specular, TexCoords))* spec * light.specular;
 	vec3 result = ambient + diffuse+specular;
 
-    fColor = vec4(result, 1.0f);
+    fColor = vec4(result*attenuation, 1.0f);
 }
