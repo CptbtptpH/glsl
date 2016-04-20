@@ -14,6 +14,8 @@
 
 #include "math/Matrix.h"
 
+#include "Camera.h"
+
 using namespace ActiveEngine;
 
 #include <iostream>
@@ -219,6 +221,9 @@ void InitShader()
 	glUniform1f(matShineLoc, 32.0f);
 
 
+
+	GLint lightDirPos = glGetUniformLocation(g_program, "light.direction");
+	glUniform3f(lightDirPos, -0.2f, -1.0f, -0.3f);
 	glEnable(GL_DEPTH_TEST);
 }
 aeVec3f viewPos = aeVec3f({4.0f, 4.0f, 4.0f });
@@ -237,7 +242,18 @@ void initScene(int w, int h)
 	 
 	InitShader();
 }
-
+aeVec3f cubePositions[] = {
+	aeVec3f({ 0.0f, 0.0f, 0.0f }),
+	aeVec3f({2.0f, 5.0f, -15.0f }),
+	aeVec3f({ -1.5f, -2.2f, -2.5f }),
+	aeVec3f({-3.8f, -2.0f, -12.3f }),
+	aeVec3f({ 2.4f, -0.4f, -3.5f }),
+	aeVec3f({-1.7f, 3.0f, -7.5f }),
+	aeVec3f({ 1.3f, -2.0f, -2.5f }),
+	aeVec3f({1.5f, 2.0f, -2.5f }),
+	aeVec3f({ 1.5f, 0.2f, -1.5f }),
+	aeVec3f({ -1.3f, 1.0f, -1.5f })
+};
 void  drawScene()
 {
 	glUseProgram(g_program);
@@ -292,10 +308,21 @@ void  drawScene()
 	glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
-	glBindVertexArray(VAOs[Triangles]);
+	 glBindVertexArray(VAOs[Triangles]);
 
-	glDrawArrays(GL_TRIANGLES, 0, NumVertices);
+	//glDrawArrays(GL_TRIANGLES, 0, NumVertices);
+	for (GLuint i = 0; i < 10; i++)
+	{
+		modelMat = aeMat4f();
+		modelMat.Translate(cubePositions[i].X, cubePositions[i].Y, cubePositions[i].Z);
 
+		 
+		GLfloat angle = 20.0f * i;
+		modelMat.Rotate(angle, 1.0f, 0.3f, 0.5f);
+		 
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, modelMat.get());
+		glDrawArrays(GL_TRIANGLES, 0, NumVertices);
+	}
 	glBindVertexArray(0);
 
 	/////////////////////µÆ¹âäÖÈ¾///////////////////
