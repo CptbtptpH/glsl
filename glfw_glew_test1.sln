@@ -11,8 +11,13 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "shader_test2", "shader_test
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "s", "s", "{E084DEF2-715E-45B6-B868-8A26FD9054C1}"
 	ProjectSection(SolutionItems) = preProject
+		sdk\include\FreeImage.h = sdk\include\FreeImage.h
+		shaders\lamp.frag = shaders\lamp.frag
+		shaders\lamp.vert = shaders\lamp.vert
+		sdk\include\LoadShaders.h = sdk\include\LoadShaders.h
 		shaders\triangles.frag = shaders\triangles.frag
 		shaders\triangles.vert = shaders\triangles.vert
+		sdk\include\vgl.h = sdk\include\vgl.h
 	EndProjectSection
 EndProject
 Global
@@ -58,8 +63,8 @@ Global
 		{38DC80DC-4D13-4F87-B52B-BF33CE35A002}.win64|Mixed Platforms.Build.0 = Release|Win32
 		{38DC80DC-4D13-4F87-B52B-BF33CE35A002}.win64|Win32.ActiveCfg = Release|Win32
 		{38DC80DC-4D13-4F87-B52B-BF33CE35A002}.win64|Win32.Build.0 = Release|Win32
-		{38DC80DC-4D13-4F87-B52B-BF33CE35A002}.win64|x64.ActiveCfg = Release|x64
-		{38DC80DC-4D13-4F87-B52B-BF33CE35A002}.win64|x64.Build.0 = Release|x64
+		{38DC80DC-4D13-4F87-B52B-BF33CE35A002}.win64|x64.ActiveCfg = Debug|x64
+		{38DC80DC-4D13-4F87-B52B-BF33CE35A002}.win64|x64.Build.0 = Debug|x64
 		{D11A1622-D073-4E69-9777-66F5BD551C3A}.Debug|Mixed Platforms.ActiveCfg = Debug|x64
 		{D11A1622-D073-4E69-9777-66F5BD551C3A}.Debug|Mixed Platforms.Build.0 = Debug|x64
 		{D11A1622-D073-4E69-9777-66F5BD551C3A}.Debug|Win32.ActiveCfg = Debug|Win32
@@ -76,8 +81,8 @@ Global
 		{D11A1622-D073-4E69-9777-66F5BD551C3A}.win64|Mixed Platforms.Build.0 = Release|Win32
 		{D11A1622-D073-4E69-9777-66F5BD551C3A}.win64|Win32.ActiveCfg = Release|Win32
 		{D11A1622-D073-4E69-9777-66F5BD551C3A}.win64|Win32.Build.0 = Release|Win32
-		{D11A1622-D073-4E69-9777-66F5BD551C3A}.win64|x64.ActiveCfg = Release|x64
-		{D11A1622-D073-4E69-9777-66F5BD551C3A}.win64|x64.Build.0 = Release|x64
+		{D11A1622-D073-4E69-9777-66F5BD551C3A}.win64|x64.ActiveCfg = Debug|x64
+		{D11A1622-D073-4E69-9777-66F5BD551C3A}.win64|x64.Build.0 = Debug|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
