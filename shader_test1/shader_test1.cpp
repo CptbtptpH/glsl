@@ -30,15 +30,15 @@ enum Buffer_IDs { ArrayBuffer, NumBuffers };
 enum Attrib_IDs
 { 
 	vPosition = 0 ,
-	vColor =1,
-	vTexture = 2,
-	vNormal = 3
+	vNormal = 1,
+	vColor =2,
+	vTexture = 3
 };
 
 GLuint VAOs[NumVAOs];
 GLuint Buffers[NumBuffers];
 
-const GLuint NumVertices = 36;
+const GLuint NumVertices = 42;
 GLuint g_program = 0;
 GLuint g_programLight = 0;
 
@@ -152,7 +152,14 @@ void InitShader()
 		0.5f, 0.5f, 0.5f, 0.0f, 1.0f, 0.0f,
 		0.5f, 0.5f, 0.5f, 0.0f, 1.0f, 0.0f,
 		-0.5f, 0.5f, 0.5f, 0.0f, 1.0f, 0.0f,
-		-0.5f, 0.5f, -0.5f, 0.0f, 1.0f, 0.0f
+		-0.5f, 0.5f, -0.5f, 0.0f, 1.0f, 0.0f,
+
+		-3.5f, -0.5f, -3.5f, 0.0f, 1.0f, 0.0f,
+		3.5f, -0.5f, -3.5f, 0.0f, 1.0f, 0.0f,
+		3.5f, -0.5f, 3.5f, 0.0f, 1.0f, 0.0f,
+		3.5f, -0.5f, 3.5f, 0.0f, 1.0f, 0.0f,
+		-3.5f, -0.5f, 3.5f, 0.0f, 1.0f, 0.0f,
+		-3.5f, -0.5f, -3.5f, 0.0f, 1.0f, 0.0f
 	};
 	ShaderInfo shaders[] =
 	{
@@ -232,17 +239,22 @@ void  drawScene()
 	GLint lightColorLoc = glGetUniformLocation(g_program, "lightColor");
 	GLint lightPosLoc = glGetUniformLocation(g_program, "lightPos");
 	GLint viewPosLoc = glGetUniformLocation(g_program, "viewPos");
-	//lightPos.X= sin(glfwGetTime()) * 1.0f;
+	
+	lightPos.X= sin(glfwGetTime()) * 1.0f;
 	//lightPos.Y = cos(glfwGetTime() )*1.0f;
-	lightPos.Y = 1.5 + sin(glfwGetTime()*0.5f);
+
+	lightPos.Y = 1.6 + sin(glfwGetTime()*0.5f);
+
 	glUniform3f(viewPosLoc, viewPos.X, viewPos.Y, viewPos.Z);
 	glUniform3f(lightPosLoc, lightPos.X, lightPos.Y, lightPos.Z);
 
 	glUniform3f(objectColorLoc, 1.0f, 0.5f, 0.31f);
-	glUniform3f(lightColorLoc, 1.0f, 1.0f, 1.0f); //
+	glUniform3f(lightColorLoc, 1.0f, 1.0f, 1.0f); 
+
 	//modelMat.Rotate((GLfloat)glfwGetTime() * 0.01f, 1.0f, 1.0f, 0.0f);
 
- 
+	//modelMat.Rotate(glfwGetTime()*0.5f,0.0f, 1.0f, 0.0f);
+
 	glUniformMatrix4fv(modelLoc, 1, GL_FALSE,modelMat.get() );
 	glUniformMatrix4fv(viewLoc, 1, GL_FALSE, viewMat.get());
 	glUniformMatrix4fv(projLoc, 1, GL_FALSE, projectionMat.get());
@@ -266,7 +278,7 @@ void  drawScene()
  
 	aeMat4f lightModelMat = aeMat4f();
 	lightModelMat.Translate(lightPos.X, lightPos.Y, lightPos.Z);
-	lightModelMat.Scale(0.1f, 0.1f, 0.1f);
+	lightModelMat.Scale(0.05f, 0.05f, 0.05f);
 
 	glUniformMatrix4fv(modelLoc, 1, GL_FALSE, lightModelMat.get());
 	glUniformMatrix4fv(viewLoc, 1, GL_FALSE, viewMat.get());
@@ -275,7 +287,7 @@ void  drawScene()
 
 	glBindVertexArray(VAOs[Triangles]);
 
-	glDrawArrays(GL_TRIANGLES, 0, NumVertices);
+	glDrawArrays(GL_TRIANGLES, 0, NumVertices-6);
 
 	glBindVertexArray(0);
 
