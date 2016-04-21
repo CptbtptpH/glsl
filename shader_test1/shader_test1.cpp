@@ -16,6 +16,8 @@
 
 #include "Camera.h"
 
+#include "Model.h"
+
 using namespace ActiveEngine;
 
 #include <iostream>
@@ -52,6 +54,9 @@ ActiveEngine::aeMat4f MVPmat;
 
 GLuint gl_texID;
 GLuint gl_texID1;
+
+Model *g_pModel = nullptr;
+
 GLuint LoadTexture(char* imgName, int & width, int & height)
 {
 	if (nullptr == imgName)
@@ -101,6 +106,9 @@ aeVec3f lightPos = aeVec3f({ 0.0f, 0.8f, 0.0f });
 void InitShader()
 {
 	//texture 
+	g_pModel = new Model;
+
+	g_pModel->loadModel("../Resource/nanosuit/nanosuit.obj");
 
 	int width = 0;
 	int height = 0;
