@@ -113,9 +113,9 @@ void InitShader()
 	int width = 0;
 	int height = 0;
 	char * imgName = "container2.png";
-	gl_texID = LoadTexture(imgName, width, height);
+//	gl_texID = LoadTexture(imgName, width, height);
 	imgName = "container2_specular.jpg";
-	gl_texID1 = LoadTexture(imgName, width, height);
+//	gl_texID1 = LoadTexture(imgName, width, height);
 	
 
 	//GLfloat vertices[] = {
@@ -305,8 +305,8 @@ void  drawScene()
  
 
 	//modelMat.Rotate((GLfloat)glfwGetTime() * 0.01f, 1.0f, 1.0f, 0.0f);
-
-	//modelMat.Rotate(glfwGetTime()*0.5f,0.0f, 1.0f, 0.0f);
+	modelMat.Scale(0.15f, 0.15f, 0.15f);
+	
 
 	glUniformMatrix4fv(modelLoc, 1, GL_FALSE,modelMat.get() );
 	glUniformMatrix4fv(viewLoc, 1, GL_FALSE, viewMat.get());
@@ -323,21 +323,11 @@ void  drawScene()
 	glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
-	 glBindVertexArray(VAOs[Triangles]);
+
 
 	//glDrawArrays(GL_TRIANGLES, 0, NumVertices);
-	for (GLuint i = 0; i < 10; i++)
-	{
-		modelMat = aeMat4f();
-		modelMat.Translate(cubePositions[i].X, cubePositions[i].Y, cubePositions[i].Z);
 
-		 
-		GLfloat angle = 20.0f * i;
-		modelMat.Rotate(angle, 1.0f, 0.3f, 0.5f);
-		 
-		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, modelMat.get());
-		glDrawArrays(GL_TRIANGLES, 0, NumVertices);
-	}
+	g_pModel->Draw(g_program);
 	glBindVertexArray(0);
 
 	/////////////////////µ∆π‚‰÷»æ///////////////////

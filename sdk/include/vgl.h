@@ -16,7 +16,7 @@
 #pragma comment(lib,"FreeImage/FreeImage.lib")
 #pragma comment(lib,"opengl32.lib")
 //#pragma comment(lib,"glu32.lib")
-#pragma comment(lib,"assimp/assimpd.lib")
+#pragma comment(lib,"assimp/assimp-vc120-mt.lib")
 #pragma comment(lib,"glfwLib64/glfw3.lib")
 #pragma comment(lib,"glfwLib64/glfw3dll.lib")
 #pragma comment(lib,"glewLib64/glew32s.lib")
