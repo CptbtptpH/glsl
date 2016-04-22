@@ -57,9 +57,11 @@ ActiveEngine::aeMat4f MVPmat;
 GLuint gl_texID;
 GLuint gl_texID1;
 
+GLuint gl_texFloorID;
+
 Model *g_pModel = nullptr;
 
-GLuint LoadTexture(char* imgName, int & width, int & height)
+GLuint LoadTexture(char* imgName)
 {
 	if (nullptr == imgName)
 		return -1;
@@ -77,8 +79,8 @@ GLuint LoadTexture(char* imgName, int & width, int & height)
 		dib = FreeImage_Load(fif, imgName);
 	BYTE *bits = FreeImage_GetBits(dib);
 	//get the image width and height
-	width = FreeImage_GetWidth(dib);
-	height = FreeImage_GetHeight(dib);
+	aeUINT width = FreeImage_GetWidth(dib);
+	aeUINT height = FreeImage_GetHeight(dib);
 	//if this somehow one of these failed (they shouldn't), return failure
 	if ((bits == 0) || (width == 0) || (height == 0))
 		printf("图片加载错误\n");
@@ -107,27 +109,54 @@ aeVec3f lightPos = aeVec3f({ 0.0f, 0.8f, 0.0f });
 
 void InitShader()
 {
+	gl_texFloorID = LoadTexture("../Resource/floor.jpg");
+
 	//texture 
 	g_pModel = new Model;
 
 	g_pModel->loadModel("../Resource/nanosuit/nanosuit.obj");
-
+	
+	float fLightBox = 10.0f;
 	GLfloat vertices[] = {
 		// Positions          // Normals           // Texture Coords
-		-100.5f, 100.5f, -100.5f,
-		100.5f, -100.5f, -100.5f,
-		100.5f, 100.5f, -100.5f,
-		100.5f, 100.5f, -100.5f,
-		-100.5f, 100.5f, -100.5f,
-		-100.5f, -100.5f, -100.5f,
+		-fLightBox, -fLightBox, fLightBox, // 前后
+		fLightBox, -fLightBox, fLightBox,
+		fLightBox, fLightBox, fLightBox,
+		-fLightBox, fLightBox, fLightBox,
+
+		-fLightBox, -fLightBox, -fLightBox,
+		fLightBox, -fLightBox, -fLightBox,
+		fLightBox, fLightBox, -fLightBox,
+		-fLightBox, fLightBox, -fLightBox,
+
+		fLightBox, -fLightBox, -fLightBox,
+		fLightBox, -fLightBox, fLightBox,
+		fLightBox, fLightBox, fLightBox,
+		fLightBox, fLightBox, -fLightBox,
+
+		-fLightBox, -fLightBox, -fLightBox,
+		-fLightBox, -fLightBox, fLightBox,
+		-fLightBox, fLightBox, fLightBox,
+		-fLightBox, fLightBox, -fLightBox,
+
+		-fLightBox, fLightBox, -fLightBox,
+		-fLightBox, fLightBox, fLightBox,
+		fLightBox, fLightBox, fLightBox,
+		fLightBox, fLightBox, -fLightBox,
+
+		-fLightBox, -fLightBox, -fLightBox,
+		-fLightBox, -fLightBox, fLightBox,
+		fLightBox, -fLightBox, fLightBox,
+		fLightBox, -fLightBox, -fLightBox,
+
 	};
 
 	GLfloat verticesFloor[] = {
 		// Positions          // Normals           // Texture Coords
-		-1500.0f, 0.0f, -1500.0f,
-		1500.0f, 0.0f, -1500.0f,
-		1500.0f, 0.0f, 1500.0f,
-		-1500.0f, 0.0f, 1500.0f
+		-1500.0f, 0.0f, -1500.0f,0.0f,1.0f,0.0f,1.0f,1.0f,
+		1500.0f, 0.0f, -1500.0f, 0.0f, 1.0f, 0.0f,1.0f,0.0f,
+		1500.0f, 0.0f, 1500.0f, 0.0f, 1.0f, 0.0f,0.0f,0.0f,
+		-1500.0f, 0.0f, 1500.0f, 0.0f, 1.0f, 0.0f, 0.0f, 1.0f,
 	};
 
 	ShaderInfo shaders[] =
@@ -180,8 +209,15 @@ void InitShader()
 	// 绑定数据到vbo
 	glBufferData(GL_ARRAY_BUFFER, sizeof(verticesFloor), verticesFloor, GL_STATIC_DRAW);
 	// 设置属性
-	glVertexAttribPointer(vPosition, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(GLfloat), (GLvoid*)0);
+	glVertexAttribPointer(vPosition, 3, GL_FLOAT, GL_FALSE, 8 * sizeof(GLfloat), (GLvoid*)0);
 	glEnableVertexAttribArray(vPosition);
+		 
+	glVertexAttribPointer(vNormal, 3, GL_FLOAT, GL_FALSE, 8 * sizeof(GLfloat), (GLvoid*)(3*sizeof(GLfloat)));
+	glEnableVertexAttribArray(vNormal);
+
+	glVertexAttribPointer(vTexture, 2, GL_FLOAT, GL_FALSE, 8 * sizeof(GLfloat), (GLvoid*)(6* sizeof(GLfloat)));
+	glEnableVertexAttribArray(vTexture);
+
 	glBindVertexArray(0);
 
 
@@ -254,20 +290,20 @@ void  drawScene()
 	GLint lightPosLoc = glGetUniformLocation(g_program, "light.position");
  
 	//lightPos.X= sin(glfwGetTime());
-	//lightPos.Y = cos(glfwGetTime() )*1.0f;
-
-	lightPos.Z = sin(glfwGetTime())*1000.0f;
+	lightPos.Y = 750.0f;// cos(glfwGetTime())*1.0f;
+	lightPos.X = cos(glfwGetTime())*750.0f;
+	lightPos.Z = sin(glfwGetTime())*750.0f;
 	glUniform3f(lightPosLoc, lightPos.X, lightPos.Y, lightPos.Z);
+
 	//aeVec3f lightAmbient = aeVec3f({ sin(glfwGetTime()*0.5f), sin(glfwGetTime()*0.5f), sin(glfwGetTime()*0.5f) });
 	//aeVec3f lightDiffuse = aeVec3f({ sin(glfwGetTime()*0.2f), sin(glfwGetTime()*0.6f), sin(glfwGetTime()*0.9f) });
 
-	glUniform3f(lightPosLoc, lightPos.X, lightPos.Y, lightPos.Z);
-
+ 
 	//glUniform3f(objectColorLoc, 0.0f, 1.0f, 0.0f);
  
 
 	//modelMat.Rotate((GLfloat)glfwGetTime() * 0.01f, 1.0f, 1.0f, 0.0f);
-	modelMat.Scale(100.15f, 100.15f, 100.15f);
+	modelMat.Scale(100.0f, 100.0f, 100.0f);
 	
 
 	glUniformMatrix4fv(modelLoc, 1, GL_FALSE,modelMat.get() );
@@ -302,7 +338,7 @@ void  drawScene()
 	//  绑定VAO
 	glBindVertexArray(VAOs[Triangles]);
 
-	glDrawArrays(GL_TRIANGLES, 0, NumVertices);
+	glDrawArrays(GL_QUADS, 0, 24);
 
 	glBindVertexArray(0);
 
@@ -315,6 +351,9 @@ void  drawScene()
 	viewLoc = glGetUniformLocation(g_programFloor, "view");
 	projLoc = glGetUniformLocation(g_programFloor, "projection");
 
+	lightPosLoc = glGetUniformLocation(g_programFloor, "light.position");
+	glUniform3f(g_programFloor, lightPos.X, lightPos.Y, lightPos.Z);
+
 	//modelMat.Rotate((GLfloat)glfwGetTime() * 0.01f, 1.0f, 1.0f, 0.0f);
 
 	aeMat4f floorModelMat = aeMat4f();
@@ -322,6 +361,10 @@ void  drawScene()
 	glUniformMatrix4fv(modelLoc, 1, GL_FALSE, floorModelMat.get());
 	glUniformMatrix4fv(viewLoc, 1, GL_FALSE, viewMat.get());
 	glUniformMatrix4fv(projLoc, 1, GL_FALSE, projectionMat.get());
+
+	glActiveTexture(GL_TEXTURE0);
+	glBindTexture(GL_TEXTURE_2D, gl_texFloorID);
+	//glUniform1i(glGetUniformLocation(g_programFloor, "floolTexture"), 0);
 
 	//  绑定VAO
 	glBindVertexArray(VAOs[Floor]);
@@ -336,9 +379,8 @@ void resizeGL(GLFWwindow*, int w, int h)
 	glViewport(0, 0, (GLint)w, (GLint)h);
   
 	projectionMat.Perspective(45.0f, (GLfloat)w / (GLfloat)h, 10.0f, 10010.0f);
- 
-	return;
 
+	return;
 }
 // Function prototypes
 void key_callback(GLFWwindow* window, int key, int scancode, int action, int mode);
