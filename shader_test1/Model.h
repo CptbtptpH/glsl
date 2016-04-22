@@ -142,7 +142,7 @@ private:
 			// Normal: texture_normalN
 
 			// 1. Diffuse maps
-			vector<Texture> diffuseMaps = this->loadMaterialTextures(material, aiTextureType_DIFFUSE, "texture_diffuse1");
+			vector<Texture> diffuseMaps = this->loadMaterialTextures(material, aiTextureType_DIFFUSE, "texture_diffuse");
 			textures.insert(textures.end(), diffuseMaps.begin(), diffuseMaps.end());
 			// 2. Specular maps
 			vector<Texture> specularMaps = this->loadMaterialTextures(material, aiTextureType_SPECULAR, "texture_specular");
@@ -213,6 +213,27 @@ GLint TextureFromFile(const char* path, string directory)
 	//get the image width and height
 	int width = FreeImage_GetWidth(dib);
 	int height = FreeImage_GetHeight(dib);
+	 
+	int bpp = FreeImage_GetBPP(dib); // 24 / 32 ..
+	FREE_IMAGE_COLOR_TYPE colorType = FreeImage_GetColorType(dib);//colorType 不太准确
+	int internalFormat, format;
+	//if (colorType == FIC_RGB)
+	if (24 == bpp)
+	{
+		internalFormat = GL_RGB;
+		format = GL_RGB;
+	}
+	else if (32 == bpp)
+	{
+		internalFormat = GL_RGBA;
+		format = GL_BGRA;
+	}
+	else
+	{
+		internalFormat = GL_RGB8;
+		format = GL_LUMINANCE;
+	}
+ 
 	GLuint texID = 0;
 	glGenTextures(1, &texID);
 	glBindTexture(GL_TEXTURE_2D, texID);
@@ -222,7 +243,7 @@ GLint TextureFromFile(const char* path, string directory)
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
 
-	glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, width, height, 0, GL_BGR, GL_UNSIGNED_BYTE, bits);
+	glTexImage2D(GL_TEXTURE_2D, 0, internalFormat, width, height, 0, format, GL_UNSIGNED_BYTE, bits);
 	glGenerateMipmap(GL_TEXTURE_2D);
 	if (dib != nullptr) // 释放资源
 		FreeImage_Unload(dib);
