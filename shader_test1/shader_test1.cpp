@@ -29,8 +29,9 @@ using namespace ActiveEngine;
 
 GLFWwindow* window;
 
-enum VAO_IDs { Triangles, NumVAOs };
-enum Buffer_IDs { ArrayBuffer, NumBuffers };
+enum VAO_IDs { Triangles,Floor, NumVAOs };
+enum Buffer_IDs { ArrayBuffer, FloorBuffer, NumBuffers };
+
 enum Attrib_IDs
 { 
 	vPosition = 0 ,
@@ -42,9 +43,10 @@ enum Attrib_IDs
 GLuint VAOs[NumVAOs];
 GLuint Buffers[NumBuffers];
 
-const GLuint NumVertices = 36;
+const GLuint NumVertices = 6;
 GLuint g_program = 0;
 GLuint g_programLight = 0;
+GLuint g_programFloor = 0;
 
 ActiveEngine::aeMat4f viewMat;
 ActiveEngine::aeMat4f modelMat;
@@ -108,60 +110,26 @@ void InitShader()
 	//texture 
 	g_pModel = new Model;
 
-	//g_pModel->loadModel("../Resource/nanosuit/nanosuit.obj");
+	g_pModel->loadModel("../Resource/nanosuit/nanosuit.obj");
 
-
-	//GLfloat vertices[] = {
-	//	// Positions         // Colors      // textue
-	//	-1.0f, -1.0f,0.0f, 1.0f, 0.0f, 0.0f, 1.0f,1.0f,  // Bottom Right
-	//	-1.0f, 1.0f, 0.0f, 0.0f, 1.0f, 0.0f, 1.0f, 0.0f, // Bottom Left
-	//	1.0f, 1.0f, 0.0f, 0.0f, 0.0f, 1.0f,  0.0f, 0.0f,// Top 
-	//	1.0f, -1.0f, 0.0f, 0.0f, 1.0f, 1.0f, 0.0f, 1.0f,
-	//};
 	GLfloat vertices[] = {
 		// Positions          // Normals           // Texture Coords
-		-0.5f, -0.5f, -0.5f, 
-		0.5f, -0.5f, -0.5f, 
-		0.5f, 0.5f, -0.5f, 
-		0.5f, 0.5f, -0.5f, 
-		-0.5f, 0.5f, -0.5f,
-		-0.5f, -0.5f, -0.5f,
-
-		-0.5f, -0.5f, 0.5f, 
-		0.5f, -0.5f, 0.5f, 
-		0.5f, 0.5f, 0.5f, 
-		0.5f, 0.5f, 0.5f, 
-		-0.5f, 0.5f, 0.5f,
-		-0.5f, -0.5f, 0.5f
-
-		-0.5f, 0.5f, 0.5f,
-		-0.5f, 0.5f, -0.5f,
-		-0.5f, -0.5f, -0.5f,
-		-0.5f, -0.5f, -0.5f,
-		-0.5f, -0.5f, 0.5f, 
-		-0.5f, 0.5f, 0.5f, 
-
-		0.5f, 0.5f, 0.5f, 
-		0.5f, 0.5f, -0.5f,
-		0.5f, -0.5f, -0.5f,
-		0.5f, -0.5f, -0.5f,
-		0.5f, -0.5f, 0.5f, 
-		0.5f, 0.5f, 0.5f, 
-
-		-0.5f, -0.5f, -0.5f,
-		0.5f, -0.5f, -0.5f, 
-		0.5f, -0.5f, 0.5f, 
-		0.5f, -0.5f, 0.5f, 
-		-0.5f, -0.5f, 0.5f,
-		-0.5f, -0.5f, -0.5f,
-
-		-0.5f, 0.5f, -0.5f, 
-		0.5f, 0.5f, -0.5f, 
-		0.5f, 0.5f, 0.5f, 
-		0.5f, 0.5f, 0.5f, 
-		-0.5f, 0.5f, 0.5f,
-		-0.5f, 0.5f, -0.5f
+		-100.5f, 100.5f, -100.5f,
+		100.5f, -100.5f, -100.5f,
+		100.5f, 100.5f, -100.5f,
+		100.5f, 100.5f, -100.5f,
+		-100.5f, 100.5f, -100.5f,
+		-100.5f, -100.5f, -100.5f,
 	};
+
+	GLfloat verticesFloor[] = {
+		// Positions          // Normals           // Texture Coords
+		-1500.0f, 0.0f, -1500.0f,
+		1500.0f, 0.0f, -1500.0f,
+		1500.0f, 0.0f, 1500.0f,
+		-1500.0f, 0.0f, 1500.0f
+	};
+
 	ShaderInfo shaders[] =
 	{
 		{ GL_VERTEX_SHADER, "../shaders/triangles.vert" },
@@ -180,30 +148,46 @@ void InitShader()
 	
 	 g_programLight = Program::Load(shaders);
 
+	 shaders[0] =
+	 { GL_VERTEX_SHADER, "../shaders/floor.vert" };
+	 shaders[1] =
+	 { GL_FRAGMENT_SHADER, "../shaders/floor.frag" };
 
+	 shaders[2] = { GL_NONE, NULL };
+
+	 g_programFloor= Program::Load(shaders);
+
+	// 生成NumVAOs 多个VAO 保存在VAOs中
 	glGenVertexArrays(NumVAOs, VAOs);
+	// 绑定当前要使用的VAO
 	glBindVertexArray(VAOs[Triangles]);
-
+	// 生成NumBuffers 多个VBO 保存在Buffers中
 	glGenBuffers(NumBuffers, Buffers);
+	// 绑定当前要使用的vbo
 	glBindBuffer(GL_ARRAY_BUFFER, Buffers[ArrayBuffer]);
+	 // 绑定数据到vbo
 	glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
 
+	// 设置属性
+	glVertexAttribPointer(vPosition, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(GLfloat), (GLvoid*)0);
+	glEnableVertexAttribArray(vPosition);
 
-	 glUseProgram(g_program);
+	glBindVertexArray(0);
 
- 
-
-	GLuint lightVAO;
-	glGenVertexArrays(1, &lightVAO);
-	glBindVertexArray(lightVAO);
-	// We only need to bind to the VBO (to link it with glVertexAttribPointer), no need to fill it; the VBO's data already contains all we need.
-	glBindBuffer(GL_ARRAY_BUFFER, Buffers[ArrayBuffer]);
-	// Set the vertex attributes (only position data for the lamp))
-	glVertexAttribPointer(vPosition, 3, GL_FLOAT, GL_FALSE,3 * sizeof(GLfloat), (GLvoid*)0);
+	/*----------------- 设置地板——————————*/
+	glBindVertexArray(VAOs[Floor]);
+	glBindBuffer(GL_ARRAY_BUFFER, Buffers[FloorBuffer]);
+	// 绑定数据到vbo
+	glBufferData(GL_ARRAY_BUFFER, sizeof(verticesFloor), verticesFloor, GL_STATIC_DRAW);
+	// 设置属性
+	glVertexAttribPointer(vPosition, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(GLfloat), (GLvoid*)0);
 	glEnableVertexAttribArray(vPosition);
 	glBindVertexArray(0);
 
 
+	glUseProgram(g_program);
+
+ 
 	//GLint matAmbientLoc = glGetUniformLocation(g_program, "material.ambient");
 //	GLint matDiffuseLoc = glGetUniformLocation(g_program, "material.diffuse");
 	//GLint matSpecularLoc = glGetUniformLocation(g_program, "material.specular");
@@ -212,6 +196,7 @@ void InitShader()
 	//glUniform3f(matAmbientLoc, 1.0f, 1.0f, 0.0f);
 //	glUniform3f(matDiffuseLoc, 1.0f, 1.0f, 0.0f);
 	//glUniform3f(matSpecularLoc, 0.5f, 0.5f, 0.5f);
+
 	glUniform1f(matShineLoc, 32.0f);
 
 
@@ -227,18 +212,16 @@ void InitShader()
 	
 	glEnable(GL_DEPTH_TEST);
 }
-aeVec3f viewPos = aeVec3f({4.0f, 4.0f, 4.0f });
+aeVec3f viewPos = aeVec3f({0.0f, 2000.0f, 4000.0f });
+
 void initScene(int w, int h)
 {
-
 	glViewport(0, 0, (GLint)w, (GLint)h);
  
-	projectionMat.Perspective(45.0f, (GLfloat)w / (GLfloat)h, 0.1f, 100.0f);
- 
+	projectionMat.Perspective(45.0f, (GLfloat)w / (GLfloat)h, 10.0f, 10010.0f);
+	
 	viewMat.LookAt(viewPos, aeVec3f({ 0.0f, 0.0f, 0.0f }), aeVec3f({ 0.0f, 1.0f, 0.0f }));
 
-	modelMat = aeMat4f();
-	
 	//MVPmat = projectionMat *viewMat *modelMat;
 	 
 	InitShader();
@@ -270,9 +253,10 @@ void  drawScene()
 	//  灯光信息的渐变
 	GLint lightPosLoc = glGetUniformLocation(g_program, "light.position");
  
-	lightPos.X= 2+sin(glfwGetTime()) * 1.0f;
+	//lightPos.X= sin(glfwGetTime());
 	//lightPos.Y = cos(glfwGetTime() )*1.0f;
-	lightPos.Y = 1.6 + sin(glfwGetTime()*0.5f);
+
+	lightPos.Z = sin(glfwGetTime())*1000.0f;
 	glUniform3f(lightPosLoc, lightPos.X, lightPos.Y, lightPos.Z);
 	//aeVec3f lightAmbient = aeVec3f({ sin(glfwGetTime()*0.5f), sin(glfwGetTime()*0.5f), sin(glfwGetTime()*0.5f) });
 	//aeVec3f lightDiffuse = aeVec3f({ sin(glfwGetTime()*0.2f), sin(glfwGetTime()*0.6f), sin(glfwGetTime()*0.9f) });
@@ -283,7 +267,7 @@ void  drawScene()
  
 
 	//modelMat.Rotate((GLfloat)glfwGetTime() * 0.01f, 1.0f, 1.0f, 0.0f);
-	modelMat.Scale(0.15f, 0.15f, 0.15f);
+	modelMat.Scale(100.15f, 100.15f, 100.15f);
 	
 
 	glUniformMatrix4fv(modelLoc, 1, GL_FALSE,modelMat.get() );
@@ -294,7 +278,7 @@ void  drawScene()
 	glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
-	//g_pModel->Draw(g_program);
+	g_pModel->Draw(g_program);
 
 	glBindVertexArray(0);
 
@@ -308,14 +292,14 @@ void  drawScene()
 	//modelMat.Rotate((GLfloat)glfwGetTime() * 0.01f, 1.0f, 1.0f, 0.0f);
  
 	aeMat4f lightModelMat = aeMat4f();
-	//lightModelMat.Translate(lightPos.X, lightPos.Y, lightPos.Z);
-//	lightModelMat.Scale(0.5f, 0.5f, 0.5f);
+	lightModelMat.Translate(lightPos.X, lightPos.Y, lightPos.Z);
+	
 
 	glUniformMatrix4fv(modelLoc, 1, GL_FALSE, lightModelMat.get());
 	glUniformMatrix4fv(viewLoc, 1, GL_FALSE, viewMat.get());
 	glUniformMatrix4fv(projLoc, 1, GL_FALSE, projectionMat.get());
 	 
-
+	//  绑定VAO
 	glBindVertexArray(VAOs[Triangles]);
 
 	glDrawArrays(GL_TRIANGLES, 0, NumVertices);
@@ -323,13 +307,35 @@ void  drawScene()
 	glBindVertexArray(0);
 
 	modelMat.Identity();
+
+	/////////////////////Floor Render///////////////////
+
+	glUseProgram(g_programFloor);
+	modelLoc = glGetUniformLocation(g_programFloor, "model");
+	viewLoc = glGetUniformLocation(g_programFloor, "view");
+	projLoc = glGetUniformLocation(g_programFloor, "projection");
+
+	//modelMat.Rotate((GLfloat)glfwGetTime() * 0.01f, 1.0f, 1.0f, 0.0f);
+
+	aeMat4f floorModelMat = aeMat4f();
+ 
+	glUniformMatrix4fv(modelLoc, 1, GL_FALSE, floorModelMat.get());
+	glUniformMatrix4fv(viewLoc, 1, GL_FALSE, viewMat.get());
+	glUniformMatrix4fv(projLoc, 1, GL_FALSE, projectionMat.get());
+
+	//  绑定VAO
+	glBindVertexArray(VAOs[Floor]);
+
+	glDrawArrays(GL_QUADS, 0, 4);
+
+	glBindVertexArray(0);
 }
 void resizeGL(GLFWwindow*, int w, int h)
 {
 	// 重置当前的视口  
 	glViewport(0, 0, (GLint)w, (GLint)h);
   
-	projectionMat.Perspective(45.0f, (GLfloat)w / (GLfloat)h, 0.1f, 100.0f);
+	projectionMat.Perspective(45.0f, (GLfloat)w / (GLfloat)h, 10.0f, 10010.0f);
  
 	return;
 
