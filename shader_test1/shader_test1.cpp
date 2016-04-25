@@ -58,6 +58,7 @@ GLuint gl_texID;
 GLuint gl_texID1;
 
 GLuint gl_texFloorID;
+GLuint gl_texFloorNormalID;
 
 Model *g_pModel = nullptr;
 
@@ -109,8 +110,10 @@ aeVec3f lightPos = aeVec3f({ 0.0f, 0.8f, 0.0f });
 
 void InitShader()
 {
-	gl_texFloorID = LoadTexture("../Resource/floor.jpg");
-
+	// 地板纹理
+	gl_texFloorID = LoadTexture("../Resource/CaveWall-ColorMap.png");
+	// 地板法线贴图
+	gl_texFloorNormalID = LoadTexture("../Resource/CaveWall-NormalMap.png");
 	//texture 
 	g_pModel = new Model;
 
@@ -304,7 +307,7 @@ void  drawScene()
 
 	//modelMat.Rotate((GLfloat)glfwGetTime() * 0.01f, 1.0f, 1.0f, 0.0f);
 	modelMat.Scale(100.0f, 100.0f, 100.0f);
-	
+	modelMat.Rotate(glfwGetTime(), 0.0f, 1.0f, 0.0f);
 
 	glUniformMatrix4fv(modelLoc, 1, GL_FALSE,modelMat.get() );
 	glUniformMatrix4fv(viewLoc, 1, GL_FALSE, viewMat.get());
@@ -352,20 +355,22 @@ void  drawScene()
 	projLoc = glGetUniformLocation(g_programFloor, "projection");
 
 	lightPosLoc = glGetUniformLocation(g_programFloor, "light.position");
-	glUniform3f(g_programFloor, lightPos.X, lightPos.Y, lightPos.Z);
+	glUniform3f(lightPosLoc, lightPos.X, lightPos.Y, lightPos.Z);
 
 	//modelMat.Rotate((GLfloat)glfwGetTime() * 0.01f, 1.0f, 1.0f, 0.0f);
 
 	aeMat4f floorModelMat = aeMat4f();
- 
+	floorModelMat.Rotate(glfwGetTime(), 0.0f, 1.0f, 0.0f);
 	glUniformMatrix4fv(modelLoc, 1, GL_FALSE, floorModelMat.get());
 	glUniformMatrix4fv(viewLoc, 1, GL_FALSE, viewMat.get());
 	glUniformMatrix4fv(projLoc, 1, GL_FALSE, projectionMat.get());
 
 	glActiveTexture(GL_TEXTURE0);
 	glBindTexture(GL_TEXTURE_2D, gl_texFloorID);
-	//glUniform1i(glGetUniformLocation(g_programFloor, "floolTexture"), 0);
-
+	glUniform1i(glGetUniformLocation(g_programFloor, "floolTexture"), 0);
+	glActiveTexture(GL_TEXTURE1);
+	glBindTexture(GL_TEXTURE_2D, gl_texFloorNormalID);
+	glUniform1i(glGetUniformLocation(g_programFloor, "floolNormalMap"), 1);
 	//  绑定VAO
 	glBindVertexArray(VAOs[Floor]);
 

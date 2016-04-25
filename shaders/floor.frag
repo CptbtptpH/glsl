@@ -3,8 +3,21 @@
 struct Light
 {
 	vec3 position;
+	vec3 ambient;
+	vec3 diffuse;
+	vec3 specular;
 };
 uniform Light light;
+
+struct Meterial
+{
+	vec3 ambient;
+	sampler2D diffuse;
+	sampler2D specular;
+	sampler2D normalMap;
+	float	  shininess;
+};
+uniform Meterial meterial;
 
 out vec4 fColor;
 
@@ -16,15 +29,17 @@ in vec3 FragPosition;
 
 uniform sampler2D floolTexture;
 
+uniform sampler2D floolNormalMap;
+
 void main()
 {
-	vec3 norm = normalize(Normals);
+	vec3 norm = normalize(Normals)*normalize(vec3(texture(floolNormalMap, TexCoords)));
 	// ·½Ïò¹â
 	vec3 lightDir =  normalize(light.position - FragPosition);
 	
 	// diffuse
-	float diff = max(dot(norm,lightDir),0.0);
+	float diff = max(dot(norm,lightDir),0.0); 
 	vec3 diffuse = (diff*vec3(texture(floolTexture, TexCoords))) ;
 
-    fColor = dot(norm,lightDir)*vec4( 1.0f,0.0f,1.0f,1.0f);  //vec4( diffuse,1.0f);//texture(floolTexture,TexCoords);//
+    fColor = dot(norm,lightDir)*texture(floolTexture,TexCoords);//
 }
