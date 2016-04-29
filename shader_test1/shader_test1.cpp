@@ -37,7 +37,7 @@ enum Attrib_IDs
 GLuint VAOs[NumVAOs];
 GLuint Buffers[NumBuffers];
 
-const GLuint NumVertices = 36;
+const GLuint NumVertices = 6;
 GLuint g_program = 0;
 
 ActiveEngine::aeMat4f viewMat;
@@ -45,9 +45,14 @@ ActiveEngine::aeMat4f modelMat;
 ActiveEngine::aeMat4f projectionMat;
 
 ActiveEngine::aeMat4f MVPmat;
-
+GLuint framebuffer;
 GLuint gl_texID;
 GLuint gl_texID1;
+GLuint textureColorbuffer;
+
+GLuint gWindowWidth = 0;
+GLuint gWindowHeight = 0;
+
 GLuint LoadTexture(char* imgName, int & width, int & height)
 {
 	if (nullptr == imgName)
@@ -90,6 +95,33 @@ GLuint LoadTexture(char* imgName, int & width, int & height)
 
 	return texID;
 }
+// Generates a texture that is suited for attachments to a framebuffer
+GLuint generateAttachmentTexture(GLboolean depth, GLboolean stencil, GLuint screenWidth,GLuint screenHeight)
+{
+	// What enum to use?
+	GLenum attachment_type;
+	if (!depth && !stencil)
+		attachment_type = GL_RGB;
+	else if (depth && !stencil)
+		attachment_type = GL_DEPTH_COMPONENT;
+	else if (!depth && stencil)
+		attachment_type = GL_STENCIL_INDEX;
+
+	//Generate texture ID and load texture data 
+	GLuint textureID;
+	glGenTextures(1, &textureID);
+	glBindTexture(GL_TEXTURE_2D, textureID);
+	if (!depth && !stencil)
+		glTexImage2D(GL_TEXTURE_2D, 0, attachment_type, screenWidth, screenHeight, 0, attachment_type, GL_UNSIGNED_BYTE, NULL);
+	else // Using both a stencil and depth test, needs special format arguments
+		glTexImage2D(GL_TEXTURE_2D, 0, GL_DEPTH24_STENCIL8, screenWidth, screenHeight, 0, GL_DEPTH_STENCIL, GL_UNSIGNED_INT_24_8, NULL);
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+	glBindTexture(GL_TEXTURE_2D, 0);
+
+	return textureID;
+}
+
 void InitShader()
 {
 	//texture 
@@ -110,47 +142,12 @@ void InitShader()
 	//	1.0f, -1.0f, 0.0f, 0.0f, 1.0f, 1.0f, 0.0f, 1.0f,
 	//};
 	GLfloat vertices[] = {
-		-0.5f, -0.5f, -0.5f, 0.0f, 0.0f,
-		0.5f, -0.5f, -0.5f, 1.0f, 0.0f,
-		0.5f, 0.5f, -0.5f, 1.0f, 1.0f,
-		0.5f, 0.5f, -0.5f, 1.0f, 1.0f,
-		-0.5f, 0.5f, -0.5f, 0.0f, 1.0f,
-		-0.5f, -0.5f, -0.5f, 0.0f, 0.0f,
-
-		-0.5f, -0.5f, 0.5f, 0.0f, 0.0f,
-		0.5f, -0.5f, 0.5f, 1.0f, 0.0f,
-		0.5f, 0.5f, 0.5f, 1.0f, 1.0f,
-		0.5f, 0.5f, 0.5f, 1.0f, 1.0f,
-		-0.5f, 0.5f, 0.5f, 0.0f, 1.0f,
-		-0.5f, -0.5f, 0.5f, 0.0f, 0.0f,
-
-		-0.5f, 0.5f, 0.5f, 1.0f, 0.0f,
-		-0.5f, 0.5f, -0.5f, 1.0f, 1.0f,
-		-0.5f, -0.5f, -0.5f, 0.0f, 1.0f,
-		-0.5f, -0.5f, -0.5f, 0.0f, 1.0f,
-		-0.5f, -0.5f, 0.5f, 0.0f, 0.0f,
-		-0.5f, 0.5f, 0.5f, 1.0f, 0.0f,
-
-		0.5f, 0.5f, 0.5f, 1.0f, 0.0f,
-		0.5f, 0.5f, -0.5f, 1.0f, 1.0f,
-		0.5f, -0.5f, -0.5f, 0.0f, 1.0f,
-		0.5f, -0.5f, -0.5f, 0.0f, 1.0f,
-		0.5f, -0.5f, 0.5f, 0.0f, 0.0f,
-		0.5f, 0.5f, 0.5f, 1.0f, 0.0f,
-
-		-0.5f, -0.5f, -0.5f, 0.0f, 1.0f,
-		0.5f, -0.5f, -0.5f, 1.0f, 1.0f,
-		0.5f, -0.5f, 0.5f, 1.0f, 0.0f,
-		0.5f, -0.5f, 0.5f, 1.0f, 0.0f,
-		-0.5f, -0.5f, 0.5f, 0.0f, 0.0f,
-		-0.5f, -0.5f, -0.5f, 0.0f, 1.0f,
-
-		-0.5f, 0.5f, -0.5f, 0.0f, 1.0f,
-		0.5f, 0.5f, -0.5f, 1.0f, 1.0f,
-		0.5f, 0.5f, 0.5f, 1.0f, 0.0f,
-		0.5f, 0.5f, 0.5f, 1.0f, 0.0f,
-		-0.5f, 0.5f, 0.5f, 0.0f, 0.0f,
-		-0.5f, 0.5f, -0.5f, 0.0f, 1.0f
+		-100.5f, -100.5f, -0.5f, 0.0f, 0.0f,
+		100.5f, -100.5f, -0.5f, 1.0f, 0.0f,
+		100.5f, 100.5f, -0.5f, 1.0f, 1.0f,
+		100.5f, 100.5f, -0.5f, 1.0f, 1.0f,
+		-100.5f, 100.5f, -0.5f, 0.0f, 1.0f,
+		-100.5f, -100.5f, -0.5f, 0.0f, 0.0f
 	};
 	glGenVertexArrays(NumVAOs, VAOs);
 	glBindVertexArray(VAOs[Triangles]);
@@ -162,12 +159,18 @@ void InitShader()
 
 	ShaderInfo shaders[] =
 	{
-		{ GL_VERTEX_SHADER, "../shaders/triangles.vert" },
-		{ GL_FRAGMENT_SHADER, "../shaders/triangles.frag" },
+		{ GL_VERTEX_SHADER, "../shaders/pulse.vert" },
+		{ GL_FRAGMENT_SHADER, "../shaders/pulse.frag" },
 		{ GL_NONE, NULL },
 	};
 	 g_program = Program::Load(shaders);
 	 glUseProgram(g_program);
+
+	 GLint winWidthLoc = glGetUniformLocation(g_program, "windowWidth");
+	 glUniform1i(winWidthLoc, gWindowWidth);
+
+	 GLint winHeightLoc = glGetUniformLocation(g_program, "windowHeight");
+	 glUniform1i(winHeightLoc, gWindowHeight);
 
 	glVertexAttribPointer(vPosition, 3, GL_FLOAT, GL_FALSE,5 * sizeof(GLfloat), (GLvoid*)0);
 	glEnableVertexAttribArray(vPosition);
@@ -179,7 +182,30 @@ void InitShader()
 	glEnableVertexAttribArray(vTexture);
 	glBindVertexArray(0); // Unbind VAO
 
+
+	glGenFramebuffers(1, &framebuffer);
+	glBindFramebuffer(GL_FRAMEBUFFER, framebuffer);
+	// 
+	textureColorbuffer = generateAttachmentTexture(false, false, 400, 400);
+
+	glFramebufferTexture2D(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_TEXTURE_2D, textureColorbuffer, 0);
+	// Create a renderbuffer object for depth and stencil attachment (we won't be sampling these)
+	GLuint rbo;
+	glGenRenderbuffers(1, &rbo);
+	glBindRenderbuffer(GL_RENDERBUFFER, rbo);
+	glRenderbufferStorage(GL_RENDERBUFFER, GL_DEPTH24_STENCIL8, 400, 400); // Use a single renderbuffer object for both a depth AND stencil buffer.
+	glBindRenderbuffer(GL_RENDERBUFFER, 0);
+	glFramebufferRenderbuffer(GL_FRAMEBUFFER, GL_DEPTH_STENCIL_ATTACHMENT, GL_RENDERBUFFER, rbo); // Now actually attach it
+	// Now that we actually created the framebuffer and added all attachments we want to check if it is actually complete now
+	if (glCheckFramebufferStatus(GL_FRAMEBUFFER) != GL_FRAMEBUFFER_COMPLETE)
+	{
+		std::cout << "ERROR::FRAMEBUFFER:: Framebuffer is not complete!" << std::endl;
+	}
+	glBindFramebuffer(GL_FRAMEBUFFER, 0);
+
 	glEnable(GL_DEPTH_TEST);
+	glDepthFunc(GL_LESS);
+
 }
 
 void initScene(int w, int h)
@@ -196,7 +222,7 @@ void initScene(int w, int h)
 	//MVPmat = projectionMat *viewMat *modelMat;
 	 
 	InitShader();
-
+	
 }
 aeVec3f cubePositions[] = {
 
@@ -230,7 +256,7 @@ void  drawScene()
 	
 	 
 	glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
-	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT |GL_STENCIL_BUFFER_BIT);
 
 	glActiveTexture(GL_TEXTURE0);
 	glBindTexture(GL_TEXTURE_2D, gl_texID);
@@ -240,36 +266,58 @@ void  drawScene()
 	glUniform1i(glGetUniformLocation(g_program, "ourTexture2"), 1);
 	
 	glBindVertexArray(VAOs[Triangles]);
-
-
+ 
 	GLfloat radius = 20.0f;
 	GLfloat camX = sin(glfwGetTime()) * radius;
 	GLfloat camZ = cos(glfwGetTime()) * radius;
 
+
+	GLint dTimerlLoc = glGetUniformLocation(g_program, "dTimer");
+	glUniform1f(dTimerlLoc, glfwGetTime());
+
+	//modelMat.Rotate((GLfloat)glfwGetTime() * 0.01f, 1.0f, 1.0f, 0.0f);
+
+
+	glUniformMatrix4fv(modelLoc, 1, GL_FALSE, modelMat.get());
+
 	viewMat.LookAt(aeVec3f({ camX, 0.0f, camZ }), aeVec3f({ 0.0f, 0.0f, 0.0f }), aeVec3f({ 0.0f, 1.0f, 0.0f }));
-
+	
+ 
 	glUniformMatrix4fv(viewLoc, 1, GL_FALSE, viewMat.get());
-	for (GLuint i = 0; i < 10; i++)
-	{
-		modelMat.Identity();
-		modelMat.Translate(cubePositions[i].X, cubePositions[i].Y, cubePositions[i].Z);
-		GLfloat angle = 20.0f * i;
-		modelMat.Rotate(angle,  1.0f, 0.3f, 0.5f );
-		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, modelMat.get());
-		glDrawArrays(GL_TRIANGLES, 0, NumVertices);
+	//for (GLuint i = 0; i < 10; i++)
+	//{
+	//	modelMat.Identity();
+	//	modelMat.Translate(cubePositions[i].X, cubePositions[i].Y, cubePositions[i].Z);
+	//	GLfloat angle = 20.0f * i;
+	//	modelMat.Rotate(angle,  1.0f, 0.3f, 0.5f );
+	//	glUniformMatrix4fv(modelLoc, 1, GL_FALSE, modelMat.get());
 
-	}
+	//	glDrawArrays(GL_TRIANGLES, 0, NumVertices);
+
+	//}
+
+	glDrawArrays(GL_TRIANGLES,0,6);
 
 	//glDrawArrays(GL_TRIANGLES, 0, NumVertices);
 	glBindVertexArray(0);
 }
 void resizeGL(GLFWwindow*, int w, int h)
 {
+	gWindowWidth = w;
+	gWindowHeight = h;
 	// 重置当前的视口  
 	glViewport(0, 0, (GLint)w, (GLint)h);
   
 	projectionMat.Perspective(75.0f, (GLfloat)w / (GLfloat)h, 0.1f, 100.0f);
- 
+
+
+	glUseProgram(g_program);
+	GLint winWidthLoc = glGetUniformLocation(g_program, "windowWidth");
+	glUniform1i(winWidthLoc, gWindowWidth);
+
+	GLint winHeightLoc = glGetUniformLocation(g_program, "windowHeight");
+	glUniform1i(winHeightLoc, gWindowHeight);
+
 	return;
 
 }
@@ -306,7 +354,9 @@ int _tmain(int argc, _TCHAR* argv[])
 	{
 		printf("init GLEW ok!\n");
 	}
-	initScene(WindowWidth, WindowHeight);
+	gWindowWidth = WindowWidth;
+	gWindowHeight = WindowHeight;
+	initScene(gWindowWidth, gWindowHeight);
 
 	glfwSetWindowSizeCallback(window, resizeGL);
 

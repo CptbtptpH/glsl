@@ -8,6 +8,7 @@ out vec4 fColor;
 
 uniform sampler2D ourTexture1;
 uniform sampler2D ourTexture2;
+uniform sampler2D screenTexture;
 
 void main()
 {
