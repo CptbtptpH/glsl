@@ -1,0 +1,5264 @@
+HouNC1033600baa05ee7209109a7e597c.start fplayback -i on -r off -f 1 -e on -h on -t on -a on -k on -s 1
+tcur 9.5833333333333339
+fps 24
+tset 0 10
+frange 1 240
+unitlength 1
+unitmass 1
+prompt '`strcat(oppwf(), " -> ")`'
+HouNC1033600ba605ee72091043eeba78.variables set -g ACTIVETAKE = 'Main'
+set -g E = '2.7182818284590452354'
+set -g EYE = 'stereo'
+set -g HIP = 'E:/AVariousFile/houdinifile'
+set -g HIPFILE = 'E:/AVariousFile/houdinifile/TheBeatMelody.hipnc'
+set -g HIPNAME = 'TheBeatMelody'
+set -g JOB = 'C:/Users/wanshihui'
+set -g PI = '3.1415926535897932384'
+set -g POSE = 'C:/Users/wanshihui/Documents/houdini18.0/poselib'
+set -g _HIP_SAVEPLATFORM = 'windows-x86_64-cl19.16'
+set -g _HIP_SAVETIME = 'Mon Jun 15 15:17:37 2020'
+set -g _HIP_SAVEVERSION = '18.0.287'
+set -g status = '0'
+HouNC1033600ba405ee720910dba5575b.aliases alias bye 'quit'
+alias cd 'opcf'
+alias cp 'opcp'
+alias h 'history'
+alias hython 'python'
+alias ls 'opls'
+alias matramp 'opramp'
+alias opcd 'opcf'
+alias oppwd 'oppwf'
+alias pwd 'oppwf'
+alias rm 'oprm'
+HouNC1033600ba105ee7209104309e1eb.takeconfig takename -g take
+HouNC1033600ba005ee720910e36d4a3d.hou.session HouNC1033600ba005ee7209108029b1f6.OPlibraries HouNC1033600ba205ee7209106c0e60b2.OPpreferences HouNC1033600ba005ee7209107576638a.OPfallbacks Vop/abs C:/PROGRA~1/SIDEEF~1/HOUDIN~1.287/houdini/otls/OPlibScripted.hda
+Vop/abs otls/OPlibScripted.hda
+Vop/align C:/PROGRA~1/SIDEEF~1/HOUDIN~1.287/houdini/otls/OPlibScripted.hda
+Vop/align otls/OPlibScripted.hda
+Sop/attribdelete C:/PROGRA~1/SIDEEF~1/HOUDIN~1.287/houdini/otls/OPlibSop.hda
+Sop/attribdelete otls/OPlibSop.hda
+Sop/attribwrangle C:/PROGRA~1/SIDEEF~1/HOUDIN~1.287/houdini/otls/OPlibSop.hda
+Sop/attribwrangle otls/OPlibSop.hda
+Sop/color C:/PROGRA~1/SIDEEF~1/HOUDIN~1.287/houdini/otls/OPlibSop.hda
+Sop/color otls/OPlibSop.hda
+Sop/extrudevolume C:/PROGRA~1/SIDEEF~1/HOUDIN~1.287/houdini/otls/OPlibSop.hda
+Sop/extrudevolume otls/OPlibSop.hda
+Vop/floattovec C:/PROGRA~1/SIDEEF~1/HOUDIN~1.287/houdini/otls/OPlibScripted.hda
+Vop/floattovec otls/OPlibScripted.hda
+Vop/geometryvopglobal::2.0 C:/PROGRA~1/SIDEEF~1/HOUDIN~1.287/houdini/otls/OPlibVop.hda
+Vop/geometryvopglobal::2.0 otls/OPlibVop.hda
+Vop/geometryvopoutput C:/PROGRA~1/SIDEEF~1/HOUDIN~1.287/houdini/otls/OPlibVop.hda
+Vop/geometryvopoutput otls/OPlibVop.hda
+Vop/length C:/PROGRA~1/SIDEEF~1/HOUDIN~1.287/houdini/otls/OPlibScripted.hda
+Vop/length otls/OPlibScripted.hda
+Top/localscheduler C:/PROGRA~1/SIDEEF~1/HOUDIN~1.287/houdini/otls/OPlibTop.hda
+Top/localscheduler otls/OPlibTop.hda
+Sop/matchaxis C:/PROGRA~1/SIDEEF~1/HOUDIN~1.287/houdini/otls/OPlibSop.hda
+Sop/matchaxis otls/OPlibSop.hda
+Vop/turbnoise C:/PROGRA~1/SIDEEF~1/HOUDIN~1.287/houdini/otls/OPlibScripted.hda
+Vop/turbnoise otls/OPlibScripted.hda
+Vop/vectofloat C:/PROGRA~1/SIDEEF~1/HOUDIN~1.287/houdini/otls/OPlibScripted.hda
+Vop/vectofloat otls/OPlibScripted.hda
+HouNC1033600ba005ee7209108cfa3cb2.OPdummydefs INDX              
+INDEX_SECTION      :^ç ‘   houdini.hdalibrary  :    ^ç ‘   Vop/abs  :  >^ãEâ   	Vop/align  x  ý^ç   Sop/attribdelete  u  ï^çc   Sop/attribwrangle  d  ©^ç   	Sop/color  9
+  7^çc   Sop/extrudevolume  ID  Ð^ç   Vop/floattovec  [  Ä^ãHh   Vop/geometryvopglobal::2.0  `Ø  ^ãC—   Vop/geometryvopoutput  gÚ  Ÿ^ãC—   
+Vop/length  jy  A^ãGø   Top/localscheduler  oº  ^ã$U   
+Sop/matchaxis  €Ê  ‰^ç   
+Vop/turbnoise  †S  
+O^çi   Vop/vectofloat  ¢  0^ãC©         abs   Absolute   oplib:/Vop/abs?Vop/abs   VOP_abs           Vop   vop   VOPall       *        ^ç ‘        align   Align   oplib:/Vop/align?Vop/align   	VOP_align           Vop   vop   VOPall                ^ç ‘        attribdelete   Attribute Delete   (oplib:/Sop/attribdelete?Sop/attribdelete   SOP_attribdelete           Sop                      ^ç ‘       
+attribwrangle   Attribute Wrangle   *oplib:/Sop/attribwrangle?Sop/attribwrangle   SOP_attribwrangle           Sop                       ^ç ‘       color   Color   oplib:/Sop/color?Sop/color   	SOP_color           Sop                      ^ç ‘       
+extrudevolume   Extrude Volume   *oplib:/Sop/extrudevolume?Sop/extrudevolume   SOP_extrudevolume           Sop                      ^ç ‘          
+floattovec   Float to Vector   $oplib:/Vop/floattovec?Vop/floattovec   VOP_floattovec           Vop   vop   VOPall       *        ^ç ‘        geometryvopglobal::2.0   Geometry VOP Global Parameters   <oplib:/Vop/geometryvopglobal::2.0?Vop/geometryvopglobal::2.0   VOP_geometryvopglobal           Vop               cvex        ^ç ‘       geometryvopoutput   Geometry VOP Output   2oplib:/Vop/geometryvopoutput?Vop/geometryvopoutput   VOP_geometryvopoutput.otl           Vop               cvex       ^ç ‘       length   Length   oplib:/Vop/length?Vop/length   
+VOP_length           Vop   vop   VOPall       *        ^ç ‘        localscheduler   Local Scheduler   ,oplib:/Top/localscheduler?Top/localscheduler   TOP_localscheduler           Top               +subtype=localscheduler pdgtype='scheduler'         ^ç ‘            	matchaxis   
+Match Axis   "oplib:/Sop/matchaxis?Sop/matchaxis   
+SOP_matchaxis           Sop                      ^ç ‘       	turbnoise   Turbulent Noise   "oplib:/Vop/turbnoise?Vop/turbnoise   
+VOP_turbnoise           Vop   vop   VOPall                ^ç ‘        
+vectofloat   Vector to Float   $oplib:/Vop/vectofloat?Vop/vectofloat   VOP_vectofloat           Vop   vop   VOPall       *        ^ç ‘  INDX              DialogScript      ]ÌäÚ/*
+ * PROPRIETARY INFORMATION.  This software is proprietary to
+ * Side Effects Software Inc., and is not to be reproduced,
+ * transmitted, or disclosed in any way without written permission.
+ *
+ * Produced by:
+ *	Side Effects Software Inc
+ *	477 Richmond Street West
+ *	Toronto, Ontario
+ *	Canada   M5V 3E7
+ *	416-504-9876
+ *
+ */
+
+#include <parameter.ds>
+
+{
+    name	"abs"
+    script	"abs"
+    label	"abs"
+
+    outercode {
+	INCLUDE_VOPLIB
+    }
+
+    code {
+	"$abs = vop_abs($val);"
+    }
+
+    input	float	val	"Input Value"
+    output	float	abs	"Absolute Value"
+    signature	"Float"			default	{ }
+    signature	"Integer"		i	{ int int }
+    signature	"2D Vector"		u	{ vector2 vector2 }
+    signature	"3D Vector"		v	{ vector vector }
+    signature	"3D Point"		p	{ point point }
+    signature	"3D Normal"		n	{ normal normal }
+    signature	"RGB Color"		c	{ color color }
+    signature	"4D Vector"		v4	{ vector4 vector4 }
+
+    signature	"Uniform Float"		uf	{ ufloat ufloat }
+    signature	"Uniform 3D Vector"	uv	{ uvector uvector }
+    signature	"Uniform 3D Point"	up	{ upoint upoint }
+    signature	"Uniform 3D Normal"	un	{ unormal unormal }
+    signature	"Uniform RGB Color"	uc	{ ucolor ucolor }
+
+    VOP_FLT_PARM(val,   "Value", 1)
+    VOP_INT_PARM(val_i, "Value", 1)
+    VOP_VEC2_PARM(val_u, "Value", 1, 1)
+    VOP_VEC_PARM(val_v, "Value", 1, 1, 1)
+    VOP_VEC_PARM(val_p, "Value", 1, 1, 1)
+    VOP_VEC_PARM(val_n, "Value", 1, 1, 1)
+    VOP_CLR_PARM(val_c, "Value", 1, 1, 1)
+    VOP_VEC4_PARM(val_v4,"Value", 1, 1, 1, 1)
+    VOP_FLT_PARM(val_uf, "Value", 1)
+    VOP_VEC_PARM(val_uv, "Value", 1, 1, 1)
+    VOP_VEC_PARM(val_up, "Value", 1, 1, 1)
+    VOP_VEC_PARM(val_un, "Value", 1, 1, 1)
+    VOP_CLR_PARM(val_uc, "Value", 1, 1, 1)
+
+    group { name "gv" obsolete 12.0 }
+    group { name "gu" obsolete 12.0 }
+}
+INDX              DialogScript      Ñ]ÌäÚ/*
+ * PROPRIETARY INFORMATION.  This software is proprietary to
+ * Side Effects Software Inc., and is not to be reproduced,
+ * transmitted, or disclosed in any way without written permission.
+ *
+ * Produced by:
+ *	Side Effects Software Inc
+ *	477 Richmond Street West
+ *	Toronto, Ontario
+ *	Canada   M5V 3E7
+ *	416-504-9876
+ *
+ */
+
+#include <parameter.ds>
+
+{
+    name	"align"
+    script	"align"
+    label	"align"
+
+
+    code {
+	"$matx = dihedral($from, $to);"
+    }
+
+    output	matrix3	matx	"Rotation Matrix"
+
+    VOP_VEC_INPUT(from,	"Vector To Rotate From", 1, 0, 0)
+    VOP_VEC_INPUT(to,	"Vector To Rotate To",   0, 1, 0)
+
+    signature	"Matrix 3"		default	{ }
+    signature	"Angle Axis"		v	{ vector vector vector4 }
+
+}
+INDX              Contents       9^çc   DialogScript   9  r]ÌäÃHouNC1033600bba05ee7186308919230fNON_COMMERCIAL_FILE!!! # Dialog script for attribdelete automatically generated
+
+{
+    name	attribdelete
+    script	attribdelete
+    label	"Attribute Delete"
+
+    help {
+	""
+    }
+
+    inputlabel	1	"Geometry to Remove Attributes from"
+    inputlabel	2	"Sub-Network Input #2"
+    inputlabel	3	"Sub-Network Input #3"
+    inputlabel	4	"Sub-Network Input #4"
+
+    parm {
+        name    "ptdel"
+        label   "Point Attributes"
+        type    string
+        default { "" }
+        menutoggle {
+            [ "opmenu -l attribute1 ptdel" ]
+        }
+        range   { 0 1 }
+        parmtag { "autoscope" "0000000000000000" }
+    }
+    parm {
+        name    "vtxdel"
+        label   "Vertex Attributes"
+        type    string
+        default { "" }
+        menutoggle {
+            [ "opmenu -l attribute1 vtxdel" ]
+        }
+        range   { 0 1 }
+        parmtag { "autoscope" "0000000000000000" }
+    }
+    parm {
+        name    "primdel"
+        label   "Primitive Attributes"
+        type    string
+        default { "" }
+        menutoggle {
+            [ "opmenu -l attribute1 primdel" ]
+        }
+        range   { 0 1 }
+        parmtag { "autoscope" "0000000000000000" }
+    }
+    parm {
+        name    "dtldel"
+        label   "Detail Attributes"
+        type    string
+        default { "" }
+        menutoggle {
+            [ "opmenu -l attribute1 dtldel" ]
+        }
+        range   { 0 1 }
+        parmtag { "autoscope" "0000000000000000" }
+    }
+    parm {
+        name    "updatevar"
+        label   "Update Local Variables"
+        type    toggle
+        default { "on" }
+        range   { 0 1 }
+        parmtag { "autoscope" "0000000000000000" }
+    }
+}
+INDX              Contents       9^ç   DialogScript   9  ,]ÌäÆHouNC1033600bba05ee7151408919230fNON_COMMERCIAL_FILE!!! # Dialog script for attribwrangle automatically generated
+
+{
+    name	attribwrangle
+    script	attribwrangle
+    label	"Attribute Wrangle"
+
+    help {
+	""
+    }
+
+    inputlabel	1	"Geometry to Process with Wrangle"
+    inputlabel	2	"Ancillary Input, point(1, ...) to Access"
+    inputlabel	3	"Ancillary Input, point(2, ...) to Access"
+    inputlabel	4	"Ancillary Input, point(3, ...) to Access"
+
+    group {
+        name    "folder0"
+        label   "Code"
+
+        parm {
+            name    "group"
+            label   "Group"
+            type    string
+            default { "" }
+            menutoggle {
+                [ "opmenu -l attribvop1 bindgroup" ]
+            }
+            range   { 0 1 }
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "script_action" "import soputils\nkwargs['geometrytype'] = kwargs['node'].parmTuple('grouptype')\nkwargs['inputindex'] = 0\nsoputils.selectGroupParm(kwargs)" }
+            parmtag { "script_action_help" "Select geometry from an available viewport." }
+            parmtag { "script_action_icon" "BUTTONS_reselect" }
+            bindselector points "Modify Points"
+                "Select the points to affect and press Enter to complete."
+                0 1 0xffffffff 0 grouptype 0
+        }
+        parm {
+            name    "grouptype"
+            label   "Group Type"
+            type    ordinal
+            default { "guess" }
+            menu {
+                "guess"     "Guess from Group"
+                "vertices"  "Vertices"
+                "edges"     "Edges"
+                "points"    "Points"
+                "prims"     "Primitives"
+            }
+            range   { 0 1 }
+            parmtag { "autoscope" "0000000000000000" }
+        }
+        parm {
+            name    "class"
+            label   "Run Over"
+            type    ordinal
+            default { "point" }
+            menu {
+                "detail"    "Detail (only once)"
+                "primitive" "Primitives"
+                "point"     "Points"
+                "vertex"    "Vertices"
+                "number"    "Numbers"
+            }
+            range   { 0 1 }
+            parmtag { "autoscope" "0000000000000000" }
+        }
+        parm {
+            name    "vex_numcount"
+            label   "Number Count"
+            type    integer
+            default { "10" }
+            hidewhen "{ class != number }"
+            range   { 0! 10000 }
+            parmtag { "autoscope" "0000000000000000" }
+        }
+        parm {
+            name    "vex_threadjobsize"
+            label   "Thread Job Size"
+            type    integer
+            default { "1024" }
+            hidewhen "{ class != number }"
+            range   { 1! 10000 }
+            parmtag { "autoscope" "0000000000000000" }
+        }
+        parm {
+            name    "snippet"
+            label   "VEXpression"
+            type    string
+            default { "" }
+            menureplace {
+                [ "import vexpressionmenu" ]
+                [ "" ]
+                [ "return vexpressionmenu.buildSnippetMenu('attribwrangle/snippet')" ]
+                language python
+            }
+            range   { 0 1 }
+            export  all
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "editor" "1" }
+            parmtag { "editorlang" "VEX" }
+            parmtag { "editorlines" "8-30" }
+            parmtag { "script_action" "import vexpressionmenu\n\nnode = kwargs['node']\nparmname = 'snippet'\n\nvexpressionmenu.createSpareParmsFromChCalls(node, parmname)" }
+            parmtag { "script_action_help" "Creates spare parameters for each unique call of ch() " }
+            parmtag { "script_action_icon" "BUTTONS_create_parm_from_ch" }
+        }
+        parm {
+            name    "exportlist"
+            label   "Attributes to Create"
+            type    string
+            default { "*" }
+            range   { 0 1 }
+            parmtag { "autoscope" "0000000000000000" }
+        }
+        parm {
+            name    "vex_strict"
+            label   "Enforce Prototypes"
+            type    toggle
+            default { "off" }
+            range   { 0 1 }
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "script_callback" "" }
+        }
+    }
+
+    group {
+        name    "folder0_1"
+        label   "Bindings"
+
+        parm {
+            name    "autobind"
+            label   "Autobind by Name"
+            type    toggle
+            default { "on" }
+            range   { 0 1 }
+            parmtag { "autoscope" "0000000000000000" }
+        }
+        multiparm {
+            name    "bindings"
+            label    "Number of Bindings"
+            default 0
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "multistartoffset" "1" }
+
+            parm {
+                name    "bindname#"
+                label   "Attribute Name"
+                type    string
+                default { "" }
+                range   { 0 1 }
+            }
+            parm {
+                name    "bindparm#"
+                label   "VEX Parameter"
+                type    string
+                default { "" }
+                range   { 0 1 }
+            }
+        }
+
+        parm {
+            name    "groupautobind"
+            label   "Autobind Groups by Name"
+            type    toggle
+            default { "on" }
+            range   { 0 1 }
+            parmtag { "autoscope" "0000000000000000" }
+        }
+        multiparm {
+            name    "groupbindings"
+            label    "Group Bindings"
+            default 0
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "multistartoffset" "1" }
+
+            parm {
+                name    "bindgroupname#"
+                label   "Group Name"
+                type    string
+                default { "" }
+                range   { 0 1 }
+            }
+            parm {
+                name    "bindgroupparm#"
+                label   "VEX Parameter"
+                type    string
+                default { "" }
+                range   { 0 1 }
+            }
+        }
+
+        parm {
+            name    "vex_cwdpath"
+            label   "Evaluation Node Path"
+            type    oppath
+            default { "." }
+            range   { 0 1 }
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "oprelative" "." }
+        }
+        parm {
+            name    "vex_outputmask"
+            label   "Export Parameters"
+            type    string
+            default { "*" }
+            range   { 0 1 }
+            parmtag { "autoscope" "0000000000000000" }
+        }
+        parm {
+            name    "vex_updatenmls"
+            label   "Update Normals If Displaced"
+            type    toggle
+            default { "off" }
+            range   { 0 1 }
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "script_callback" "" }
+        }
+        parm {
+            name    "vex_matchattrib"
+            label   "Attribute to Match"
+            type    string
+            default { "id" }
+            range   { 0 1 }
+            parmtag { "autoscope" "0000000000000000" }
+        }
+        parm {
+            name    "vex_inplace"
+            label   "Compute Results In Place"
+            type    toggle
+            default { "off" }
+            range   { 0 1 }
+            parmtag { "autoscope" "0000000000000000" }
+        }
+        parm {
+            name    "vex_selectiongroup"
+            label   "Output Selection Group"
+            type    string
+            default { "" }
+            parmtag { "autoscope" "0000000000000000" }
+        }
+        parm {
+            name    "vex_precision"
+            label   "VEX Precision"
+            type    string
+            default { "auto" }
+            menu {
+                "auto"  "Auto"
+                "32"    "32 Bit"
+                "64"    "64 Bit (Experimental)"
+            }
+            parmtag { "autoscope" "0000000000000000" }
+        }
+    }
+
+}
+INDX              Contents       9^çc   DialogScript   9  º]ÌäÃHouNC1033600bba05ee7186308919230fNON_COMMERCIAL_FILE!!! # Dialog script for color automatically generated
+
+{
+    name	color
+    script	color
+    label	Color
+
+    help {
+	""
+    }
+
+    inputlabel	1	"Geometry to Color"
+    inputlabel	2	"Sub-Network Input #2"
+    inputlabel	3	"Sub-Network Input #3"
+    inputlabel	4	"Sub-Network Input #4"
+
+    parm {
+        name    "group"
+        label   "Group"
+        type    string
+        default { "" }
+        menutoggle {
+            [ "opmenu -l constant group" ]
+        }
+        range   { 0 1 }
+        parmtag { "autoscope" "0000000000000000" }
+        parmtag { "script_action" "import soputils\nkwargs['geometrytype'] = kwargs['node'].parmTuple('grouptype')\nkwargs['inputindex'] = 0\nsoputils.selectGroupParm(kwargs)" }
+        parmtag { "script_action_help" "Select geometry from an available viewport." }
+        parmtag { "script_action_icon" "BUTTONS_reselect" }
+        bindselector uveditselect "Assign Colors"
+            "Select the geometry to apply colors to and press Enter to complete"
+            0 1 all 0 grouptype 0
+    }
+    parm {
+        name    "grouptype"
+        label   "Group Type"
+        type    ordinal
+        default { "guess" }
+        menu {
+            "guess"     "Guess from Group"
+            "vertices"  "Vertices"
+            "edges"     "Edges"
+            "points"    "Points"
+            "prims"     "Primitives"
+        }
+        range   { 0 1 }
+        parmtag { "autoscope" "0000" }
+    }
+    parm {
+        name    "deleteallcolorattribs"
+        label   "Delete All Existing Color Attributes"
+        type    toggle
+        default { "0" }
+    }
+    parm {
+        name    "class"
+        label   "Class"
+        type    integer
+        default { "2" }
+        menu {
+            "detail"    "Detail"
+            "primitive" "Primitive"
+            "point"     "Point"
+            "vertex"    "Vertex"
+        }
+        range   { 0 10 }
+        export  all
+        parmtag { "autoscope" "0000" }
+    }
+    parm {
+        name    "colortype"
+        label   "Color Type"
+        type    integer
+        default { "0" }
+        menu {
+            "0" "Constant"
+            "1" "Bounding Box"
+            "2" "Random"
+            "3" "Ramp from Attribute"
+            "4" "Random from Attribute"
+        }
+        range   { 0 10 }
+        export  all
+        parmtag { "autoscope" "0000" }
+    }
+    parm {
+        name    "color"
+        label   "Color"
+        type    color
+        size    3
+        default { "1" "1" "1" }
+        hidewhen "{ colortype != 0 }"
+        range   { 0 1 }
+        export  all
+        parmtag { "autoscope" "0000" }
+    }
+    parm {
+        name    "seed"
+        label   "Seed"
+        type    float
+        default { "0" }
+        hidewhen "{ colortype != 2 colortype != 4 }"
+        range   { 0 10 }
+        parmtag { "autoscope" "0000" }
+    }
+    parm {
+        name    "rampattribute"
+        label   "Attribute"
+        type    string
+        default { "" }
+        menureplace {
+            [ "opmenu -l attribdelete1 ptdel" ]
+        }
+        hidewhen "{ colortype != 3 colortype != 4 }"
+        range   { 0 1 }
+    }
+    parm {
+        name    "ramprange"
+        label   "Range"
+        type    float
+        size    2
+        default { "0" "1" }
+        hidewhen "{ colortype != 3 }"
+        range   { 0 10 }
+    }
+    parm {
+        name    "ramp"
+        label   "Attribute Ramp"
+        type    ramp_rgb
+        default { "2" }
+        hidewhen "{ colortype != 3 }"
+        range   { 1! 10 }
+        parmtag { "autoscope" "0000000000000000" }
+        parmtag { "parmvop" "1" }
+        parmtag { "rampbasis_var" "vecramp_the_basis_strings" }
+        parmtag { "rampbasisdefault" "linear" }
+        parmtag { "rampcolordefault" "1pos ( 0 ) 1c ( 0 0 0 ) 1interp ( linear ) 2pos ( 1 ) 2c ( 1 1 1 ) 2interp ( linear )" }
+        parmtag { "rampcolortype" "rgb" }
+        parmtag { "rampkeys_var" "vecramp_the_key_positions" }
+        parmtag { "rampshowcontrolsdefault" "0" }
+        parmtag { "rampvalues_var" "vecramp_the_key_values" }
+    }
+}
+INDX              Contents       9^ç   DialogScript   9  S]ÌäÄHouNC1033600bba05ee7151408919230fNON_COMMERCIAL_FILE!!! # Dialog script for extrudevolume automatically generated
+
+{
+    name	extrudevolume
+    script	extrude_volume
+    label	"Extrude Volume"
+
+    help {
+	""
+    }
+    bindhandle basenormalx vector "Vector" vx ""
+    bindhandle basenormaly vector "Vector" vy ""
+    bindhandle basenormalz vector "Vector" vz ""
+    bindhandle depth distance "Distance" dist ""
+    bindhandle basenormalx distance "Distance" vx ""
+    bindhandle basenormaly distance "Distance" vy ""
+    bindhandle basenormalz distance "Distance" vz ""
+
+    inputlabel	1	"Polygons to Extrude into a Solid Volume"
+    inputlabel	2	"Sub-Network Input #2"
+    inputlabel	3	"Sub-Network Input #3"
+    inputlabel	4	"Sub-Network Input #4"
+    outputlabel	1	"Extruded Volume"
+    outputlabel	2	"Walled Container for Base"
+
+    parm {
+        name    "depth"
+        label   "Depth"
+        type    float
+        default { "-1" }
+        range   { -10 0 }
+        export  all
+    }
+    parm {
+        name    "basenormal"
+        label   "Base Normal"
+        type    vector
+        size    3
+        default { "0" "1" "0" }
+        range   { -1 1 }
+        export  all
+    }
+    parm {
+        name    "flat"
+        label   "Flatten Base"
+        type    toggle
+        default { "1" }
+        disablewhen "{ depth == 0 }"
+        range   { 0 1 }
+        export  all
+    }
+    parm {
+        name    "labelparm"
+        label   "Second Output"
+        type    label
+        nolabel
+        default { "Base Extension (Second Output)" }
+        range   { 0 1 }
+    }
+    parm {
+        name    "basepadding"
+        label   "Base Padding"
+        type    float
+        default { "0.1" }
+        range   { 0 1 }
+    }
+    parm {
+        name    "baselift"
+        label   "Base Lift"
+        type    float
+        default { "1" }
+        range   { 0 10 }
+    }
+    groupsimple {
+        name    "folder0"
+        label   "Group Creation"
+
+        parm {
+            name    "outputtopgrp"
+            label   "Label"
+            type    toggle
+            nolabel
+            joinnext
+            default { "off" }
+            parmtag { "autoscope" "0000000000000000" }
+        }
+        parm {
+            name    "topgrp"
+            label   "Top Group"
+            type    string
+            default { "extrudeTop" }
+            disablewhen "{ outputtopgrp == 0 }"
+            parmtag { "autoscope" "0000000000000000" }
+        }
+        parm {
+            name    "outputbasegrp"
+            label   "Label"
+            type    toggle
+            nolabel
+            joinnext
+            default { "off" }
+            parmtag { "autoscope" "0000000000000000" }
+        }
+        parm {
+            name    "basegrp"
+            label   "Base Group"
+            type    string
+            default { "extrudeBase" }
+            disablewhen "{ outputbasegrp == 0 }"
+            parmtag { "autoscope" "0000000000000000" }
+        }
+        parm {
+            name    "outputsidegrp"
+            label   "Label"
+            type    toggle
+            nolabel
+            joinnext
+            default { "off" }
+            parmtag { "autoscope" "0000000000000000" }
+        }
+        parm {
+            name    "sidegrp"
+            label   "Side Group"
+            type    string
+            default { "extrudeSide" }
+            disablewhen "{ outputsidegrp == 0 }"
+            parmtag { "autoscope" "0000000000000000" }
+        }
+        parm {
+            name    "outputtopseamgrp"
+            label   "Label"
+            type    toggle
+            nolabel
+            joinnext
+            default { "off" }
+            parmtag { "autoscope" "0000000000000000" }
+        }
+        parm {
+            name    "topseamgrp"
+            label   "Top Boundary Group"
+            type    string
+            default { "extrudeTopSeam" }
+            disablewhen "{ outputtopseamgrp == 0 }"
+            parmtag { "autoscope" "0000000000000000" }
+        }
+        parm {
+            name    "outputbaseseamgrp"
+            label   "Label"
+            type    toggle
+            nolabel
+            joinnext
+            default { "off" }
+            parmtag { "autoscope" "0000000000000000" }
+        }
+        parm {
+            name    "baseseamgrp"
+            label   "Base Boundary Group"
+            type    string
+            default { "extrudeBaseSeam" }
+            disablewhen "{ outputbaseseamgrp == 0 }"
+            parmtag { "autoscope" "0000000000000000" }
+        }
+    }
+
+}
+INDX              DialogScript      ˜]ÌäÚ/*
+ * PROPRIETARY INFORMATION.  This software is proprietary to
+ * Side Effects Software Inc., and is not to be reproduced,
+ * transmitted, or disclosed in any way without written permission.
+ *
+ * Produced by:
+ *	Side Effects Software Inc
+ *	477 Richmond Street West
+ *	Toronto, Ontario
+ *	Canada   M5V 3E7
+ *	416-504-9876
+ *
+ */
+
+#include <parameter.ds>
+
+{
+    name	"floattovec"
+    script	"floattovec"
+    label	"floattovec"
+
+    outercode {
+	INCLUDE_VOPLIB
+    }
+
+    code {
+	"$vec = vop_floattovec($fval1, $fval2, $fval3);"
+    }
+
+    input	float	fval1	"Component 1"
+    input	float	fval2	"Component 2"
+    input	float	fval3	"Component 3"
+    output	vector	vec	"Output Vector"
+
+    VOP_FLT_PARM(fval1, "Component 1", 0)
+    VOP_FLT_PARM(fval2, "Component 2", 0)
+    VOP_FLT_PARM(fval3, "Component 3", 0)
+
+    VOP_FLT_PARM(fval1_uv, "Component 1", 0)
+    VOP_FLT_PARM(fval2_uv, "Component 2", 0)
+    VOP_FLT_PARM(fval3_uv, "Component 3", 0)
+
+    signature	"3D Vector"	default { }
+    signature	"3D Point"	p { float float float point }
+    signature	"3D Normal"	n { float float float normal }
+    signature	"RGB Color"	c { float float float color }
+
+    signature	"Uniform 3D Vector"	uv { ufloat ufloat ufloat uvector }
+    signature	"Uniform 3D Point"	up { ufloat ufloat ufloat upoint }
+    signature	"Uniform 3D Normal"	un { ufloat ufloat ufloat unormal }
+    signature	"Uniform RGB Color"	uc { ufloat ufloat ufloat ucolor }
+}
+INDX              Contents       9^ãC—   DialogScript   9  …TA\_HouNC1033600bba05ee3439708919230fNON_COMMERCIAL_FILE!!! # Dialog script for geometryvopglobal::2.0 automatically generated 10/17/14 14:13:51
+
+{
+    name	geometryvopglobal::2.0
+    script	geometryvopglobal::2.0
+    label	"Geometry VOP Global Parameters"
+
+    output	vector	P	P
+    output	vector	v	Velocity
+    output	vector	force	Force
+    output	float	age	Age
+    output	float	life	Life
+    output	int	id	Id
+    output	vector	Cd	Cd
+    output	vector	uv	UV
+    output	vector	N	N
+    output	float	Time	Time
+    output	float	TimeInc	"Time Inc"
+    output	float	Frame	Frame
+    output	int	ptnum	"Point Number"
+    output	int	primnum	"Primitive Number"
+    output	int	vtxnum	"Vertex Number"
+    output	int	numpt	"Number of Points"
+    output	int	numprim	"Number of Prims"
+    output	int	numvtx	"Number of Vertices"
+    output	string	OpInput1	"First Input"
+    output	string	OpInput2	"Second Input"
+    output	string	OpInput3	"Third Input"
+    output	string	OpInput4	"Fourth Input"
+    signature	"Default Inputs"	default	{ vector vector vector float float int vector vector vector float float float int int int int int int string string string string }
+
+    outputoverrides	default
+    {
+	___begin	auto
+			(0,0,0)
+	___begin	auto
+			(0,0,0)
+	___begin	auto
+			(0,0,0)
+	___begin	auto
+			(0)
+	___begin	auto
+			(0)
+	___begin	auto
+			(0)
+	___begin	auto
+			(0,0,0)
+	___begin	auto
+			(0,0,0)
+	___begin	auto
+			(0,0,0)
+	___begin	auto
+			(0)
+	___begin	auto
+			(0)
+	___begin	auto
+			(0)
+	___begin	auto
+			(0)
+	___begin	auto
+			(0)
+	___begin	auto
+			(0)
+	___begin	auto
+			(0)
+	___begin	auto
+			(0)
+	___begin	auto
+			(0)
+	___begin	auto
+			("")
+	___begin	auto
+			("")
+	___begin	auto
+			("")
+	___begin	auto
+			("")
+    }
+
+    help {
+	""
+    }
+
+}
+INDX              Contents       9^ãC—   DialogScript   9  "Q”å!HouNC1033600bba05ee3439708919230fNON_COMMERCIAL_FILE!!! # Dialog script for geometryvopoutput automatically generated 05/16/13 09:54:41
+
+{
+    name	geometryvopoutput
+    script	geometryvopoutput
+    label	"Geometry VOP Output"
+
+    input	vector	P	P
+    input	vector	v	Velocity
+    input	vector	force	Force
+    input	vector	Cd	Color
+    input	vector	N	Normal
+    inputflags	P	0
+    inputflags	v	0
+    inputflags	force	0
+    inputflags	Cd	0
+    inputflags	N	0
+    signature	"Default Inputs"	default	{ vector vector vector vector vector }
+
+    outputoverrides	default
+    {
+    }
+
+    help {
+	""
+    }
+
+}
+INDX              DialogScript      ]ÌäÚ/*
+ * PROPRIETARY INFORMATION.  This software is proprietary to
+ * Side Effects Software Inc., and is not to be reproduced,
+ * transmitted, or disclosed in any way without written permission.
+ *
+ * Produced by:
+ *	Side Effects Software Inc
+ *	477 Richmond Street West
+ *	Toronto, Ontario
+ *	Canada   M5V 3E7
+ *	416-504-9876
+ *
+ */
+
+#include <parameter.ds>
+
+{
+    name	"length"
+    script	"length"
+    label	"length"
+
+
+    code {
+	"$len = length($vec);"
+    }
+
+    input	vector	vec	"Vector"
+    output	float	len	"Vector Length"
+    signature	"3D Vector"		default	{ }
+    signature	"2D Vector"		u	{ vector2 float }
+    signature	"3D Point"		p	{ point float }
+    signature	"3D Normal"		n	{ normal float }
+    signature	"4D Vector"		v4	{ vector4 float }
+    signature	"Uniform 3D Vector"	uv	{ uvector ufloat }
+    signature	"Uniform 3D Point"	up	{ upoint ufloat }
+    signature	"Uniform 3D Normal"	un	{ unormal float }
+
+    VOP_VEC_PARM(vec,		"Value", 1, 1, 1)
+    VOP_VEC2_PARM(vec_u,	"Value", 1, 1)
+    VOP_VEC_PARM(vec_p,		"Value", 1, 1, 1)
+    VOP_VEC_PARM(vec_n,		"Value", 1, 1, 1)
+    VOP_VEC4_PARM(vec_v4,	"Value", 1, 1, 1, 1)
+    VOP_VEC_PARM(vec_uv,	"Value", 1, 1, 1)
+    VOP_VEC_PARM(vec_up,	"Value", 1, 1, 1)
+    VOP_VEC_PARM(vec_un,	"Value", 1, 1, 1)
+
+    group { name "g0" obsolete 12.0 }
+}
+INDX              DialogScript      ä]ÌäÌ# Dialog script for localscheduler automatically generated
+
+{
+    name	localscheduler
+    script	localscheduler
+    label	"Local Scheduler"
+
+    help {
+	""
+    }
+
+    group {
+        name    "folder0"
+        label   "Scheduler"
+
+        parm {
+            name    "pdg_workingdir"
+            label   "Working Directory"
+            type    directory
+            default { "$HIP" }
+        }
+        groupsimple {
+            name    "folder1"
+            label   "Temp Directory"
+
+            parm {
+                name    "tempdirmenu"
+                label   "Location"
+                type    ordinal
+                default { "1" }
+                menu {
+                    "0" "Working Directory"
+                    "1" "Houdini Temp"
+                    "2" "Custom"
+                }
+            }
+            parm {
+                name    "tempdirappendpid"
+                label   "Append PID"
+                type    toggle
+                default { "1" }
+            }
+            parm {
+                name    "tempdircustom"
+                label   "Custom"
+                type    directory
+                default { "$HOUDINI_TEMP_DIR/$HIPNAME/pdgtemp" }
+                disablewhen "{ tempdirmenu != 2 }"
+            }
+        }
+
+        parm {
+            name    "maxprocsmenu"
+            label   "Total Slots"
+            type    ordinal
+            joinnext
+            default { "0" }
+            menu usetokenvalue {
+                "0"     "Equal to 1/4 of Total CPU Count"
+                "-1"    "Equal to CPU Count Less One"
+                "1"     "Custom Slot Count"
+            }
+        }
+        parm {
+            name    "maxprocs"
+            label   "maxprocs"
+            type    integer
+            nolabel
+            default { "1" }
+            hidewhen "{ maxprocsmenu != 1 }"
+            range   { -128 128 }
+            parmtag { "autoscope" "0000000000000000" }
+        }
+        parm {
+            name    "socketcallbacks"
+            label   "Use Socket callbacks instead of stdout tokens"
+            type    integer
+            invisible
+            default { "1" }
+            range   { 0 10 }
+        }
+    }
+
+    group {
+        name    "folder0_1"
+        label   "Job Parms"
+
+        parm {
+            name    "local_single"
+            label   "Single"
+            type    toggle
+            default { "0" }
+            range   { 0 10 }
+            parmtag { "pdg::scheduler" "" }
+        }
+        parm {
+            name    "local_is_CPU_number_set"
+            label   "local_is_CPU_number_set"
+            type    toggle
+            nolabel
+            joinnext
+            default { "0" }
+            range   { 0 1 }
+            parmtag { "pdg::scheduler" "" }
+        }
+        parm {
+            name    "local_CPUs_to_use"
+            label   "Slots Per Work Item"
+            type    integer
+            default { "1" }
+            disablewhen "{ local_is_CPU_number_set == 0 }"
+            range   { 1! 64 }
+            parmtag { "pdg::scheduler" "" }
+        }
+        parm {
+            name    "local_usehoudinimaxthreads"
+            label   "local_usehoudinimaxthreads"
+            type    toggle
+            nolabel
+            joinnext
+            default { "0" }
+            parmtag { "pdg::scheduler" "" }
+        }
+        parm {
+            name    "local_houdinimaxthreads"
+            label   "Houdini Max Threads"
+            type    integer
+            default { "0" }
+            disablewhen "{ local_usehoudinimaxthreads == 0 }"
+            range   { 0 10 }
+            parmtag { "pdg::scheduler" "" }
+        }
+        multiparm {
+            name    "local_envmulti"
+            label    "Task Environment"
+            parmtag { "pdg::nocopy" "" }
+            parmtag { "script_callback" "" }
+            parmtag { "script_callback_language" "hscript" }
+
+            parm {
+                name    "local_envname#"
+                label   "Name"
+                type    string
+                joinnext
+                default { "" }
+                parmtag { "pdg::scheduler" "" }
+            }
+            parm {
+                name    "local_envvalue#"
+                label   "Value"
+                type    string
+                default { "" }
+                parmtag { "pdg::scheduler" "" }
+            }
+        }
+
+    }
+
+}
+INDX              Contents       9^ç   DialogScript   9  U­\üHouNC1033600bba05ee7151408919230fNON_COMMERCIAL_FILE!!! # Dialog script for matchaxis automatically generated 07/20/15 16:41:32
+
+{
+    name	matchaxis
+    script	match_axis
+    label	"Match Axis"
+
+    help {
+	""
+    }
+    bindhandle to1 vector "Vector" vx ""
+    bindhandle to2 vector "Vector" vy ""
+    bindhandle to3 vector "Vector" vz ""
+
+    inputlabel	1	"Geometry to Resize and Align"
+    inputlabel	2	"Sub-Network Input #2"
+    inputlabel	3	"Sub-Network Input #3"
+    inputlabel	4	"Sub-Network Input #4"
+
+    parm {
+	name	"group"
+	label	"Point Group"
+	type	string
+	default	{ "" }
+	menutoggle	{
+	    [ "opmenu -l attribvop1 bindgroup" ]
+	}
+	range	{ 0 1 }
+	export	none
+	parmtag	{ "autoscope" "0000000000000000" }
+	parmtag	{ "script_action" "import soputils\nkwargs['geometrytype'] = hou.geometryType.Points\nkwargs['inputindex'] = 0\nsoputils.selectGroupParm(kwargs)" }
+	parmtag	{ "script_action_help" "Select geometry from an available viewport." }
+	parmtag	{ "script_action_icon" "BUTTONS_reselect" }
+    }
+    parm {
+	name	"from"
+	label	"From Vector"
+	type	float
+	size	3
+	default	{ "0" "1" "0" }
+	range	{ 0 10 }
+	export	none
+	parmtag	{ "autoscope" "0000000000000000" }
+    }
+    parm {
+	name	"to"
+	label	"To Vector"
+	type	float
+	size	3
+	default	{ "0" "1" "0" }
+	range	{ 0 10 }
+	export	none
+	parmtag	{ "autoscope" "0000000000000000" }
+    }
+}
+INDX              DialogScript      
+#]ÌäÚ/*
+ * PROPRIETARY INFORMATION.  This software is proprietary to
+ * Side Effects Software Inc., and is not to be reproduced,
+ * transmitted, or disclosed in any way without written permission.
+ *
+ * Produced by:
+ *	Side Effects Software Inc
+ *	477 Richmond Street West
+ *	Toronto, Ontario
+ *	Canada   M5V 3E7
+ *	416-504-9876
+ *
+ */
+
+#include <parameter.ds>
+
+{
+    name	"turbnoise"
+    script	"turbnoise"
+    label	"turbnoise"
+
+
+    outercode {
+	"#include <voplib.h>"
+    }
+
+    code {
+	"if ($type == \"onoise\")"
+	"{"
+	"    $noise = onoise($pos*$freq - $offset, $turb, $rough, $atten);"
+	"    $noise *= $amp;"
+	"}"
+	"else if ($type == \"snoise\")"
+	"{"
+	"    $noise = snoise($pos*$freq - $offset, $turb, $rough, $atten);"
+	"    $noise *= $amp;"
+	"}"
+	"else if ($type == \"anoise\")"
+	"{"
+	"    $noise = anoise($pos*$freq - $offset, $turb, $rough, $atten);"
+	"    $noise *= $amp;"
+	"}"
+	"else if ($type == \"correctnoise\")"
+	"{"
+	"#if !strcmp($signature, \"default\")"
+	"   $noise = vop_correctperlinNoiseVF($pos * $freq - $offset, $turb, $amp, $rough, $atten);"
+	"#else"
+	"   $noise = vop_correctperlinNoiseVV($pos * $freq - $offset, $turb, $amp, $rough, $atten);"
+	"#endif"
+	"}"
+	"else if ($type == \"xnoise\")"
+	"{"
+	"#if !strcmp($signature, \"default\")"
+	"   $noise = vop_simplexNoiseVF($pos * $freq - $offset, $turb, $amp, $rough, $atten);"
+	"#else"
+	"   $noise = vop_simplexNoiseVV($pos * $freq - $offset, $turb, $amp, $rough, $atten);"
+	"#endif"
+	"}"
+	"else"
+	"{"
+	"#if !strcmp($signature, \"default\")"
+	"   $noise = vop_perlinNoiseVF($pos * $freq - $offset, $turb, $amp, $rough, $atten);"
+	"#else"
+	"   $noise = vop_perlinNoiseVV($pos * $freq - $offset, $turb, $amp, $rough, $atten);"
+	"#endif"
+	"}"
+    }
+
+    input	string	type	"Noise Type"
+    parm {
+        name    type
+        label   "Noise Type"
+        type    string
+	menu	{
+	    "pnoise"	"Perlin Noise"
+	    "onoise"	"Original Perlin Noise"
+	    "snoise"	"Sparse Convolution Noise"
+	    "anoise"	"Alligator Noise"
+	    "xnoise"	"Simplex Noise"
+	    "correctnoise"	"Zero Centered Perlin Noise"
+	}
+        default { "anoise" }
+    }
+    VOP_VEC_INPUT  (	pos,	"Position",	0, 0, 0)
+    VOP_VEC_INPUT  (	freq,	"Frequency",	1, 1, 1)
+    VOP_VEC_INPUT  (	offset,	"Offset",	0, 0, 0)
+    VOP_FLT_INPUT_R(	amp,	"Amplitude",	1, -1, 1)
+    VOP_FLT_INPUT  (	rough,	"Roughness",	.5)
+    VOP_FLT_INPUT  (	atten,	"Attenuation",	1)
+    VOP_INT_INPUT_R(	turb,	"Turbulence",	5, 0, 10)
+    output	float	noise	"Noise"
+
+    signature	"1D Noise"	default	{ }
+    signature	"3D Noise"	v	{ string vector vector vector float float float int vector }
+
+}
+INDX              DialogScript      ]ÌäÚ/*
+ * PROPRIETARY INFORMATION.  This software is proprietary to
+ * Side Effects Software Inc., and is not to be reproduced,
+ * transmitted, or disclosed in any way without written permission.
+ *
+ * Produced by:
+ *	Side Effects Software Inc
+ *	477 Richmond Street West
+ *	Toronto, Ontario
+ *	Canada   M5V 3E7
+ *	416-504-9876
+ *
+ */
+
+#include <parameter.ds>
+
+{
+    name	"vectofloat"
+    script	"vectofloat"
+    label	"vectofloat"
+
+    outercode {
+	INCLUDE_VOPLIB
+    }
+
+    code {
+	"vop_vectofloat($vec, $fval1, $fval2, $fval3);"
+    }
+
+    input	vector	vec	"Input Vector"
+    output	float	fval1	"Component 1"
+    output	float	fval2	"Component 2"
+    output	float	fval3	"Component 3"
+
+    VOP_VEC_PARM(vec, "Value",   0, 0, 0)
+    VOP_VEC_PARM(vec_p, "Value",  0, 0, 0)
+    VOP_VEC_PARM(vec_n, "Value", 0, 0, 0)
+    VOP_CLR_PARM(vec_c, "Value",  0, 0, 0)
+
+    VOP_VEC_PARM(vec_uv, "Value", 0, 0, 0)
+    VOP_VEC_PARM(vec_up, "Value",  0, 0, 0)
+    VOP_VEC_PARM(vec_un, "Value", 0, 0, 0)
+    VOP_CLR_PARM(vec_uc, "Value",  0, 0, 0)
+
+    signature	"3D Vector"	default	{ vector float float float }
+    signature	"3D Point"	p	{ point float float float }
+    signature	"3D Normal"	n	{ normal float float float }
+    signature	"RGB Color"	c	{ color float float float }
+
+    signature	"Uniform 3D Vector"	uv	{ uvector ufloat ufloat ufloat }
+    signature	"Uniform 3D Point"	up	{ upoint ufloat ufloat ufloat }
+    signature	"Uniform 3D Normal"	un	{ unormal ufloat ufloat ufloat }
+    signature	"Uniform RGB Color"	uc	{ ucolor ufloat ufloat ufloat }
+}
+HouNC1033600bbd05ee72091093af9ae7expression.func # 0 bytes
+HouNC1033600ba505ee7209103897b9e1obj.def comment ""
+position 0 0
+connectornextid 0
+flags =  lock off model off template off footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
+outputsNamed3
+{
+}
+inputsNamed3
+{
+}
+inputs
+{
+}
+stat
+{
+  create 1591944261
+  modify 1591949535
+  author wanshihui@cnshaw1892.virtuosgames.com
+  access 0777
+}
+color UT_Color RGB 0.8 0.8 0.8 
+delscript ""
+exprlanguage hscript
+end
+HouNC1033600ba405ee72091029ff291eobj.parm {
+version 0.8
+}
+HouNC1033600ba005ee7209101274efaaobj.userdata     
+___Version___    18.0.287HouNC1033600ba205ee720910b51e6721obj/grid1.init type = geo
+matchesdef = 0
+HouNC1033600ba305ee72091012dc2e8bobj/grid1.def objflags objflags =  origin off
+pretransform UT_DMatrix4 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1
+comment ""
+position -1.03405 1.27857
+connectornextid 0
+flags =  lock off model off template off footprint off xray off bypass off display on render off highlight off unload off savedata off compress on colordefault on exposed on selectable on
+outputsNamed3
+{
+}
+inputsNamed3
+{
+}
+inputs
+{
+}
+stat
+{
+  create 1591949535
+  modify 1592205362
+  author wanshihui@cnshaw1892.virtuosgames.com
+  access 0777
+}
+color UT_Color RGB 0.8 0.8 0.8 
+delscript ""
+exprlanguage hscript
+end
+HouNC1033600bba05ee72091061dc5158obj/grid1.spareparmdef     group {
+        name    "stdswitcher4"
+        label   "Transform"
+
+        parm {
+            name    "xOrd"
+            baseparm
+            label   "Transform Order"
+            joinnext
+            export  none
+        }
+        parm {
+            name    "rOrd"
+            baseparm
+            label   "Rotate Order"
+            nolabel
+            export  none
+        }
+        parm {
+            name    "t"
+            baseparm
+            label   "Translate"
+            export  all
+        }
+        parm {
+            name    "r"
+            baseparm
+            label   "Rotate"
+            export  all
+        }
+        parm {
+            name    "s"
+            baseparm
+            label   "Scale"
+            export  none
+        }
+        parm {
+            name    "p"
+            baseparm
+            label   "Pivot Translate"
+            export  none
+        }
+        parm {
+            name    "pr"
+            baseparm
+            label   "Pivot Rotate"
+            export  none
+        }
+        parm {
+            name    "scale"
+            baseparm
+            label   "Uniform Scale"
+            export  none
+        }
+        parm {
+            name    "pre_xform"
+            baseparm
+            label   "Modify Pre-Transform"
+            export  none
+        }
+        parm {
+            name    "keeppos"
+            baseparm
+            label   "Keep Position When Parenting"
+            export  none
+        }
+        parm {
+            name    "childcomp"
+            baseparm
+            label   "Child Compensation"
+            export  none
+        }
+        parm {
+            name    "constraints_on"
+            baseparm
+            label   "Enable Constraints"
+            export  none
+        }
+        parm {
+            name    "constraints_path"
+            baseparm
+            label   "Constraints"
+            export  none
+        }
+        parm {
+            name    "lookatpath"
+            baseparm
+            label   "Look At"
+            invisible
+            export  none
+        }
+        parm {
+            name    "lookupobjpath"
+            baseparm
+            label   "Look Up Object"
+            invisible
+            export  none
+        }
+        parm {
+            name    "lookup"
+            baseparm
+            label   "Look At Up Vector"
+            invisible
+            export  none
+        }
+        parm {
+            name    "pathobjpath"
+            baseparm
+            label   "Path Object"
+            invisible
+            export  none
+        }
+        parm {
+            name    "roll"
+            baseparm
+            label   "Roll"
+            invisible
+            export  none
+        }
+        parm {
+            name    "pos"
+            baseparm
+            label   "Position"
+            invisible
+            export  none
+        }
+        parm {
+            name    "uparmtype"
+            baseparm
+            label   "Parameterization"
+            invisible
+            export  none
+        }
+        parm {
+            name    "pathorient"
+            baseparm
+            label   "Orient Along Path"
+            invisible
+            export  none
+        }
+        parm {
+            name    "up"
+            baseparm
+            label   "Orient Up Vector"
+            invisible
+            export  none
+        }
+        parm {
+            name    "bank"
+            baseparm
+            label   "Auto-Bank factor"
+            invisible
+            export  none
+        }
+    }
+
+    group {
+        name    "stdswitcher4_1"
+        label   "Render"
+
+        parm {
+            name    "shop_materialpath"
+            baseparm
+            label   "Material"
+            export  none
+        }
+        parm {
+            name    "shop_materialopts"
+            baseparm
+            label   "Options"
+            invisible
+            export  none
+        }
+        parm {
+            name    "tdisplay"
+            baseparm
+            label   "Display"
+            joinnext
+            export  none
+        }
+        parm {
+            name    "display"
+            baseparm
+            label   "Display"
+            export  none
+        }
+        parm {
+            name    "viewportlod"
+            label   "Display As"
+            type    ordinal
+            default { "full" }
+            help    "Choose how the object's geometry should be rendered in the viewport"
+            menu {
+                "full"      "Full Geometry"
+                "points"    "Point Cloud"
+                "box"       "Bounding Box"
+                "centroid"  "Centroid"
+                "hidden"    "Hidden"
+                "subd"      "Subdivision Surface / Curves"
+            }
+            parmtag { "spare_category" "Render" }
+        }
+        parm {
+            name    "vm_rendervisibility"
+            label   "Render Visibility"
+            type    string
+            default { "*" }
+            menureplace {
+                "*"                             "Visible to all"
+                "primary"                       "Visible only to primary rays"
+                "primary|shadow"                "Visible only to primary and shadow rays"
+                "-primary"                      "Invisible to primary rays (Phantom)"
+                "-diffuse"                      "Invisible to diffuse rays"
+                "-diffuse&-reflect&-refract"    "Invisible to secondary rays"
+                ""                              "Invisible (Unrenderable)"
+            }
+            parmtag { "mantra_class" "object" }
+            parmtag { "mantra_name" "rendervisibility" }
+            parmtag { "spare_category" "Render" }
+        }
+        parm {
+            name    "vm_rendersubd"
+            label   "Render Polygons As Subdivision (Mantra)"
+            type    toggle
+            default { "0" }
+            parmtag { "mantra_class" "object" }
+            parmtag { "mantra_name" "rendersubd" }
+            parmtag { "spare_category" "Geometry" }
+        }
+        parm {
+            name    "vm_subdstyle"
+            label   "Subdivision Style"
+            type    string
+            default { "mantra_catclark" }
+            hidewhen "{ vm_rendersubd == 0 }"
+            menu {
+                "mantra_catclark"   "Mantra Catmull-Clark"
+                "osd_catclark"      "OpenSubdiv Catmull-Clark"
+            }
+            parmtag { "mantra_class" "object" }
+            parmtag { "mantra_name" "subdstyle" }
+            parmtag { "spare_category" "Geometry" }
+        }
+        parm {
+            name    "vm_subdgroup"
+            label   "Subdivision Group"
+            type    string
+            default { "" }
+            hidewhen "{ vm_rendersubd == 0 }"
+            parmtag { "mantra_class" "object" }
+            parmtag { "mantra_name" "subdgroup" }
+            parmtag { "spare_category" "Geometry" }
+        }
+        parm {
+            name    "vm_osd_quality"
+            label   "Open Subdiv Quality"
+            type    float
+            default { "1" }
+            hidewhen "{ vm_rendersubd == 0 vm_subdstyle != osd_catclark }"
+            range   { 0 10 }
+            parmtag { "mantra_class" "object" }
+            parmtag { "mantra_name" "osd_quality" }
+            parmtag { "spare_category" "Geometry" }
+        }
+        parm {
+            name    "vm_osd_vtxinterp"
+            label   "OSD Vtx Interp"
+            type    integer
+            default { "2" }
+            hidewhen "{ vm_rendersubd == 0 vm_subdstyle != osd_catclark }"
+            menu {
+                "0" "No vertex interpolation"
+                "1" "Edges only"
+                "2" "Edges and Corners"
+            }
+            range   { 0 10 }
+            parmtag { "mantra_class" "object" }
+            parmtag { "mantra_name" "osd_vtxinterp" }
+            parmtag { "spare_category" "Geometry" }
+        }
+        parm {
+            name    "vm_osd_fvarinterp"
+            label   "OSD FVar Interp"
+            type    integer
+            default { "4" }
+            hidewhen "{ vm_rendersubd == 0 vm_subdstyle != osd_catclark }"
+            menu {
+                "0" "Smooth everywhere"
+                "1" "Sharpen corners only"
+                "2" "Sharpen edges and corners"
+                "3" "Sharpen edges and propagated corners"
+                "4" "Sharpen all boundaries"
+                "5" "Bilinear interpolation"
+            }
+            range   { 0 10 }
+            parmtag { "mantra_class" "object" }
+            parmtag { "mantra_name" "osd_fvarinterp" }
+            parmtag { "spare_category" "Geometry" }
+        }
+        group {
+            name    "folder0"
+            label   "Shading"
+
+            parm {
+                name    "categories"
+                label   "Categories"
+                type    string
+                default { "" }
+                help    "A list of tags which can be used to select the object"
+                parmtag { "spare_category" "Shading" }
+            }
+            parm {
+                name    "reflectmask"
+                label   "Reflection Mask"
+                type    oplist
+                default { "*" }
+                help    "Objects that will be reflected on this object."
+                parmtag { "opexpand" "1" }
+                parmtag { "opfilter" "!!OBJ/GEOMETRY!!" }
+                parmtag { "oprelative" "/obj" }
+                parmtag { "spare_category" "Shading" }
+            }
+            parm {
+                name    "refractmask"
+                label   "Refraction Mask"
+                type    oplist
+                default { "*" }
+                help    "Objects that will be refracted on this object."
+                parmtag { "opexpand" "1" }
+                parmtag { "opfilter" "!!OBJ/GEOMETRY!!" }
+                parmtag { "oprelative" "/obj" }
+                parmtag { "spare_category" "Shading" }
+            }
+            parm {
+                name    "lightmask"
+                label   "Light Mask"
+                type    oplist
+                default { "*" }
+                help    "Lights that illuminate this object."
+                parmtag { "opexpand" "1" }
+                parmtag { "opfilter" "!!OBJ/LIGHT!!" }
+                parmtag { "oprelative" "/obj" }
+                parmtag { "spare_category" "Shading" }
+            }
+            parm {
+                name    "lightcategories"
+                label   "Light Selection"
+                type    string
+                default { "*" }
+                parmtag { "spare_category" "Shading" }
+            }
+            parm {
+                name    "vm_lpetag"
+                label   "LPE Tag"
+                type    string
+                default { "" }
+                parmtag { "mantra_class" "object" }
+                parmtag { "mantra_name" "lpetag" }
+                parmtag { "spare_category" "Shading" }
+            }
+            parm {
+                name    "vm_volumefilter"
+                label   "Volume Filter"
+                type    string
+                default { "box" }
+                menu {
+                    "box"       "Box Filter"
+                    "gaussian"  "Gaussian"
+                    "bartlett"  "Bartlett (triangle)"
+                    "catrom"    "Catmull-Rom"
+                    "hanning"   "Hanning"
+                    "blackman"  "Blackman"
+                    "sinc"      "Sinc (sharpening)"
+                }
+                parmtag { "mantra_class" "object" }
+                parmtag { "mantra_name" "filter" }
+                parmtag { "spare_category" "Shading" }
+            }
+            parm {
+                name    "vm_volumefilterwidth"
+                label   "Volume Filter Width"
+                type    float
+                default { "1" }
+                range   { 0.001 5 }
+                parmtag { "mantra_class" "object" }
+                parmtag { "mantra_name" "filterwidth" }
+                parmtag { "spare_category" "Shading" }
+            }
+            parm {
+                name    "vm_matte"
+                label   "Matte shading"
+                type    toggle
+                default { "0" }
+                parmtag { "mantra_class" "object" }
+                parmtag { "mantra_name" "matte" }
+                parmtag { "spare_category" "Shading" }
+            }
+            parm {
+                name    "vm_rayshade"
+                label   "Raytrace Shading"
+                type    toggle
+                default { "0" }
+                parmtag { "mantra_class" "object" }
+                parmtag { "mantra_name" "rayshade" }
+                parmtag { "spare_category" "Shading" }
+            }
+        }
+
+        group {
+            name    "folder0_1"
+            label   "Sampling"
+
+            parm {
+                name    "geo_velocityblur"
+                label   "Geometry Velocity Blur"
+                type    ordinal
+                default { "off" }
+                disablewhen "{ allowmotionblur == 0 }"
+                menu {
+                    "off"       "No Velocity Blur"
+                    "on"        "Velocity Blur"
+                    "accelblur" "Acceleration Blur"
+                }
+            }
+            parm {
+                name    "geo_accelattribute"
+                label   "Acceleration Attribute"
+                type    string
+                default { "accel" }
+                hidewhen "{ geo_velocityblur != accelblur }"
+                parmtag { "spare_category" "Sampling" }
+            }
+        }
+
+        group {
+            name    "folder0_2"
+            label   "Dicing"
+
+            parm {
+                name    "vm_shadingquality"
+                label   "Shading Quality"
+                type    float
+                default { "1" }
+                range   { 0 10 }
+                parmtag { "mantra_class" "object" }
+                parmtag { "mantra_name" "shadingquality" }
+                parmtag { "spare_category" "Dicing" }
+            }
+            parm {
+                name    "vm_flatness"
+                label   "Dicing Flatness"
+                type    float
+                default { "0.05" }
+                range   { 0 1 }
+                parmtag { "mantra_class" "object" }
+                parmtag { "mantra_name" "flatness" }
+                parmtag { "spare_category" "Dicing" }
+            }
+            parm {
+                name    "vm_raypredice"
+                label   "Ray Predicing"
+                type    integer
+                default { "0" }
+                menu {
+                    "0" "Disable Predicing"
+                    "1" "Full Predicing"
+                    "2" "Precompute Bounds"
+                }
+                range   { 0 10 }
+                parmtag { "mantra_class" "object" }
+                parmtag { "mantra_name" "raypredice" }
+                parmtag { "spare_category" "Dicing" }
+            }
+            parm {
+                name    "vm_curvesurface"
+                label   "Shade Curves As Surfaces"
+                type    toggle
+                default { "0" }
+                parmtag { "mantra_class" "object" }
+                parmtag { "mantra_name" "curvesurface" }
+                parmtag { "spare_category" "Dicing" }
+            }
+        }
+
+        group {
+            name    "folder0_3"
+            label   "Geometry"
+
+            parm {
+                name    "vm_rmbackface"
+                label   "Backface Removal"
+                type    toggle
+                default { "0" }
+                parmtag { "mantra_class" "object" }
+                parmtag { "mantra_name" "rmbackface" }
+                parmtag { "spare_category" "Geometry" }
+            }
+            parm {
+                name    "shop_geometrypath"
+                label   "Procedural Shader"
+                type    oppath
+                default { "" }
+                parmtag { "opfilter" "!!SHOP/GEOMETRY!!" }
+                parmtag { "oprelative" "." }
+                parmtag { "spare_category" "Geometry" }
+            }
+            parm {
+                name    "vm_forcegeometry"
+                label   "Force Procedural Geometry Output"
+                type    toggle
+                default { "1" }
+                parmtag { "spare_category" "Geometry" }
+            }
+            parm {
+                name    "vm_rendersubdcurves"
+                label   "Render Polygon Curves As Subdivision (Mantra)"
+                type    toggle
+                default { "0" }
+                parmtag { "mantra_class" "object" }
+                parmtag { "mantra_name" "rendersubdcurves" }
+                parmtag { "spare_category" "Geometry" }
+            }
+            parm {
+                name    "vm_renderpoints"
+                label   "Render As Points (Mantra)"
+                type    integer
+                default { "2" }
+                menu {
+                    "0" "No Point Rendering"
+                    "1" "Render Only Points"
+                    "2" "Render Unconnected Points"
+                }
+                range   { 0 10 }
+                parmtag { "mantra_class" "object" }
+                parmtag { "mantra_name" "renderpoints" }
+                parmtag { "spare_category" "Geometry" }
+            }
+            parm {
+                name    "vm_renderpointsas"
+                label   "Render Points As (Mantra)"
+                type    integer
+                default { "0" }
+                disablewhen "{ vm_renderpoints == 0 }"
+                menu {
+                    "0" "Spheres"
+                    "1" "Circles"
+                }
+                range   { 0 10 }
+                parmtag { "mantra_class" "object" }
+                parmtag { "mantra_name" "renderpointsas" }
+                parmtag { "spare_category" "Geometry" }
+            }
+            parm {
+                name    "vm_usenforpoints"
+                label   "Use N For Point Rendering"
+                type    toggle
+                default { "0" }
+                disablewhen "{ vm_renderpoints == 0 }"
+                parmtag { "mantra_class" "object" }
+                parmtag { "mantra_name" "usenforpoints" }
+                parmtag { "spare_category" "Geometry" }
+            }
+            parm {
+                name    "vm_pointscale"
+                label   "Point Scale"
+                type    float
+                default { "1" }
+                disablewhen "{ vm_renderpoints == 0 }"
+                range   { 0! 10 }
+                parmtag { "mantra_class" "object" }
+                parmtag { "mantra_name" "pointscale" }
+                parmtag { "spare_category" "Geometry" }
+            }
+            parm {
+                name    "vm_pscalediameter"
+                label   "Treat Point Scale as Diameter Instead of Radius"
+                type    toggle
+                default { "0" }
+                parmtag { "mantra_class" "object" }
+                parmtag { "mantra_name" "pscalediameter" }
+                parmtag { "spare_category" "Geometry" }
+            }
+            parm {
+                name    "vm_metavolume"
+                label   "Metaballs as Volume"
+                type    toggle
+                default { "0" }
+                parmtag { "mantra_class" "object" }
+                parmtag { "mantra_name" "metavolume" }
+                parmtag { "spare_category" "Geometry" }
+            }
+            parm {
+                name    "vm_coving"
+                label   "Coving"
+                type    integer
+                default { "1" }
+                menu {
+                    "0" "Disable Coving"
+                    "1" "Coving for displacement/sub-d"
+                    "2" "Coving for all primitives"
+                }
+                range   { 0 10 }
+                parmtag { "mantra_class" "object" }
+                parmtag { "mantra_name" "coving" }
+                parmtag { "spare_category" "Geometry" }
+            }
+            parm {
+                name    "vm_materialoverride"
+                label   "Material Override"
+                type    string
+                default { "compact" }
+                menu {
+                    "none"      "Disabled"
+                    "full"      "Evaluate for Each Primitve/Point"
+                    "compact"   "Evaluate Once"
+                }
+                parmtag { "spare_category" "Geometry" }
+            }
+            parm {
+                name    "vm_overridedetail"
+                label   "Ignore Geometry Attribute Shaders"
+                type    toggle
+                default { "0" }
+                parmtag { "mantra_class" "object" }
+                parmtag { "mantra_name" "overridedetail" }
+                parmtag { "spare_category" "Geometry" }
+            }
+            parm {
+                name    "vm_procuseroottransform"
+                label   "Proc Use Root Transform"
+                type    toggle
+                default { "1" }
+                parmtag { "mantra_class" "object" }
+                parmtag { "mantra_name" "procuseroottransform" }
+                parmtag { "spare_category" "Geometry" }
+            }
+        }
+
+    }
+
+    group {
+        name    "stdswitcher4_2"
+        label   "Misc"
+
+        parm {
+            name    "use_dcolor"
+            baseparm
+            label   "Set Wireframe Color"
+            export  none
+        }
+        parm {
+            name    "dcolor"
+            baseparm
+            label   "Wireframe Color"
+            export  none
+        }
+        parm {
+            name    "picking"
+            baseparm
+            label   "Viewport Selecting Enabled"
+            export  none
+        }
+        parm {
+            name    "pickscript"
+            baseparm
+            label   "Select Script"
+            export  none
+        }
+        parm {
+            name    "caching"
+            baseparm
+            label   "Cache Object Transform"
+            export  none
+        }
+        parm {
+            name    "vport_shadeopen"
+            baseparm
+            label   "Shade Open Curves In Viewport"
+            export  none
+        }
+        parm {
+            name    "vport_displayassubdiv"
+            baseparm
+            label   "Display as Subdivision in Viewport"
+            invisible
+            export  none
+        }
+        parm {
+            name    "vport_onionskin"
+            baseparm
+            label   "Onion Skinning"
+            export  none
+        }
+    }
+
+HouNC1033600ba205ee72091054b808b4obj/grid1.parm {
+version 0.8
+stdswitcher	[ 0	locks=0 ]	(	0	0	0	)
+xOrd	[ 0	locks=0 ]	(	"srt"	)
+rOrd	[ 0	locks=0 ]	(	"xyz"	)
+t	[ 0	locks=0 ]	(	0	0	0	)
+r	[ 0	locks=0 ]	(	0	0	0	)
+s	[ 0	locks=0 ]	(	1	1	1	)
+p	[ 0	locks=0 ]	(	0	0	0	)
+pr	[ 0	locks=0 ]	(	0	0	0	)
+scale	[ 0	locks=0 ]	(	1	)
+pre_xform	[ 0	locks=0 ]	(	0	)
+keeppos	[ 0	locks=0 ]	(	"off"	)
+childcomp	[ 0	locks=0 ]	(	"off"	)
+constraints_on	[ 0	locks=0 ]	(	"off"	)
+constraints_path	[ 0	locks=0 ]	(	""	)
+lookatpath	[ 0	locks=0 ]	(	""	)
+lookupobjpath	[ 0	locks=0 ]	(	""	)
+lookup	[ 0	locks=0 ]	(	on	)
+pathobjpath	[ 0	locks=0 ]	(	""	)
+roll	[ 0	locks=0 ]	(	0	)
+pos	[ 0	locks=0 ]	(	0	)
+uparmtype	[ 0	locks=0 ]	(	"arc"	)
+pathorient	[ 0	locks=0 ]	(	1	)
+up	[ 0	locks=0 ]	(	0	1	0	)
+bank	[ 0	locks=0 ]	(	0	)
+shop_materialpath	[ 0	locks=0 ]	(	""	)
+shop_materialopts	[ 0	locks=0 ]	(	0	)
+tdisplay	[ 0	locks=0 ]	(	"off"	)
+display	[ 0	locks=0 ]	(	1	)
+use_dcolor	[ 0	locks=0 ]	(	"off"	)
+dcolor	[ 0	locks=0 ]	(	1	1	1	)
+picking	[ 0	locks=0 ]	(	"on"	)
+pickscript	[ 0	locks=0 ]	(	""	)
+caching	[ 0	locks=0 ]	(	"on"	)
+vport_shadeopen	[ 0	locks=0 ]	(	"off"	)
+vport_displayassubdiv	[ 0	locks=0 ]	(	"off"	)
+vport_onionskin	[ 0	locks=0 ]	(	"off"	)
+stdswitcher4	[ 0	locks=0 ]	(	0	0	0	)
+viewportlod	[ 0	locks=0 ]	(	"full"	)
+vm_rendervisibility	[ 0	locks=0 ]	(	*	)
+vm_rendersubd	[ 0	locks=0 ]	(	"off"	)
+vm_subdstyle	[ 0	locks=0 ]	(	mantra_catclark	)
+vm_subdgroup	[ 0	locks=0 ]	(	""	)
+vm_osd_quality	[ 0	locks=0 ]	(	1	)
+vm_osd_vtxinterp	[ 0	locks=0 ]	(	2	)
+vm_osd_fvarinterp	[ 0	locks=0 ]	(	4	)
+folder0	[ 0	locks=0 ]	(	0	0	0	0	)
+categories	[ 0	locks=0 ]	(	""	)
+reflectmask	[ 0	locks=0 ]	(	*	)
+refractmask	[ 0	locks=0 ]	(	*	)
+lightmask	[ 0	locks=0 ]	(	*	)
+lightcategories	[ 0	locks=0 ]	(	*	)
+vm_lpetag	[ 0	locks=0 ]	(	""	)
+vm_volumefilter	[ 0	locks=0 ]	(	box	)
+vm_volumefilterwidth	[ 0	locks=0 ]	(	1	)
+vm_matte	[ 0	locks=0 ]	(	"off"	)
+vm_rayshade	[ 0	locks=0 ]	(	"off"	)
+geo_velocityblur	[ 0	locks=0 ]	(	"off"	)
+geo_accelattribute	[ 0	locks=0 ]	(	accel	)
+vm_shadingquality	[ 0	locks=0 ]	(	1	)
+vm_flatness	[ 0	locks=0 ]	(	0.050000000000000003	)
+vm_raypredice	[ 0	locks=0 ]	(	0	)
+vm_curvesurface	[ 0	locks=0 ]	(	"off"	)
+vm_rmbackface	[ 0	locks=0 ]	(	"off"	)
+shop_geometrypath	[ 0	locks=0 ]	(	""	)
+vm_forcegeometry	[ 0	locks=0 ]	(	"on"	)
+vm_rendersubdcurves	[ 0	locks=0 ]	(	"off"	)
+vm_renderpoints	[ 0	locks=0 ]	(	2	)
+vm_renderpointsas	[ 0	locks=0 ]	(	0	)
+vm_usenforpoints	[ 0	locks=0 ]	(	"off"	)
+vm_pointscale	[ 0	locks=0 ]	(	1	)
+vm_pscalediameter	[ 0	locks=0 ]	(	"off"	)
+vm_metavolume	[ 0	locks=0 ]	(	"off"	)
+vm_coving	[ 0	locks=0 ]	(	1	)
+vm_materialoverride	[ 0	locks=0 ]	(	compact	)
+vm_overridedetail	[ 0	locks=0 ]	(	"off"	)
+vm_procuseroottransform	[ 0	locks=0 ]	(	"on"	)
+}
+HouNC1033600bbe05ee720910245fa699obj/grid1.userdata     
+___Version___    18.0.287HouNC1033600bb405ee720910b362fd6bobj/grid1/pointvop1.init type = attribvop
+matchesdef = 0
+HouNC1033600bb505ee720910a1f9607aobj/grid1/pointvop1.def sopflags sopflags = 
+comment ""
+position -0.235294 -3.28235
+connectornextid 2
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+outputsNamed3
+{
+1 "output1"
+}
+inputsNamed3
+{
+0 	facet2 1 1 "input1"
+}
+inputs
+{
+0 	facet2 0 1
+}
+stat
+{
+  create 1591952279
+  modify 1592204880
+  author wanshihui@cnshaw1892.virtuosgames.com
+  access 0777
+}
+color UT_Color RGB 0.8 0.8 0.8 
+delscript ""
+exprlanguage hscript
+end
+HouNC1033600b8c05ee72091003fcab7aobj/grid1/pointvop1.spareparmdef     parm {
+        name    "bindgroup"
+        baseparm
+        label   "Group"
+        export  none
+        bindselector uvselect "Modify Points"
+            "Select the points to affect and press Enter to complete."
+            0 1 0xffffffff 0 bindgrouptype 0
+    }
+    parm {
+        name    "bindgrouptype"
+        baseparm
+        label   "Group Type"
+        export  none
+    }
+    parm {
+        name    "bindclass"
+        baseparm
+        label   "Run Over"
+        export  none
+    }
+    parm {
+        name    "vex_numcount"
+        baseparm
+        label   "Number Count"
+        export  none
+    }
+    parm {
+        name    "vex_threadjobsize"
+        baseparm
+        label   "Thread Job Size"
+        export  none
+    }
+    group {
+        name    "stdswitcher3"
+        label   "Vex Setup"
+
+        parm {
+            name    "vexsrc"
+            baseparm
+            label   "Vex Source"
+            export  dialog
+        }
+        parm {
+            name    "shoppath"
+            baseparm
+            label   "Shop Path"
+            export  dialog
+        }
+        parm {
+            name    "script"
+            baseparm
+            label   "Script"
+            export  all
+        }
+        parm {
+            name    "clear"
+            baseparm
+            label   "Re-load VEX Functions"
+            export  all
+        }
+        parm {
+            name    "vop_compiler"
+            baseparm
+            label   "Compiler"
+            export  none
+        }
+        parm {
+            name    "vop_forcecompile"
+            baseparm
+            label   "Force Compile"
+            export  none
+        }
+        parm {
+            name    "vex_cwdpath"
+            baseparm
+            label   "Evaluation Node Path"
+            export  none
+        }
+        parm {
+            name    "vex_outputmask"
+            baseparm
+            label   "Export Parameters"
+            export  none
+        }
+        parm {
+            name    "vex_multithread"
+            baseparm
+            label   "Enable Multithreading"
+            export  none
+        }
+    }
+
+    group {
+        name    "stdswitcher3_1"
+        label   "Attribute Bindings"
+
+        parm {
+            name    "vex_precision"
+            baseparm
+            label   "VEX Precision"
+            export  none
+        }
+        parm {
+            name    "autobind"
+            baseparm
+            label   "Autobind by Name"
+            export  none
+        }
+        multiparm {
+            name    "bindings"
+            label    "Number of Bindings"
+            baseparm
+            default 0
+            parmtag { "multistartoffset" "1" }
+
+            parm {
+                name    "bindname#"
+                baseparm
+                label   "Attribute Name"
+                export  none
+            }
+            parm {
+                name    "bindparm#"
+                baseparm
+                label   "VEX Parameter"
+                export  none
+            }
+        }
+
+        parm {
+            name    "groupautobind"
+            baseparm
+            label   "Autobind Groups by Name"
+            export  none
+        }
+        multiparm {
+            name    "groupbindings"
+            label    "Group Bindings"
+            baseparm
+            default 0
+            parmtag { "multistartoffset" "1" }
+
+            parm {
+                name    "bindgroupname#"
+                baseparm
+                label   "Group Name"
+                export  none
+            }
+            parm {
+                name    "bindgroupparm#"
+                baseparm
+                label   "VEX Parameter"
+                export  none
+            }
+        }
+
+        parm {
+            name    "vex_updatenmls"
+            baseparm
+            label   "Update Normals If Displaced"
+            export  none
+        }
+        parm {
+            name    "vex_matchattrib"
+            baseparm
+            label   "Attribute to Match"
+            export  none
+        }
+        parm {
+            name    "vex_inplace"
+            baseparm
+            label   "Compute Results In Place"
+            export  none
+        }
+        parm {
+            name    "vex_selectiongroup"
+            baseparm
+            label   "Output Selection Group"
+            export  none
+        }
+    }
+
+    parm {
+        name    "ptnum"
+        label   "Point Number"
+        type    integer
+        invisible
+        default { "0" }
+        range   { 0 10 }
+        parmtag { "parmvop" "1" }
+        parmtag { "shaderparmcontexts" "cvex" }
+    }
+    parm {
+        name    "vtxnum"
+        label   "Vertex Number"
+        type    integer
+        invisible
+        default { "0" }
+        range   { 0 10 }
+        parmtag { "parmvop" "1" }
+        parmtag { "shaderparmcontexts" "cvex" }
+    }
+    parm {
+        name    "primnum"
+        label   "Primitive Number"
+        type    integer
+        invisible
+        default { "0" }
+        range   { 0 10 }
+        parmtag { "parmvop" "1" }
+        parmtag { "shaderparmcontexts" "cvex" }
+    }
+    parm {
+        name    "id"
+        label   "Id"
+        type    integer
+        invisible
+        default { "-1" }
+        range   { 0 10 }
+        parmtag { "parmvop" "1" }
+        parmtag { "shaderparmcontexts" "cvex" }
+    }
+    parm {
+        name    "numpt"
+        label   "Number of Points"
+        type    integer
+        invisible
+        default { "0" }
+        range   { 0 10 }
+        parmtag { "parmvop" "1" }
+        parmtag { "shaderparmcontexts" "cvex" }
+    }
+    parm {
+        name    "numvtx"
+        label   "Number of Vertices"
+        type    integer
+        invisible
+        default { "0" }
+        range   { 0 10 }
+        parmtag { "parmvop" "1" }
+        parmtag { "shaderparmcontexts" "cvex" }
+    }
+    parm {
+        name    "numprim"
+        label   "Number of Prims"
+        type    integer
+        invisible
+        default { "0" }
+        range   { 0 10 }
+        parmtag { "parmvop" "1" }
+        parmtag { "shaderparmcontexts" "cvex" }
+    }
+    parm {
+        name    "Time"
+        label   "Time"
+        type    float
+        invisible
+        default { "0" }
+        range   { 0 1 }
+        parmtag { "parmvop" "1" }
+        parmtag { "shaderparmcontexts" "cvex" }
+    }
+    parm {
+        name    "TimeInc"
+        label   "Time Inc"
+        type    float
+        invisible
+        default { "0" }
+        range   { 0 1 }
+        parmtag { "parmvop" "1" }
+        parmtag { "shaderparmcontexts" "cvex" }
+    }
+    parm {
+        name    "Frame"
+        label   "Frame"
+        type    float
+        invisible
+        default { "0" }
+        range   { 0 1 }
+        parmtag { "parmvop" "1" }
+        parmtag { "shaderparmcontexts" "cvex" }
+    }
+    parm {
+        name    "life"
+        label   "Life"
+        type    float
+        invisible
+        default { "0" }
+        range   { 0 1 }
+        parmtag { "parmvop" "1" }
+        parmtag { "shaderparmcontexts" "cvex" }
+    }
+    parm {
+        name    "age"
+        label   "Age"
+        type    float
+        invisible
+        default { "0" }
+        range   { 0 1 }
+        parmtag { "parmvop" "1" }
+        parmtag { "shaderparmcontexts" "cvex" }
+    }
+    parm {
+        name    "OpInput2"
+        label   "Second Input"
+        type    string
+        invisible
+        default { "" }
+        parmtag { "parmvop" "1" }
+        parmtag { "shaderparmcontexts" "cvex" }
+    }
+    parm {
+        name    "OpInput3"
+        label   "Third Input"
+        type    string
+        invisible
+        default { "" }
+        parmtag { "parmvop" "1" }
+        parmtag { "shaderparmcontexts" "cvex" }
+    }
+    parm {
+        name    "OpInput4"
+        label   "Fourth Input"
+        type    string
+        invisible
+        default { "" }
+        parmtag { "parmvop" "1" }
+        parmtag { "shaderparmcontexts" "cvex" }
+    }
+    parm {
+        name    "OpInput1"
+        label   "First Input"
+        type    string
+        invisible
+        default { "" }
+        parmtag { "parmvop" "1" }
+        parmtag { "shaderparmcontexts" "cvex" }
+    }
+    parm {
+        name    "uv"
+        label   "UV"
+        type    float
+        invisible
+        size    3
+        default { "0" "0" "0" }
+        range   { 0 10 }
+        parmtag { "parmvop" "1" }
+        parmtag { "shaderparmcontexts" "cvex" }
+    }
+    parm {
+        name    "P"
+        label   "P"
+        type    float
+        invisible
+        size    3
+        default { "0" "0" "0" }
+        range   { 0 10 }
+        parmtag { "parmvop" "1" }
+        parmtag { "shaderparmcontexts" "cvex" }
+    }
+    parm {
+        name    "v"
+        label   "Velocity"
+        type    float
+        invisible
+        size    3
+        default { "0" "0" "0" }
+        range   { 0 10 }
+        parmtag { "parmvop" "1" }
+        parmtag { "shaderparmcontexts" "cvex" }
+    }
+    parm {
+        name    "force"
+        label   "Force"
+        type    float
+        invisible
+        size    3
+        default { "0" "0" "0" }
+        range   { 0 10 }
+        parmtag { "parmvop" "1" }
+        parmtag { "shaderparmcontexts" "cvex" }
+    }
+    parm {
+        name    "Cd"
+        label   "Cd"
+        type    float
+        invisible
+        size    3
+        default { "1" "1" "1" }
+        range   { 0 10 }
+        parmtag { "parmvop" "1" }
+        parmtag { "shaderparmcontexts" "cvex" }
+    }
+    parm {
+        name    "N"
+        label   "N"
+        type    float
+        invisible
+        size    3
+        default { "0" "0" "0" }
+        range   { 0 10 }
+        parmtag { "parmvop" "1" }
+        parmtag { "shaderparmcontexts" "cvex" }
+    }
+    parm {
+        name    "input2"
+        label   "Input Number 2"
+        type    float
+        default { "0" }
+        range   { 0 1 }
+        parmtag { "parmvop" "1" }
+        parmtag { "shaderparmcontexts" "cvex" }
+    }
+HouNC1033600bb405ee7209106a446247obj/grid1/pointvop1.parm {
+version 0.8
+bindgroup	[ 0	locks=0 ]	(	""	)
+bindgrouptype	[ 0	locks=0 ]	(	"guess"	)
+bindclass	[ 0	locks=0 ]	(	"point"	)
+vex_numcount	[ 0	locks=0 ]	(	10	)
+vex_threadjobsize	[ 0	locks=0 ]	(	1024	)
+stdswitcher	[ 0	locks=0 ]	(	0	0	)
+vexsrc	[ 0	locks=0 ]	(	"myself"	)
+shoppath	[ 0	locks=0 ]	(	""	)
+script	[ 0	locks=0 ]	(	null	)
+clear	[ 0	locks=0 ]	(	0	)
+vop_compiler	[ 0	locks=0 ]	(	"vcc -q $VOP_INCLUDEPATH -o $VOP_OBJECTFILE -e $VOP_ERRORFILE $VOP_SOURCEFILE"	)
+vop_forcecompile	[ 0	locks=0 ]	(	0	)
+vex_cwdpath	[ 0	locks=0 ]	(	""	)
+vex_outputmask	[ 0	locks=0 ]	(	*	)
+vex_multithread	[ 0	locks=0 ]	(	"on"	)
+vex_precision	[ 0	locks=0 ]	(	auto	)
+autobind	[ 0	locks=0 ]	(	"on"	)
+bindings	[ 0	locks=0 ]	(	0	)
+groupautobind	[ 0	locks=0 ]	(	"on"	)
+groupbindings	[ 0	locks=0 ]	(	0	)
+vex_updatenmls	[ 0	locks=0 ]	(	"off"	)
+vex_matchattrib	[ 0	locks=0 ]	(	id	)
+vex_inplace	[ 0	locks=0 ]	(	"off"	)
+vex_selectiongroup	[ 0	locks=0 ]	(	""	)
+ptnum	[ 0	locks=0 ]	(	0	)
+vtxnum	[ 0	locks=0 ]	(	0	)
+primnum	[ 0	locks=0 ]	(	0	)
+id	[ 0	locks=0 ]	(	-1	)
+numpt	[ 0	locks=0 ]	(	0	)
+numvtx	[ 0	locks=0 ]	(	0	)
+numprim	[ 0	locks=0 ]	(	0	)
+Time	[ 0	locks=0 ]	(	0	)
+TimeInc	[ 0	locks=0 ]	(	0	)
+Frame	[ 0	locks=0 ]	(	0	)
+life	[ 0	locks=0 ]	(	0	)
+age	[ 0	locks=0 ]	(	0	)
+OpInput2	[ 0	locks=0 ]	(	""	)
+OpInput3	[ 0	locks=0 ]	(	""	)
+OpInput4	[ 0	locks=0 ]	(	""	)
+OpInput1	[ 0	locks=0 ]	(	""	)
+uv	[ 0	locks=0 ]	(	0	0	0	)
+P	[ 0	locks=0 ]	(	0	0	0	)
+v	[ 0	locks=0 ]	(	0	0	0	)
+force	[ 0	locks=0 ]	(	0	0	0	)
+Cd	[ 0	locks=0 ]	(	1	1	1	)
+N	[ 0	locks=0 ]	(	0	0	0	)
+input2	[ 0	locks=0 ]	(	1	)
+}
+HouNC1033600bb005ee720910cd43b256obj/grid1/pointvop1.userdata     
+___Version___    18.0.287HouNC1033600b8105ee720910b4f3360fobj/grid1/pointvop1/geometryvopglobal1.init type = geometryvopglobal::2.0
+matchesdef = 1
+HouNC1033600b8605ee720910ae2a4f3aobj/grid1/pointvop1/geometryvopglobal1.def comment ""
+position 1.13217 3.11566
+connectornextid 10
+flags =  lock off model off template off footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on lowdetail off mediumdetail off highdetail on material off
+outputsNamed3
+{
+0 "P"
+1 "v"
+2 "force"
+3 "age"
+4 "life"
+5 "id"
+6 "Cd"
+7 "uv"
+8 "N"
+9 "Time"
+}
+inputsNamed3
+{
+}
+inputs
+{
+}
+stat
+{
+  create 1591952279
+  modify 1591953635
+  author wanshihui@cnshaw1892.virtuosgames.com
+  access 0777
+}
+color UT_Color RGB 0.8 0.8 0.8 
+delscript ""
+exprlanguage hscript
+end
+HouNC1033600b8105ee7209104add58caobj/grid1/pointvop1/geometryvopglobal1.parm {
+version 0.8
+}
+HouNC1033600b9d05ee720910cfd512bbobj/grid1/pointvop1/geometryvopglobal1.userdata     
+___Version___     HouNC1033600b8105ee720910787eeb2bobj/grid1/pointvop1/geometryvopoutput1.init type = geometryvopoutput
+matchesdef = 1
+HouNC1033600b8605ee720910b237c8abobj/grid1/pointvop1/geometryvopoutput1.def comment ""
+position 26.4229 2.85647
+connectornextid 5
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on lowdetail off mediumdetail off highdetail on material off
+outputsNamed3
+{
+}
+inputsNamed3
+{
+0 	floattovec1 3 1 "P"
+1 	"" "" 1 "v"
+2 	"" "" 1 "force"
+3 	"" "" 1 "Cd"
+4 	bind1 1 1 "N"
+}
+inputs
+{
+0 	floattovec1 0 1
+1 	"" 0 1
+2 	"" 0 1
+3 	"" 0 1
+4 	bind1 0 1
+}
+stat
+{
+  create 1591952279
+  modify 1592204714
+  author wanshihui@cnshaw1892.virtuosgames.com
+  access 0777
+}
+color UT_Color RGB 0.8 0.8 0.8 
+delscript ""
+exprlanguage hscript
+end
+HouNC1033600b8105ee720910abe52fdbobj/grid1/pointvop1/geometryvopoutput1.parm {
+version 0.8
+}
+HouNC1033600b9d05ee720910d249ec2fobj/grid1/pointvop1/geometryvopoutput1.userdata     
+___Version___     HouNC1033600b8805ee7209104248bdd6obj/grid1/pointvop1/vectofloat1.init type = vectofloat
+matchesdef = 0
+HouNC1033600b8905ee720910cf02584fobj/grid1/pointvop1/vectofloat1.def comment ""
+position 4.34089 1.75958
+connectornextid 4
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on lowdetail off mediumdetail off highdetail on material off
+outputsNamed3
+{
+1 "fval1"
+2 "fval2"
+3 "fval3"
+}
+inputsNamed3
+{
+0 	geometryvopglobal1 0 1 "vec"
+}
+inputs
+{
+0 	geometryvopglobal1 0 1
+}
+stat
+{
+  create 1591952297
+  modify 1591952301
+  author wanshihui@cnshaw1892.virtuosgames.com
+  access 0777
+}
+color UT_Color RGB 0.8 0.8 0.8 
+delscript ""
+exprlanguage hscript
+end
+HouNC1033600b8805ee720910645143f9obj/grid1/pointvop1/vectofloat1.parm {
+version 0.8
+signature	[ 0	locks=0 ]	(	default	)
+vec	[ 0	locks=0 ]	(	0	0	0	)
+vec_p	[ 0	locks=0 ]	(	0	0	0	)
+vec_n	[ 0	locks=0 ]	(	0	0	0	)
+vec_c	[ 0	locks=0 ]	(	0	0	0	)
+vec_uv	[ 0	locks=0 ]	(	0	0	0	)
+vec_up	[ 0	locks=0 ]	(	0	0	0	)
+vec_un	[ 0	locks=0 ]	(	0	0	0	)
+vec_uc	[ 0	locks=0 ]	(	0	0	0	)
+}
+HouNC1033600b8405ee7209108ca54cfaobj/grid1/pointvop1/vectofloat1.userdata     
+___Version___     HouNC1033600b8e05ee720910cf147b18obj/grid1/pointvop1/multiply1.init type = multiply
+matchesdef = 0
+HouNC1033600b8f05ee720910d122a52fobj/grid1/pointvop1/multiply1.def comment ""
+position 6.30792 -0.516951
+connectornextid 4
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on lowdetail off mediumdetail off highdetail on material off
+outputsNamed3
+{
+0 "product"
+}
+inputsNamed3
+{
+1 	geometryvopglobal1 8 1 "input1"
+2 	vectofloat1 1 1 "input2"
+3 	turbnoise1 8 1 "input3"
+}
+inputs
+{
+0 	geometryvopglobal1 8 1
+1 	vectofloat1 0 1
+2 	turbnoise1 0 1
+}
+stat
+{
+  create 1591952769
+  modify 1592204538
+  author wanshihui@cnshaw1892.virtuosgames.com
+  access 0777
+}
+color UT_Color RGB 0.8 0.8 0.8 
+delscript ""
+exprlanguage hscript
+end
+HouNC1033600b8e05ee720910f29290a3obj/grid1/pointvop1/multiply1.parm {
+version 0.8
+}
+HouNC1033600b8a05ee720910e7de4a8fobj/grid1/pointvop1/multiply1.userdata     
+___Version___    18.0.287HouNC1033600bb305ee72091051770c87obj/grid1/pointvop1/abs1.init type = abs
+matchesdef = 0
+HouNC1033600bb005ee7209108deabbc8obj/grid1/pointvop1/abs1.def comment ""
+position 9.01067 -0.516951
+connectornextid 2
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on lowdetail off mediumdetail off highdetail on material off
+outputsNamed3
+{
+1 "abs"
+}
+inputsNamed3
+{
+0 	multiply1 0 1 "val"
+}
+inputs
+{
+0 	multiply1 0 1
+}
+stat
+{
+  create 1591952866
+  modify 1592204537
+  author wanshihui@cnshaw1892.virtuosgames.com
+  access 0777
+}
+color UT_Color RGB 0.8 0.8 0.8 
+delscript ""
+exprlanguage hscript
+end
+HouNC1033600bb305ee7209103e27f48fobj/grid1/pointvop1/abs1.parm {
+version 0.8
+signature	[ 0	locks=0 ]	(	v	)
+val	[ 0	locks=0 ]	(	1	)
+val_i	[ 0	locks=0 ]	(	1	)
+val_u	[ 0	locks=0 ]	(	1	1	)
+val_v	[ 0	locks=0 ]	(	1	1	1	)
+val_p	[ 0	locks=0 ]	(	1	1	1	)
+val_n	[ 0	locks=0 ]	(	1	1	1	)
+val_c	[ 0	locks=0 ]	(	1	1	1	)
+val_v4	[ 0	locks=0 ]	(	1	1	1	1	)
+val_uf	[ 0	locks=0 ]	(	1	)
+val_uv	[ 0	locks=0 ]	(	1	1	1	)
+val_up	[ 0	locks=0 ]	(	1	1	1	)
+val_un	[ 0	locks=0 ]	(	1	1	1	)
+val_uc	[ 0	locks=0 ]	(	1	1	1	)
+}
+HouNC1033600b8f05ee7209105a151d54obj/grid1/pointvop1/abs1.userdata     
+___Version___     HouNC1033600b8e05ee720910bd07bfcbobj/grid1/pointvop1/multiply2.init type = multiply
+matchesdef = 0
+HouNC1033600b8f05ee720910420b296dobj/grid1/pointvop1/multiply2.def comment ""
+position 17.7316 2.79249
+connectornextid 1
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on lowdetail off mediumdetail off highdetail on material off
+outputsNamed3
+{
+0 "product"
+}
+inputsNamed3
+{
+2 	input2 0 1 "input1"
+}
+inputs
+{
+0 	input2 0 1
+}
+stat
+{
+  create 1591953261
+  modify 1592189829
+  author wanshihui@cnshaw1892.virtuosgames.com
+  access 0777
+}
+color UT_Color RGB 0.8 0.8 0.8 
+delscript ""
+exprlanguage hscript
+end
+HouNC1033600b8e05ee72091094dcd77bobj/grid1/pointvop1/multiply2.parm {
+version 0.8
+}
+HouNC1033600b8a05ee720910762ea546obj/grid1/pointvop1/multiply2.userdata     
+___Version___    18.0.287HouNC1033600b8805ee720910d6df718cobj/grid1/pointvop1/vectofloat2.init type = vectofloat
+matchesdef = 0
+HouNC1033600b8905ee720910e3c04964obj/grid1/pointvop1/vectofloat2.def comment ""
+position 4.34089 3.11566
+connectornextid 4
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on lowdetail off mediumdetail off highdetail on material off
+outputsNamed3
+{
+1 "fval1"
+2 "fval2"
+3 "fval3"
+}
+inputsNamed3
+{
+0 	geometryvopglobal1 0 1 "vec"
+}
+inputs
+{
+0 	geometryvopglobal1 0 1
+}
+stat
+{
+  create 1591953336
+  modify 1591953340
+  author wanshihui@cnshaw1892.virtuosgames.com
+  access 0777
+}
+color UT_Color RGB 0.8 0.8 0.8 
+delscript ""
+exprlanguage hscript
+end
+HouNC1033600b8805ee720910cc1997d7obj/grid1/pointvop1/vectofloat2.parm {
+version 0.8
+signature	[ 0	locks=0 ]	(	default	)
+vec	[ 0	locks=0 ]	(	0	0	0	)
+vec_p	[ 0	locks=0 ]	(	0	0	0	)
+vec_n	[ 0	locks=0 ]	(	0	0	0	)
+vec_c	[ 0	locks=0 ]	(	0	0	0	)
+vec_uv	[ 0	locks=0 ]	(	0	0	0	)
+vec_up	[ 0	locks=0 ]	(	0	0	0	)
+vec_un	[ 0	locks=0 ]	(	0	0	0	)
+vec_uc	[ 0	locks=0 ]	(	0	0	0	)
+}
+HouNC1033600b8405ee7209106365b2a0obj/grid1/pointvop1/vectofloat2.userdata     
+___Version___     HouNC1033600bb305ee720910a98c0aa7obj/grid1/pointvop1/add1.init type = add
+matchesdef = 0
+HouNC1033600bb005ee720910c75b566fobj/grid1/pointvop1/add1.def comment ""
+position 20.2363 3.83647
+connectornextid 3
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on lowdetail off mediumdetail off highdetail on material off
+outputsNamed3
+{
+2 "sum"
+}
+inputsNamed3
+{
+0 	vectofloat2 2 1 "input1"
+1 	multiply2 0 1 "input2"
+}
+inputs
+{
+0 	vectofloat2 1 1
+1 	multiply2 0 1
+}
+stat
+{
+  create 1591953343
+  modify 1592189829
+  author wanshihui@cnshaw1892.virtuosgames.com
+  access 0777
+}
+color UT_Color RGB 0.8 0.8 0.8 
+delscript ""
+exprlanguage hscript
+end
+HouNC1033600bb305ee7209104bd11b2aobj/grid1/pointvop1/add1.parm {
+version 0.8
+}
+HouNC1033600b8f05ee720910246f3257obj/grid1/pointvop1/add1.userdata     
+___Version___    18.0.287HouNC1033600b8c05ee720910a534ff5dobj/grid1/pointvop1/length1.init type = length
+matchesdef = 0
+HouNC1033600b8d05ee720910b4a7d379obj/grid1/pointvop1/length1.def comment ""
+position 12.1164 0.580967
+connectornextid 2
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on lowdetail off mediumdetail off highdetail on material off
+outputsNamed3
+{
+1 "len"
+}
+inputsNamed3
+{
+0 	abs1 1 1 "vec"
+}
+inputs
+{
+0 	abs1 0 1
+}
+stat
+{
+  create 1591953400
+  modify 1592204537
+  author wanshihui@cnshaw1892.virtuosgames.com
+  access 0777
+}
+color UT_Color RGB 0.8 0.8 0.8 
+delscript ""
+exprlanguage hscript
+end
+HouNC1033600b8c05ee72091092f11a6eobj/grid1/pointvop1/length1.parm {
+version 0.8
+signature	[ 0	locks=0 ]	(	default	)
+vec	[ 0	locks=0 ]	(	1	1	1	)
+vec_u	[ 0	locks=0 ]	(	1	1	)
+vec_p	[ 0	locks=0 ]	(	1	1	1	)
+vec_n	[ 0	locks=0 ]	(	1	1	1	)
+vec_v4	[ 0	locks=0 ]	(	1	1	1	1	)
+vec_uv	[ 0	locks=0 ]	(	1	1	1	)
+vec_up	[ 0	locks=0 ]	(	1	1	1	)
+vec_un	[ 0	locks=0 ]	(	1	1	1	)
+}
+HouNC1033600b8805ee720910541779c0obj/grid1/pointvop1/length1.userdata     
+___Version___     HouNC1033600b8505ee7209103075f77cobj/grid1/pointvop1/length1.outputinfos NumInfos 1
+ValuesBinary 1
+BeginInfo
+OutputName len
+DebugCorrInputName __default__
+BypassCorrInputName __default__
+NormalMode 0
+BypassMode 1
+UseDefaultValue 1
+EndInfo
+        HouNC1033600b8805ee720910a99d59b7obj/grid1/pointvop1/floattovec1.init type = floattovec
+matchesdef = 0
+HouNC1033600b8905ee720910fb2b291bobj/grid1/pointvop1/floattovec1.def comment ""
+position 23.5861 4.96117
+connectornextid 4
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on lowdetail off mediumdetail off highdetail on material off
+outputsNamed3
+{
+3 "vec"
+}
+inputsNamed3
+{
+0 	vectofloat2 1 1 "fval1"
+1 	add1 2 1 "fval2"
+2 	vectofloat2 3 1 "fval3"
+}
+inputs
+{
+0 	vectofloat2 0 1
+1 	add1 0 1
+2 	vectofloat2 2 1
+}
+stat
+{
+  create 1591953512
+  modify 1592189829
+  author wanshihui@cnshaw1892.virtuosgames.com
+  access 0777
+}
+color UT_Color RGB 0.8 0.8 0.8 
+delscript ""
+exprlanguage hscript
+end
+HouNC1033600b8805ee7209103e35de59obj/grid1/pointvop1/floattovec1.parm {
+version 0.8
+signature	[ 0	locks=0 ]	(	default	)
+fval1	[ 0	locks=0 ]	(	0	)
+fval2	[ 0	locks=0 ]	(	0	)
+fval3	[ 0	locks=0 ]	(	0	)
+fval1_uv	[ 0	locks=0 ]	(	0	)
+fval2_uv	[ 0	locks=0 ]	(	0	)
+fval3_uv	[ 0	locks=0 ]	(	0	)
+}
+HouNC1033600b8405ee720910e36ac745obj/grid1/pointvop1/floattovec1.userdata     
+___Version___     HouNC1033600b8d05ee7209107a9001f3obj/grid1/pointvop1/input2.init type = parameter
+matchesdef = 0
+HouNC1033600bb205ee720910580a3514obj/grid1/pointvop1/input2.def comment ""
+position 10.0242 0.77958
+connectornextid 1
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed off lowdetail off mediumdetail off highdetail on material off
+outputsNamed3
+{
+0 "input2"
+}
+inputsNamed3
+{
+}
+inputs
+{
+}
+stat
+{
+  create 1591955814
+  modify 1591955820
+  author wanshihui@cnshaw1892.virtuosgames.com
+  access 0777
+}
+color UT_Color RGB 1 1 0.4 
+delscript ""
+exprlanguage hscript
+end
+HouNC1033600b8d05ee720910168407b7obj/grid1/pointvop1/input2.parm {
+version 0.8
+parmscope	[ 0	locks=0 ]	(	shaderparm	)
+parmaccess	[ 0	locks=0 ]	(	""	)
+parmname	[ 0	locks=0 ]	(	input2	)
+parmprefix	[ 0	locks=0 ]	(	""	)
+parmpostfix	[ 0	locks=0 ]	(	""	)
+parmlabel	[ 0	locks=0 ]	(	"Input Number 2"	)
+showlabel	[ 0	locks=0 ]	(	"on"	)
+parmtype	[ 0	locks=0 ]	(	"float"	)
+parmtypename	[ 0	locks=0 ]	(	""	)
+floatdef	[ 0	locks=0 ]	(	0	)
+intdef	[ 0	locks=0 ]	(	0	)
+toggledef	[ 0	locks=0 ]	(	"off"	)
+angledef	[ 0	locks=0 ]	(	0	)
+logfloatdef	[ 0	locks=0 ]	(	0	)
+float2def	[ 0	locks=0 ]	(	0	0	)
+float3def	[ 0	locks=0 ]	(	0	0	0	)
+vectordef	[ 0	locks=0 ]	(	0	0	0	)
+normaldef	[ 0	locks=0 ]	(	0	0	0	)
+pointdef	[ 0	locks=0 ]	(	0	0	0	)
+directiondef	[ 0	locks=0 ]	(	1	0	0	)
+float4def	[ 0	locks=0 ]	(	0	0	0	0	)
+floatm2def	[ 0	locks=0 ]	(	1	0	0	1	)
+float9def	[ 0	locks=0 ]	(	1	0	0	0	1	0	0	0	1	)
+float16def	[ 0	locks=0 ]	(	1	0	0	0	0	1	0	0	0	0	1	0	0	0	0	1	)
+stringdef	[ 0	locks=0 ]	(	""	)
+filedef	[ 0	locks=0 ]	(	""	)
+imagedef	[ 0	locks=0 ]	(	""	)
+geometrydef	[ 0	locks=0 ]	(	""	)
+colordef	[ 0	locks=0 ]	(	0	0	0	)
+color4def	[ 0	locks=0 ]	(	0	0	0	0	)
+bsdfdef	[ 0	locks=0 ]	(	""	)
+coshaderdef	[ 0	locks=0 ]	(	""	)
+surfacedef	[ 0	locks=0 ]	(	""	)
+displacementdef	[ 0	locks=0 ]	(	""	)
+atmospheredef	[ 0	locks=0 ]	(	""	)
+floatadef	[ 0	locks=0 ]	(	)
+intadef	[ 0	locks=0 ]	(	)
+vector2adef	[ 0	locks=0 ]	(	)
+vectoradef	[ 0	locks=0 ]	(	)
+pointadef	[ 0	locks=0 ]	(	)
+normaladef	[ 0	locks=0 ]	(	)
+coloradef	[ 0	locks=0 ]	(	)
+floatm2adef	[ 0	locks=0 ]	(	)
+float4adef	[ 0	locks=0 ]	(	)
+float9adef	[ 0	locks=0 ]	(	)
+float16adef	[ 0	locks=0 ]	(	)
+stringadef	[ 0	locks=0 ]	(	)
+coshaderadef	[ 0	locks=0 ]	(	""	)
+structdef	[ 0	locks=0 ]	(	""	)
+rangeflt	[ 0	locks=0 ]	(	0	1	)
+rangeint	[ 0	locks=0 ]	(	0	10	)
+stringtype	[ 0	locks=0 ]	(	off	)
+opfilter	[ 0	locks=0 ]	(	!!OBJ/LIGHT!!	)
+parmcomment	[ 0	locks=0 ]	(	""	)
+separator1	[ 0	locks=0 ]	(	)
+useasparmdefiner	[ 0	locks=0 ]	(	"off"	)
+useownexportcontext	[ 0	locks=0 ]	(	"off"	)
+parmuniform	[ 0	locks=0 ]	(	"on"	)
+usebound	[ 0	locks=0 ]	(	"off"	)
+hasconnector	[ 0	locks=0 ]	(	"on"	)
+exportparm	[ 0	locks=0 ]	(	"off"	)
+exportcontext	[ 0	locks=0 ]	(	cvex	)
+providemenu	[ 0	locks=0 ]	(	"off"	)
+menuchoices	[ 0	locks=0 ]	(	""	)
+menuscript	[ 0	locks=0 ]	(	""	)
+menuscriptlanguage	[ 0	locks=0 ]	(	"hscript"	)
+separator2	[ 0	locks=0 ]	(	)
+invisible	[ 0	locks=0 ]	(	"off"	)
+joinnext	[ 0	locks=0 ]	(	"off"	)
+disablewhen	[ 0	locks=0 ]	(	""	)
+hidewhen	[ 0	locks=0 ]	(	""	)
+callback	[ 0	locks=0 ]	(	""	)
+tags	[ 0	locks=0 ]	(	""	)
+help	[ 0	locks=0 ]	(	""	)
+}
+HouNC1033600b8905ee720910a9f1df81obj/grid1/pointvop1/input2.userdata     
+___Version___    18.0.287HouNC1033600bb205ee720910afe1b155obj/grid1/pointvop1/bind1.init type = bind
+matchesdef = 0
+HouNC1033600bb305ee720910c3874a1cobj/grid1/pointvop1/bind1.def comment ""
+position 15.3725 1.41097
+connectornextid 3
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on lowdetail off mediumdetail off highdetail on material off
+outputsNamed3
+{
+1 "height"
+2 "bound_height"
+}
+inputsNamed3
+{
+0 	length1 1 1 "input"
+}
+inputs
+{
+0 	length1 0 1
+}
+stat
+{
+  create 1592189816
+  modify 1592204537
+  author wanshihui@cnshaw1892.virtuosgames.com
+  access 0777
+}
+color UT_Color RGB 0.6 0.6 1 
+delscript ""
+exprlanguage hscript
+end
+HouNC1033600bb205ee720910280e2d37obj/grid1/pointvop1/bind1.parm {
+version 0.8
+parmname	[ 0	locks=0 ]	(	height	)
+parmtype	[ 0	locks=0 ]	(	"float"	)
+parmtypename	[ 0	locks=0 ]	(	""	)
+overridetype	[ 0	locks=0 ]	(	"on"	)
+floatdef	[ 0	locks=0 ]	(	0	)
+intdef	[ 0	locks=0 ]	(	0	)
+toggledef	[ 0	locks=0 ]	(	"off"	)
+angledef	[ 0	locks=0 ]	(	0	)
+logfloatdef	[ 0	locks=0 ]	(	0	)
+float2def	[ 0	locks=0 ]	(	0	0	)
+float3def	[ 0	locks=0 ]	(	0	0	0	)
+vectordef	[ 0	locks=0 ]	(	0	0	0	)
+normaldef	[ 0	locks=0 ]	(	0	0	0	)
+pointdef	[ 0	locks=0 ]	(	0	0	0	)
+directiondef	[ 0	locks=0 ]	(	1	0	0	)
+float4def	[ 0	locks=0 ]	(	0	0	0	0	)
+floatm2def	[ 0	locks=0 ]	(	1	0	0	1	)
+float9def	[ 0	locks=0 ]	(	1	0	0	0	1	0	0	0	1	)
+float16def	[ 0	locks=0 ]	(	1	0	0	0	0	1	0	0	0	0	1	0	0	0	0	1	)
+stringdef	[ 0	locks=0 ]	(	""	)
+filedef	[ 0	locks=0 ]	(	""	)
+imagedef	[ 0	locks=0 ]	(	""	)
+geometrydef	[ 0	locks=0 ]	(	""	)
+colordef	[ 0	locks=0 ]	(	0	0	0	)
+color4def	[ 0	locks=0 ]	(	0	0	0	0	)
+bsdfdef	[ 0	locks=0 ]	(	""	)
+coshaderdef	[ 0	locks=0 ]	(	""	)
+surfacedef	[ 0	locks=0 ]	(	""	)
+displacementdef	[ 0	locks=0 ]	(	""	)
+atmospheredef	[ 0	locks=0 ]	(	""	)
+floatadef	[ 0	locks=0 ]	(	)
+intadef	[ 0	locks=0 ]	(	)
+vector2adef	[ 0	locks=0 ]	(	)
+vectoradef	[ 0	locks=0 ]	(	)
+pointadef	[ 0	locks=0 ]	(	)
+normaladef	[ 0	locks=0 ]	(	)
+coloradef	[ 0	locks=0 ]	(	)
+floatm2adef	[ 0	locks=0 ]	(	)
+float4adef	[ 0	locks=0 ]	(	)
+float9adef	[ 0	locks=0 ]	(	)
+float16adef	[ 0	locks=0 ]	(	)
+stringadef	[ 0	locks=0 ]	(	)
+coshaderadef	[ 0	locks=0 ]	(	""	)
+structdef	[ 0	locks=0 ]	(	""	)
+useasparmdefiner	[ 0	locks=0 ]	(	"on"	)
+useownexportcontext	[ 0	locks=0 ]	(	"off"	)
+parmuniform	[ 0	locks=0 ]	(	"on"	)
+usebound	[ 0	locks=0 ]	(	"off"	)
+exportparm	[ 0	locks=0 ]	(	"whenconnected"	)
+exportcontext	[ 0	locks=0 ]	(	cvex	)
+}
+HouNC1033600b8e05ee7209100fffb7e4obj/grid1/pointvop1/bind1.userdata     
+___Version___    18.0.287HouNC1033600b8905ee720910219f2cbcobj/grid1/pointvop1/turbnoise1.init type = turbnoise
+matchesdef = 0
+HouNC1033600b8e05ee7209100e9b8866obj/grid1/pointvop1/turbnoise1.def comment ""
+position 3.70388 -1.64695
+connectornextid 9
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on lowdetail off mediumdetail off highdetail on material off
+outputsNamed3
+{
+8 "noise"
+}
+inputsNamed3
+{
+0 	"" "" 1 "type"
+1 	geometryvopglobal1 0 1 "pos"
+2 	"" "" 1 "freq"
+3 	geometryvopglobal1 9 1 "offset"
+4 	"" "" 1 "amp"
+5 	"" "" 1 "rough"
+6 	"" "" 1 "atten"
+7 	"" "" 1 "turb"
+}
+inputs
+{
+0 	"" 0 1
+1 	geometryvopglobal1 0 1
+2 	"" 0 1
+3 	geometryvopglobal1 9 1
+4 	"" 0 1
+5 	"" 0 1
+6 	"" 0 1
+7 	"" 0 1
+}
+stat
+{
+  create 1592202345
+  modify 1592204551
+  author wanshihui@cnshaw1892.virtuosgames.com
+  access 0777
+}
+color UT_Color RGB 0.8 0.8 0.8 
+delscript ""
+exprlanguage hscript
+end
+HouNC1033600b8905ee720910cb9b707dobj/grid1/pointvop1/turbnoise1.parm {
+version 0.8
+signature	[ 0	locks=0 ]	(	default	)
+type	[ 0	locks=0 ]	(	anoise	)
+pos	[ 0	locks=0 ]	(	0	0	0	)
+freq	[ 0	locks=0 ]	(	1	1	1	)
+offset	[ 0	locks=0 ]	(	0	0	0	)
+amp	[ 0	locks=0 ]	(	2	)
+rough	[ 0	locks=0 ]	(	0.5	)
+atten	[ 0	locks=0 ]	(	1	)
+turb	[ 0	locks=0 ]	(	5	)
+}
+HouNC1033600b8505ee720910f88fc2a5obj/grid1/pointvop1/turbnoise1.userdata     
+___Version___     HouNC1033600b8605ee720910a4f3c9aaobj/grid1/pointvop1/turbnoise1.outputinfos NumInfos 1
+ValuesBinary 1
+BeginInfo
+OutputName noise
+DebugCorrInputName __default__
+BypassCorrInputName __default__
+NormalMode 0
+BypassMode 1
+UseDefaultValue 1
+EndInfo
+        HouNC1033600bb305ee7209106eea18c4obj/grid1/extrudevolume1.init type = extrudevolume
+matchesdef = 1
+HouNC1033600bb005ee720910e9f3a776obj/grid1/extrudevolume1.def sopflags sopflags = 
+comment ""
+position -0.747059 -6.35294
+connectornextid 2
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+outputsNamed3
+{
+1 "output1"
+}
+inputsNamed3
+{
+0 	primitive1 1 1 "input1"
+}
+inputs
+{
+0 	primitive1 0 1
+}
+stat
+{
+  create 1592202516
+  modify 1592203388
+  author wanshihui@cnshaw1892.virtuosgames.com
+  access 0777
+}
+color UT_Color RGB 0.8 0.8 0.8 
+delscript ""
+exprlanguage hscript
+end
+HouNC1033600bb305ee7209100cf04a3bobj/grid1/extrudevolume1.parm {
+version 0.8
+depth	[ 0	locks=0 ]	(	-1	)
+basenormal	[ 0	locks=0 ]	(	0	1	0	)
+flat	[ 0	locks=0 ]	(	"on"	)
+labelparm	[ 0	locks=0 ]	(	"Base Extension (Second Output)"	)
+basepadding	[ 0	locks=0 ]	(	0.10000000000000001	)
+baselift	[ 0	locks=0 ]	(	1	)
+folder0	[ 0	locks=0 ]	(	0	)
+outputtopgrp	[ 0	locks=0 ]	(	"off"	)
+topgrp	[ 0	locks=0 ]	(	extrudeTop	)
+outputbasegrp	[ 0	locks=0 ]	(	"off"	)
+basegrp	[ 0	locks=0 ]	(	extrudeBase	)
+outputsidegrp	[ 0	locks=0 ]	(	"off"	)
+sidegrp	[ 0	locks=0 ]	(	extrudeSide	)
+outputtopseamgrp	[ 0	locks=0 ]	(	"off"	)
+topseamgrp	[ 0	locks=0 ]	(	extrudeTopSeam	)
+outputbaseseamgrp	[ 0	locks=0 ]	(	"off"	)
+baseseamgrp	[ 0	locks=0 ]	(	extrudeBaseSeam	)
+}
+HouNC1033600b8f05ee720910afcf107dobj/grid1/extrudevolume1.userdata     
+___Version___     HouNC1033600bb405ee720910f51f95ebobj/grid1/pointvop2.init type = attribvop
+matchesdef = 0
+HouNC1033600bb505ee720910d7de9ed9obj/grid1/pointvop2.def sopflags sopflags = 
+comment ""
+position -1.14706 -7.69412
+connectornextid 2
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+outputsNamed3
+{
+1 "output1"
+}
+inputsNamed3
+{
+0 	extrudevolume1 1 1 "input1"
+}
+inputs
+{
+0 	extrudevolume1 0 1
+}
+stat
+{
+  create 1592202737
+  modify 1592232135
+  author wanshihui@cnshaw1892.virtuosgames.com
+  access 0777
+}
+color UT_Color RGB 0.8 0.8 0.8 
+delscript ""
+exprlanguage hscript
+end
+HouNC1033600b8c05ee720910e6b3cf4bobj/grid1/pointvop2.spareparmdef     parm {
+        name    "bindgroup"
+        baseparm
+        label   "Group"
+        export  none
+        bindselector uvselect "Modify Points"
+            "Select the points to affect and press Enter to complete."
+            0 1 0xffffffff 0 bindgrouptype 0
+    }
+    parm {
+        name    "bindgrouptype"
+        baseparm
+        label   "Group Type"
+        export  none
+    }
+    parm {
+        name    "bindclass"
+        baseparm
+        label   "Run Over"
+        export  none
+    }
+    parm {
+        name    "vex_numcount"
+        baseparm
+        label   "Number Count"
+        export  none
+    }
+    parm {
+        name    "vex_threadjobsize"
+        baseparm
+        label   "Thread Job Size"
+        export  none
+    }
+    group {
+        name    "stdswitcher3"
+        label   "Vex Setup"
+
+        parm {
+            name    "vexsrc"
+            baseparm
+            label   "Vex Source"
+            export  dialog
+        }
+        parm {
+            name    "shoppath"
+            baseparm
+            label   "Shop Path"
+            export  dialog
+        }
+        parm {
+            name    "script"
+            baseparm
+            label   "Script"
+            export  all
+        }
+        parm {
+            name    "clear"
+            baseparm
+            label   "Re-load VEX Functions"
+            export  all
+        }
+        parm {
+            name    "vop_compiler"
+            baseparm
+            label   "Compiler"
+            export  none
+        }
+        parm {
+            name    "vop_forcecompile"
+            baseparm
+            label   "Force Compile"
+            export  none
+        }
+        parm {
+            name    "vex_cwdpath"
+            baseparm
+            label   "Evaluation Node Path"
+            export  none
+        }
+        parm {
+            name    "vex_outputmask"
+            baseparm
+            label   "Export Parameters"
+            export  none
+        }
+        parm {
+            name    "vex_multithread"
+            baseparm
+            label   "Enable Multithreading"
+            export  none
+        }
+    }
+
+    group {
+        name    "stdswitcher3_1"
+        label   "Attribute Bindings"
+
+        parm {
+            name    "vex_precision"
+            baseparm
+            label   "VEX Precision"
+            export  none
+        }
+        parm {
+            name    "autobind"
+            baseparm
+            label   "Autobind by Name"
+            export  none
+        }
+        multiparm {
+            name    "bindings"
+            label    "Number of Bindings"
+            baseparm
+            default 0
+            parmtag { "multistartoffset" "1" }
+
+            parm {
+                name    "bindname#"
+                baseparm
+                label   "Attribute Name"
+                export  none
+            }
+            parm {
+                name    "bindparm#"
+                baseparm
+                label   "VEX Parameter"
+                export  none
+            }
+        }
+
+        parm {
+            name    "groupautobind"
+            baseparm
+            label   "Autobind Groups by Name"
+            export  none
+        }
+        multiparm {
+            name    "groupbindings"
+            label    "Group Bindings"
+            baseparm
+            default 0
+            parmtag { "multistartoffset" "1" }
+
+            parm {
+                name    "bindgroupname#"
+                baseparm
+                label   "Group Name"
+                export  none
+            }
+            parm {
+                name    "bindgroupparm#"
+                baseparm
+                label   "VEX Parameter"
+                export  none
+            }
+        }
+
+        parm {
+            name    "vex_updatenmls"
+            baseparm
+            label   "Update Normals If Displaced"
+            export  none
+        }
+        parm {
+            name    "vex_matchattrib"
+            baseparm
+            label   "Attribute to Match"
+            export  none
+        }
+        parm {
+            name    "vex_inplace"
+            baseparm
+            label   "Compute Results In Place"
+            export  none
+        }
+        parm {
+            name    "vex_selectiongroup"
+            baseparm
+            label   "Output Selection Group"
+            export  none
+        }
+    }
+
+    parm {
+        name    "ptnum"
+        label   "Point Number"
+        type    integer
+        invisible
+        default { "0" }
+        range   { 0 10 }
+        parmtag { "parmvop" "1" }
+        parmtag { "shaderparmcontexts" "cvex" }
+    }
+    parm {
+        name    "vtxnum"
+        label   "Vertex Number"
+        type    integer
+        invisible
+        default { "0" }
+        range   { 0 10 }
+        parmtag { "parmvop" "1" }
+        parmtag { "shaderparmcontexts" "cvex" }
+    }
+    parm {
+        name    "primnum"
+        label   "Primitive Number"
+        type    integer
+        invisible
+        default { "0" }
+        range   { 0 10 }
+        parmtag { "parmvop" "1" }
+        parmtag { "shaderparmcontexts" "cvex" }
+    }
+    parm {
+        name    "id"
+        label   "Id"
+        type    integer
+        invisible
+        default { "-1" }
+        range   { 0 10 }
+        parmtag { "parmvop" "1" }
+        parmtag { "shaderparmcontexts" "cvex" }
+    }
+    parm {
+        name    "numpt"
+        label   "Number of Points"
+        type    integer
+        invisible
+        default { "0" }
+        range   { 0 10 }
+        parmtag { "parmvop" "1" }
+        parmtag { "shaderparmcontexts" "cvex" }
+    }
+    parm {
+        name    "numvtx"
+        label   "Number of Vertices"
+        type    integer
+        invisible
+        default { "0" }
+        range   { 0 10 }
+        parmtag { "parmvop" "1" }
+        parmtag { "shaderparmcontexts" "cvex" }
+    }
+    parm {
+        name    "numprim"
+        label   "Number of Prims"
+        type    integer
+        invisible
+        default { "0" }
+        range   { 0 10 }
+        parmtag { "parmvop" "1" }
+        parmtag { "shaderparmcontexts" "cvex" }
+    }
+    parm {
+        name    "Time"
+        label   "Time"
+        type    float
+        invisible
+        default { "0" }
+        range   { 0 1 }
+        parmtag { "parmvop" "1" }
+        parmtag { "shaderparmcontexts" "cvex" }
+    }
+    parm {
+        name    "TimeInc"
+        label   "Time Inc"
+        type    float
+        invisible
+        default { "0" }
+        range   { 0 1 }
+        parmtag { "parmvop" "1" }
+        parmtag { "shaderparmcontexts" "cvex" }
+    }
+    parm {
+        name    "Frame"
+        label   "Frame"
+        type    float
+        invisible
+        default { "0" }
+        range   { 0 1 }
+        parmtag { "parmvop" "1" }
+        parmtag { "shaderparmcontexts" "cvex" }
+    }
+    parm {
+        name    "life"
+        label   "Life"
+        type    float
+        invisible
+        default { "0" }
+        range   { 0 1 }
+        parmtag { "parmvop" "1" }
+        parmtag { "shaderparmcontexts" "cvex" }
+    }
+    parm {
+        name    "age"
+        label   "Age"
+        type    float
+        invisible
+        default { "0" }
+        range   { 0 1 }
+        parmtag { "parmvop" "1" }
+        parmtag { "shaderparmcontexts" "cvex" }
+    }
+    parm {
+        name    "OpInput2"
+        label   "Second Input"
+        type    string
+        invisible
+        default { "" }
+        parmtag { "parmvop" "1" }
+        parmtag { "shaderparmcontexts" "cvex" }
+    }
+    parm {
+        name    "OpInput3"
+        label   "Third Input"
+        type    string
+        invisible
+        default { "" }
+        parmtag { "parmvop" "1" }
+        parmtag { "shaderparmcontexts" "cvex" }
+    }
+    parm {
+        name    "OpInput4"
+        label   "Fourth Input"
+        type    string
+        invisible
+        default { "" }
+        parmtag { "parmvop" "1" }
+        parmtag { "shaderparmcontexts" "cvex" }
+    }
+    parm {
+        name    "OpInput1"
+        label   "First Input"
+        type    string
+        invisible
+        default { "" }
+        parmtag { "parmvop" "1" }
+        parmtag { "shaderparmcontexts" "cvex" }
+    }
+    parm {
+        name    "uv"
+        label   "UV"
+        type    float
+        invisible
+        size    3
+        default { "0" "0" "0" }
+        range   { 0 10 }
+        parmtag { "parmvop" "1" }
+        parmtag { "shaderparmcontexts" "cvex" }
+    }
+    parm {
+        name    "P"
+        label   "P"
+        type    float
+        invisible
+        size    3
+        default { "0" "0" "0" }
+        range   { 0 10 }
+        parmtag { "parmvop" "1" }
+        parmtag { "shaderparmcontexts" "cvex" }
+    }
+    parm {
+        name    "v"
+        label   "Velocity"
+        type    float
+        invisible
+        size    3
+        default { "0" "0" "0" }
+        range   { 0 10 }
+        parmtag { "parmvop" "1" }
+        parmtag { "shaderparmcontexts" "cvex" }
+    }
+    parm {
+        name    "force"
+        label   "Force"
+        type    float
+        invisible
+        size    3
+        default { "0" "0" "0" }
+        range   { 0 10 }
+        parmtag { "parmvop" "1" }
+        parmtag { "shaderparmcontexts" "cvex" }
+    }
+    parm {
+        name    "Cd"
+        label   "Cd"
+        type    float
+        invisible
+        size    3
+        default { "1" "1" "1" }
+        range   { 0 10 }
+        parmtag { "parmvop" "1" }
+        parmtag { "shaderparmcontexts" "cvex" }
+    }
+    parm {
+        name    "N"
+        label   "N"
+        type    float
+        invisible
+        size    3
+        default { "0" "0" "0" }
+        range   { 0 10 }
+        parmtag { "parmvop" "1" }
+        parmtag { "shaderparmcontexts" "cvex" }
+    }
+    parm {
+        name    "ramp"
+        label   "ramp"
+        type    ramp_rgb
+        default { "2" }
+        range   { 1! 10 }
+        parmtag { "parmvop" "1" }
+        parmtag { "rampbasis_var" "ramp_the_basis_strings" }
+        parmtag { "rampbasisdefault" "linear" }
+        parmtag { "rampcolordefault" "1pos ( 0 ) 1c ( 0 0 0 ) 1interp ( linear ) 2pos ( 1 ) 2c ( 1 1 1 ) 2interp ( linear )" }
+        parmtag { "rampcolortype" "rgb" }
+        parmtag { "rampkeys_var" "ramp_the_key_positions" }
+        parmtag { "rampshowcontrolsdefault" "1" }
+        parmtag { "rampvalues_var" "ramp_the_key_values" }
+        parmtag { "shaderparmcontexts" "cvex" }
+    }
+HouNC1033600bb405ee720910446f2e87obj/grid1/pointvop2.parm {
+version 0.8
+bindgroup	[ 0	locks=0 ]	(	""	)
+bindgrouptype	[ 0	locks=0 ]	(	"guess"	)
+bindclass	[ 0	locks=0 ]	(	"primitive"	)
+vex_numcount	[ 0	locks=0 ]	(	10	)
+vex_threadjobsize	[ 0	locks=0 ]	(	1024	)
+stdswitcher	[ 0	locks=0 ]	(	0	0	)
+vexsrc	[ 0	locks=0 ]	(	"myself"	)
+shoppath	[ 0	locks=0 ]	(	""	)
+script	[ 0	locks=0 ]	(	null	)
+clear	[ 0	locks=0 ]	(	0	)
+vop_compiler	[ 0	locks=0 ]	(	"vcc -q $VOP_INCLUDEPATH -o $VOP_OBJECTFILE -e $VOP_ERRORFILE $VOP_SOURCEFILE"	)
+vop_forcecompile	[ 0	locks=0 ]	(	0	)
+vex_cwdpath	[ 0	locks=0 ]	(	""	)
+vex_outputmask	[ 0	locks=0 ]	(	*	)
+vex_multithread	[ 0	locks=0 ]	(	"on"	)
+vex_precision	[ 0	locks=0 ]	(	auto	)
+autobind	[ 0	locks=0 ]	(	"on"	)
+bindings	[ 0	locks=0 ]	(	0	)
+groupautobind	[ 0	locks=0 ]	(	"on"	)
+groupbindings	[ 0	locks=0 ]	(	0	)
+vex_updatenmls	[ 0	locks=0 ]	(	"off"	)
+vex_matchattrib	[ 0	locks=0 ]	(	id	)
+vex_inplace	[ 0	locks=0 ]	(	"off"	)
+vex_selectiongroup	[ 0	locks=0 ]	(	""	)
+ptnum	[ 0	locks=0 ]	(	0	)
+vtxnum	[ 0	locks=0 ]	(	0	)
+primnum	[ 0	locks=0 ]	(	0	)
+id	[ 0	locks=0 ]	(	-1	)
+numpt	[ 0	locks=0 ]	(	0	)
+numvtx	[ 0	locks=0 ]	(	0	)
+numprim	[ 0	locks=0 ]	(	0	)
+Time	[ 0	locks=0 ]	(	0	)
+TimeInc	[ 0	locks=0 ]	(	0	)
+Frame	[ 0	locks=0 ]	(	0	)
+life	[ 0	locks=0 ]	(	0	)
+age	[ 0	locks=0 ]	(	0	)
+OpInput2	[ 0	locks=0 ]	(	""	)
+OpInput3	[ 0	locks=0 ]	(	""	)
+OpInput4	[ 0	locks=0 ]	(	""	)
+OpInput1	[ 0	locks=0 ]	(	""	)
+uv	[ 0	locks=0 ]	(	0	0	0	)
+P	[ 0	locks=0 ]	(	0	0	0	)
+v	[ 0	locks=0 ]	(	0	0	0	)
+force	[ 0	locks=0 ]	(	0	0	0	)
+Cd	[ 0	locks=0 ]	(	1	1	1	)
+N	[ 0	locks=0 ]	(	0	0	0	)
+ramp	[ 0	locks=0 ]	(	5	)
+ramp1pos	[ 0	locks=0 ]	(	0	)
+ramp1c	[ 0	locks=0 ]	(	1	0.5	0	)
+ramp1interp	[ 0	locks=0 ]	(	"constant"	)
+ramp2pos	[ 0	locks=0 ]	(	0.018867924809455872	)
+ramp2c	[ 0	locks=0 ]	(	1	0.42307692766189575	0	)
+ramp2interp	[ 0	locks=0 ]	(	"linear"	)
+ramp3pos	[ 0	locks=0 ]	(	0.12264151126146317	)
+ramp3c	[ 0	locks=0 ]	(	1	0	0	)
+ramp3interp	[ 0	locks=0 ]	(	"linear"	)
+ramp4pos	[ 0	locks=0 ]	(	0.6603773832321167	)
+ramp4c	[ 0	locks=0 ]	(	0	1	0.5	)
+ramp4interp	[ 0	locks=0 ]	(	"linear"	)
+ramp5pos	[ 0	locks=0 ]	(	0.89937108755111694	)
+ramp5c	[ 0	locks=0 ]	(	1	0	0.5	)
+ramp5interp	[ 0	locks=0 ]	(	"linear"	)
+}
+HouNC1033600bb005ee7209104748c841obj/grid1/pointvop2.userdata     
+___Version___    18.0.287HouNC1033600b8105ee720910d113eeadobj/grid1/pointvop2/geometryvopglobal1.init type = geometryvopglobal::2.0
+matchesdef = 1
+HouNC1033600b8605ee720910f60ff2c9obj/grid1/pointvop2/geometryvopglobal1.def comment ""
+position 1.90579 1.97631
+connectornextid 1
+flags =  lock off model off template off footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on lowdetail off mediumdetail off highdetail on material off
+outputsNamed3
+{
+0 "P"
+}
+inputsNamed3
+{
+}
+inputs
+{
+}
+stat
+{
+  create 1592202737
+  modify 1592202742
+  author wanshihui@cnshaw1892.virtuosgames.com
+  access 0777
+}
+color UT_Color RGB 0.8 0.8 0.8 
+delscript ""
+exprlanguage hscript
+end
+HouNC1033600b8105ee7209108d34591eobj/grid1/pointvop2/geometryvopglobal1.parm {
+version 0.8
+}
+HouNC1033600b9d05ee720910e28b21ebobj/grid1/pointvop2/geometryvopglobal1.userdata     
+___Version___     HouNC1033600b8105ee7209106eb14ca0obj/grid1/pointvop2/geometryvopoutput1.init type = geometryvopoutput
+matchesdef = 1
+HouNC1033600b8605ee7209103f1ac390obj/grid1/pointvop2/geometryvopoutput1.def comment ""
+position 10.0198 2.27631
+connectornextid 5
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on lowdetail off mediumdetail off highdetail on material off
+outputsNamed3
+{
+}
+inputsNamed3
+{
+0 	"" "" 1 "P"
+1 	"" "" 1 "v"
+2 	"" "" 1 "force"
+3 	ramp1 1 1 "Cd"
+4 	"" "" 1 "N"
+}
+inputs
+{
+0 	"" 0 1
+1 	"" 0 1
+2 	"" 0 1
+3 	ramp1 0 1
+4 	"" 0 1
+}
+stat
+{
+  create 1592202737
+  modify 1592203305
+  author wanshihui@cnshaw1892.virtuosgames.com
+  access 0777
+}
+color UT_Color RGB 0.8 0.8 0.8 
+delscript ""
+exprlanguage hscript
+end
+HouNC1033600b8105ee72091042a5e340obj/grid1/pointvop2/geometryvopoutput1.parm {
+version 0.8
+}
+HouNC1033600b9d05ee720910db998a1cobj/grid1/pointvop2/geometryvopoutput1.userdata     
+___Version___     HouNC1033600b8805ee7209103d421779obj/grid1/pointvop2/vectofloat1.init type = vectofloat
+matchesdef = 0
+HouNC1033600b8905ee720910656e3c07obj/grid1/pointvop2/vectofloat1.def comment ""
+position 4.30579 1.97631
+connectornextid 4
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on lowdetail off mediumdetail off highdetail on material off
+outputsNamed3
+{
+1 "fval1"
+2 "fval2"
+3 "fval3"
+}
+inputsNamed3
+{
+0 	geometryvopglobal1 0 1 "vec"
+}
+inputs
+{
+0 	geometryvopglobal1 0 1
+}
+stat
+{
+  create 1592202776
+  modify 1592203191
+  author wanshihui@cnshaw1892.virtuosgames.com
+  access 0777
+}
+color UT_Color RGB 0.8 0.8 0.8 
+delscript ""
+exprlanguage hscript
+end
+HouNC1033600b8805ee720910248e568dobj/grid1/pointvop2/vectofloat1.parm {
+version 0.8
+signature	[ 0	locks=0 ]	(	default	)
+vec	[ 0	locks=0 ]	(	0	0	0	)
+vec_p	[ 0	locks=0 ]	(	0	0	0	)
+vec_n	[ 0	locks=0 ]	(	0	0	0	)
+vec_c	[ 0	locks=0 ]	(	0	0	0	)
+vec_uv	[ 0	locks=0 ]	(	0	0	0	)
+vec_up	[ 0	locks=0 ]	(	0	0	0	)
+vec_un	[ 0	locks=0 ]	(	0	0	0	)
+vec_uc	[ 0	locks=0 ]	(	0	0	0	)
+}
+HouNC1033600b8405ee720910bf604f55obj/grid1/pointvop2/vectofloat1.userdata     
+___Version___     HouNC1033600bb205ee720910dabbef03obj/grid1/pointvop2/ramp1.init type = rampparm
+matchesdef = 0
+HouNC1033600bb305ee7209107d39d2a4obj/grid1/pointvop2/ramp1.def comment ""
+position 6.98356 1.837
+connectornextid 7
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on lowdetail off mediumdetail off highdetail on material off
+outputsNamed3
+{
+1 "ramp"
+2 "ramp_the_basis_strings"
+3 "ramp_the_key_positions"
+4 "ramp_the_key_values"
+5 "ramp_the_color_space"
+6 "ramp_struct"
+}
+inputsNamed3
+{
+0 	vectofloat1 2 1 "input"
+}
+inputs
+{
+0 	vectofloat1 1 1
+}
+stat
+{
+  create 1592202916
+  modify 1592203241
+  author wanshihui@cnshaw1892.virtuosgames.com
+  access 0777
+}
+color UT_Color RGB 1 1 0.4 
+delscript ""
+exprlanguage hscript
+end
+HouNC1033600bb205ee7209103bdc22d8obj/grid1/pointvop2/ramp1.parm {
+version 0.8
+parmscope	[ 0	locks=0 ]	(	shaderparm	)
+parmaccess	[ 0	locks=0 ]	(	""	)
+parmname	[ 0	locks=0 ]	(	ramp	)
+parmprefix	[ 0	locks=0 ]	(	""	)
+parmpostfix	[ 0	locks=0 ]	(	""	)
+parmlabel	[ 0	locks=0 ]	(	""	)
+ramptype	[ 0	locks=0 ]	(	"rgb"	)
+rampcolortype	[ 0	locks=0 ]	(	rgb	)
+rampbasisdefault	[ 0	locks=0 ]	(	linear	)
+rampcolordefault	[ 0	locks=0 ]	(	2	)
+rampfloatdefault	[ 0	locks=0 ]	(	2	)
+separator1	[ 0	locks=0 ]	(	)
+useasparmdefiner	[ 0	locks=0 ]	(	"off"	)
+separator2	[ 0	locks=0 ]	(	)
+rampshowcontrolsdefault	[ 0	locks=0 ]	(	"on"	)
+disablewhen	[ 0	locks=0 ]	(	""	)
+hidewhen	[ 0	locks=0 ]	(	""	)
+callback	[ 0	locks=0 ]	(	""	)
+help	[ 0	locks=0 ]	(	""	)
+rampcolordefault1pos	[ 0	locks=0 ]	(	0	)
+rampcolordefault1c	[ 0	locks=0 ]	(	0	0	0	)
+rampcolordefault1interp	[ 0	locks=0 ]	(	"linear"	)
+rampcolordefault2pos	[ 0	locks=0 ]	(	1	)
+rampcolordefault2c	[ 0	locks=0 ]	(	1	1	1	)
+rampcolordefault2interp	[ 0	locks=0 ]	(	"linear"	)
+rampfloatdefault1pos	[ 0	locks=0 ]	(	0	)
+rampfloatdefault1value	[ 0	locks=0 ]	(	0	)
+rampfloatdefault1interp	[ 0	locks=0 ]	(	"linear"	)
+rampfloatdefault2pos	[ 0	locks=0 ]	(	1	)
+rampfloatdefault2value	[ 0	locks=0 ]	(	1	)
+rampfloatdefault2interp	[ 0	locks=0 ]	(	"linear"	)
+}
+HouNC1033600b8e05ee720910f4ade903obj/grid1/pointvop2/ramp1.userdata     
+___Version___    18.0.287HouNC1033600bbb05ee720910533cdcddobj/grid1/color1.init type = color
+matchesdef = 1
+HouNC1033600bb805ee72091031a1961bobj/grid1/color1.def sopflags sopflags = 
+comment ""
+position -2.71177 -7.54118
+connectornextid 2
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+outputsNamed3
+{
+1 "output1"
+}
+inputsNamed3
+{
+0 	extrudevolume1 1 1 "input1"
+}
+inputs
+{
+0 	extrudevolume1 0 1
+}
+stat
+{
+  create 1592203363
+  modify 1592203390
+  author wanshihui@cnshaw1892.virtuosgames.com
+  access 0777
+}
+color UT_Color RGB 0.8 0.8 0.8 
+delscript ""
+exprlanguage hscript
+end
+HouNC1033600bbb05ee720910ebf1a334obj/grid1/color1.parm {
+version 0.8
+group	[ 0	locks=0 ]	(	""	)
+grouptype	[ 0	locks=0 ]	(	"guess"	)
+deleteallcolorattribs	[ 0	locks=0 ]	(	"off"	)
+class	[ 0	locks=0 ]	(	2	)
+colortype	[ 0	locks=0 ]	(	0	)
+color	[ 0	locks=0 ]	(	1	1	1	)
+seed	[ 0	locks=0 ]	(	0	)
+rampattribute	[ 0	locks=0 ]	(	""	)
+ramprange	[ 0	locks=0 ]	(	0	1	)
+ramp	[ 0	locks=0 ]	(	2	)
+ramp1pos	[ 0	locks=0 ]	(	0	)
+ramp1c	[ 0	locks=0 ]	(	0	0	0	)
+ramp1interp	[ 0	locks=0 ]	(	"linear"	)
+ramp2pos	[ 0	locks=0 ]	(	1	)
+ramp2c	[ 0	locks=0 ]	(	1	1	1	)
+ramp2interp	[ 0	locks=0 ]	(	"linear"	)
+}
+HouNC1033600bb705ee720910cdf34bc5obj/grid1/color1.userdata     
+___Version___      ___toolcount___    2 ___toolid___    	sop_colorHouNC1033600ba505ee72091006d0ac42vex.def comment ""
+position 0 6
+connectornextid 0
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed off
+outputsNamed3
+{
+}
+inputsNamed3
+{
+}
+inputs
+{
+}
+stat
+{
+  create 1591944261
+  modify 1591944264
+  author wanshihui@cnshaw1892.virtuosgames.com
+  access 0777
+}
+color UT_Color RGB 0.8 0.8 0.8 
+delscript ""
+exprlanguage hscript
+end
+HouNC1033600ba405ee7209105af56f87vex.parm {
+version 0.8
+}
+HouNC1033600ba005ee72091084719914vex.userdata     
+___Version___    18.0.287HouNC1033600ba505ee720910061a1f12mat.def comment ""
+position 0 3.75
+connectornextid 0
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+outputsNamed3
+{
+}
+inputsNamed3
+{
+}
+inputs
+{
+}
+stat
+{
+  create 1591944261
+  modify 1591944263
+  author wanshihui@cnshaw1892.virtuosgames.com
+  access 0777
+}
+color UT_Color RGB 0.8 0.8 0.8 
+delscript ""
+exprlanguage hscript
+end
+HouNC1033600ba405ee720910f7597b92mat.parm {
+version 0.8
+}
+HouNC1033600ba005ee720910d43f5e73mat.userdata     
+___Version___    18.0.287HouNC1033600bb805ee720910e536f9c9obj/grid1/grid1.init type = grid
+matchesdef = 0
+HouNC1033600bb905ee720910028548dcobj/grid1/grid1.def sopflags sopflags = 
+comment ""
+position 0 0
+connectornextid 1
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+outputsNamed3
+{
+0 "output1"
+}
+inputsNamed3
+{
+}
+inputs
+{
+}
+stat
+{
+  create 1591949535
+  modify 1591949580
+  author wanshihui@cnshaw1892.virtuosgames.com
+  access 0777
+}
+color UT_Color RGB 0.8 0.8 0.8 
+delscript ""
+exprlanguage hscript
+end
+HouNC1033600bb805ee72091024ff6386obj/grid1/grid1.parm {
+version 0.8
+type	[ 0	locks=0 ]	(	"poly"	)
+surftype	[ 0	locks=0 ]	(	"quads"	)
+orient	[ 0	locks=0 ]	(	"zx"	)
+size	[ 0	locks=0 ]	(	10	10	)
+t	[ 0	locks=0 ]	(	0	0	0	)
+r	[ 0	locks=0 ]	(	0	0	0	)
+rows	[ 0	locks=0 ]	(	20	)
+cols	[ 0	locks=0 ]	(	20	)
+orderu	[ 0	locks=0 ]	(	4	)
+orderv	[ 0	locks=0 ]	(	4	)
+interpu	[ 0	locks=0 ]	(	"on"	)
+interpv	[ 0	locks=0 ]	(	"on"	)
+}
+HouNC1033600bb405ee720910b9c37c1bobj/grid1/grid1.userdata     
+___Version___    18.0.287HouNC1033600bbb05ee7209108df60b54obj/grid1/facet1.init type = facet
+matchesdef = 0
+HouNC1033600bb805ee72091029486c23obj/grid1/facet1.def sopflags sopflags = 
+comment ""
+position 0 -0.988235
+connectornextid 2
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+outputsNamed3
+{
+1 "output1"
+}
+inputsNamed3
+{
+0 	grid1 0 1 "input1"
+}
+inputs
+{
+0 	grid1 0 1
+}
+stat
+{
+  create 1591949550
+  modify 1591952316
+  author wanshihui@cnshaw1892.virtuosgames.com
+  access 0777
+}
+color UT_Color RGB 0.8 0.8 0.8 
+delscript ""
+exprlanguage hscript
+end
+HouNC1033600bbb05ee72091005782c1dobj/grid1/facet1.parm {
+version 0.8
+group	[ 0	locks=0 ]	(	""	)
+grouptype	[ 0	locks=0 ]	(	"guess"	)
+prenml	[ 0	locks=0 ]	(	"off"	)
+unit	[ 0	locks=0 ]	(	"off"	)
+unique	[ 0	locks=0 ]	(	"off"	)
+cons	[ 0	locks=0 ]	(	"none"	)
+dist	[ 0	locks=0 ]	(	0.001	)
+accurate	[ 0	locks=0 ]	(	"on"	)
+inline	[ 0	locks=0 ]	(	"off"	)
+inlinedist	[ 0	locks=0 ]	(	0.001	)
+orientPolys	[ 0	locks=0 ]	(	"off"	)
+cusp	[ 0	locks=0 ]	(	"off"	)
+angle	[ 0	locks=0 ]	(	20	)
+remove	[ 0	locks=0 ]	(	"off"	)
+mkplanar	[ 0	locks=0 ]	(	"off"	)
+postnml	[ 0	locks=0 ]	(	"on"	)
+reversenml	[ 0	locks=0 ]	(	"off"	)
+}
+HouNC1033600bb705ee7209107ce214bdobj/grid1/facet1.userdata     
+___Version___    18.0.287HouNC1033600bb705ee7209108b70cdfdobj/grid1/pointvop1.order 13
+geometryvopglobal1
+geometryvopoutput1
+vectofloat1
+multiply1
+abs1
+multiply2
+vectofloat2
+add1
+length1
+floattovec1
+input2
+bind1
+turbnoise1
+HouNC1033600bb505ee72091042086bf2obj/grid1/pointvop1.net 1
+HouNC1033600bbb05ee720910b89fb344obj/grid1/facet2.init type = facet
+matchesdef = 0
+HouNC1033600bb805ee7209103079c357obj/grid1/facet2.def sopflags sopflags = 
+comment ""
+position -0.231844 -1.98824
+connectornextid 2
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+outputsNamed3
+{
+1 "output1"
+}
+inputsNamed3
+{
+0 	facet1 1 1 "input1"
+}
+inputs
+{
+0 	facet1 0 1
+}
+stat
+{
+  create 1592189650
+  modify 1592189673
+  author wanshihui@cnshaw1892.virtuosgames.com
+  access 0777
+}
+color UT_Color RGB 0.8 0.8 0.8 
+delscript ""
+exprlanguage hscript
+end
+HouNC1033600bbb05ee720910eada696aobj/grid1/facet2.parm {
+version 0.8
+group	[ 0	locks=0 ]	(	""	)
+grouptype	[ 0	locks=0 ]	(	"guess"	)
+prenml	[ 0	locks=0 ]	(	"off"	)
+unit	[ 0	locks=0 ]	(	"off"	)
+unique	[ 0	locks=0 ]	(	"on"	)
+cons	[ 0	locks=0 ]	(	"none"	)
+dist	[ 0	locks=0 ]	(	0.001	)
+accurate	[ 0	locks=0 ]	(	"on"	)
+inline	[ 0	locks=0 ]	(	"off"	)
+inlinedist	[ 0	locks=0 ]	(	0.001	)
+orientPolys	[ 0	locks=0 ]	(	"off"	)
+cusp	[ 0	locks=0 ]	(	"off"	)
+angle	[ 0	locks=0 ]	(	20	)
+remove	[ 0	locks=0 ]	(	"off"	)
+mkplanar	[ 0	locks=0 ]	(	"off"	)
+postnml	[ 0	locks=0 ]	(	"off"	)
+reversenml	[ 0	locks=0 ]	(	"off"	)
+}
+HouNC1033600bb705ee720910dd42337bobj/grid1/facet2.userdata     
+___Version___    18.0.287HouNC1033600bb805ee720910fa08afefobj/grid1/edit1.init type = edit
+matchesdef = 0
+HouNC1033600bb905ee72091000247e2aobj/grid1/edit1.def sopflags sopflags = 
+comment ""
+position -0.529412 -4.28235
+connectornextid 2
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+outputsNamed3
+{
+1 "output1"
+}
+inputsNamed3
+{
+0 	pointvop1 1 1 "input1"
+}
+inputs
+{
+0 	pointvop1 0 1
+}
+stat
+{
+  create 1592190024
+  modify 1592203998
+  author wanshihui@cnshaw1892.virtuosgames.com
+  access 0777
+}
+color UT_Color RGB 0.8 0.8 0.8 
+delscript ""
+exprlanguage hscript
+end
+HouNC1033600bb805ee720910272e5359obj/grid1/edit1.parm {
+version 0.8
+group	[ 0	locks=0 ]	(	""	)
+grouptype	[ 0	locks=0 ]	(	"guess"	)
+modeswitcher	[ 0	locks=0 ]	(	0	0	)
+switcher	[ 0	locks=0 ]	(	0	0	)
+xOrd	[ 0	locks=0 ]	(	"srt"	)
+rOrd	[ 0	locks=0 ]	(	"xyz"	)
+t	[ 0	locks=0 ]	(	0	0	0	)
+r	[ 0	locks=0 ]	(	0	0	0	)
+s	[ 0	locks=0 ]	(	1	1	1	)
+shear	[ 0	locks=0 ]	(	0	0	0	)
+parmgroup_pivotxform	[ 0	locks=0 ]	(	0	)
+p	[ 0	locks=0 ]	(	0	0	0	)
+pr	[ 0	locks=0 ]	(	0	0	0	)
+parmgroup_prexform	[ 0	locks=0 ]	(	0	)
+prexform_xOrd	[ 0	locks=0 ]	(	"srt"	)
+prexform_rOrd	[ 0	locks=0 ]	(	"xyz"	)
+prexform_t	[ 0	locks=0 ]	(	0	0	0	)
+prexform_r	[ 0	locks=0 ]	(	0	0	0	)
+prexform_s	[ 0	locks=0 ]	(	1	1	1	)
+prexform_shear	[ 0	locks=0 ]	(	0	0	0	)
+parmgroup_lpivotxform	[ 0	locks=0 ]	(	0	)
+lp	[ 0	locks=0 ]	(	0	0	0	)
+lpr	[ 0	locks=0 ]	(	0	0	0	)
+parmgroup_lprexform	[ 0	locks=0 ]	(	0	)
+lprexform_xOrd	[ 0	locks=0 ]	(	"srt"	)
+lprexform_rOrd	[ 0	locks=0 ]	(	"xyz"	)
+lprexform_t	[ 0	locks=0 ]	(	0	0	0	)
+lprexform_r	[ 0	locks=0 ]	(	0	0	0	)
+lprexform_s	[ 0	locks=0 ]	(	1	1	1	)
+lprexform_shear	[ 0	locks=0 ]	(	0	0	0	)
+vlength	[ 0	locks=0 ]	(	"on"	)
+parmgroup_xformspace	[ 0	locks=0 ]	(	0	)
+xformspace	[ 0	locks=0 ]	(	"global"	)
+localframe	[ 0	locks=0 ]	(	"component"	)
+localspaceupvector	[ 0	locks=0 ]	(	0	1	0	)
+leadislandhint	[ 0	locks=0 ]	(	""	)
+slideonsurface	[ 0	locks=0 ]	(	"off"	)
+dist	[ 0	locks=0 ]	(	0	)
+leadnml	[ 0	locks=0 ]	(	"on"	)
+apply	[ 0	locks=0 ]	(	0	)
+softparmsgrouper	[ 0	locks=0 ]	(	0	)
+distmetric	[ 0	locks=0 ]	(	"surface"	)
+applyrolloff	[ 0	locks=0 ]	(	"off"	)
+distattr	[ 0	locks=0 ]	(	""	)
+leadptattr	[ 0	locks=0 ]	(	""	)
+rad	[ 0	locks=0 ]	(	0	)
+type	[ 0	locks=0 ]	(	"cubic"	)
+tandeg	[ 0	locks=0 ]	(	0	0	)
+kernel	[ 0	locks=0 ]	(	wyvill	)
+visualizefalloff	[ 0	locks=0 ]	(	"state"	)
+sculptswitcher	[ 0	locks=0 ]	(	0	0	0	)
+op	[ 0	locks=0 ]	(	"smoothdeform"	)
+axis	[ 0	locks=0 ]	(	"normal"	)
+vector	[ 0	locks=0 ]	(	0	0	1	)
+stencilaccum	[ 0	locks=0 ]	(	"off"	)
+stencilclear	[ 0	locks=0 ]	(	0	)
+resetnormal	[ 0	locks=0 ]	(	0	)
+flood	[ 0	locks=0 ]	(	0	)
+color	[ 0	locks=0 ]	(	"off"	"off"	)
+fd	[ 0	locks=0 ]	(	0.10000000149011612	)
+bd	[ 0	locks=0 ]	(	-0.10000000149011612	)
+shape	[ 0	locks=0 ]	(	"circle"	)
+bitmap	[ 0	locks=0 ]	(	butterfly1.pic	)
+bmpchan	[ 0	locks=0 ]	(	"alpha"	)
+sculptrad	[ 0	locks=0 ]	(	0.10000000149011612	)
+uvradius	[ 0	locks=0 ]	(	0.10000000149011612	)
+radiuspressure	[ 0	locks=0 ]	(	1	)
+usedepth	[ 0	locks=0 ]	(	"off"	)
+depth	[ 0	locks=0 ]	(	0.10000000000000001	0.10000000000000001	)
+brushangle	[ 0	locks=0 ]	(	0	)
+squash	[ 0	locks=0 ]	(	1	)
+opacity	[ 0	locks=0 ]	(	1	)
+opacitypresure	[ 0	locks=0 ]	(	1	)
+brushsplatter	[ 0	locks=0 ]	(	0	)
+papergrain	[ 0	locks=0 ]	(	0	)
+softedge	[ 0	locks=0 ]	(	1	)
+sculptkernel	[ 0	locks=0 ]	(	elendt	)
+uptype	[ 0	locks=0 ]	(	"stroke"	)
+upvector	[ 0	locks=0 ]	(	0	1	0	)
+projtype	[ 0	locks=0 ]	(	"on"	)
+useconnectivity	[ 0	locks=0 ]	(	"on"	)
+usenormals	[ 0	locks=0 ]	(	"on"	)
+realtime	[ 0	locks=0 ]	(	"off"	)
+dir	[ 0	locks=0 ]	(	0	0	1	)
+hitpos	[ 0	locks=0 ]	(	0	0	0	)
+hitprim	[ 0	locks=0 ]	(	0	)
+hituvw	[ 0	locks=0 ]	(	0	0	0	)
+hitpressure	[ 0	locks=0 ]	(	1	)
+hitpt	[ 0	locks=0 ]	(	0	)
+event	[ 0	locks=0 ]	(	"nop"	)
+useorient	[ 0	locks=0 ]	(	"off"	)
+doreflect	[ 0	locks=0 ]	(	"off"	)
+symaxis	[ 0	locks=0 ]	(	1	0	0	)
+symorig	[ 0	locks=0 ]	(	0	0	0	)
+symdist	[ 0	locks=0 ]	(	0	)
+symthreshold	[ 0	locks=0 ]	(	1	)
+symplanetol	[ 0	locks=0 ]	(	9.9999997473787516e-06	)
+updatenmls	[ 0	locks=0 ]	(	"on"	)
+clearall	[ 0	locks=0 ]	(	0	)
+}
+HouNC1033600bb405ee7209107628d7a5obj/grid1/edit1.userdata     
+___Version___    18.0.287HouNC1033600bba05ee7209108dcf0019obj/grid1/edit1.gdelta [
+]
+HouNC1033600bb705ee720910f438abe9obj/grid1/primitive1.init type = primitive
+matchesdef = 0
+HouNC1033600bb405ee7209102172f47cobj/grid1/primitive1.def sopflags sopflags = 
+comment ""
+position -0.529412 -5.17647
+connectornextid 2
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+outputsNamed3
+{
+1 "output1"
+}
+inputsNamed3
+{
+0 	edit1 1 1 "input1"
+}
+inputs
+{
+0 	edit1 0 1
+}
+stat
+{
+  create 1592202180
+  modify 1592203318
+  author wanshihui@cnshaw1892.virtuosgames.com
+  access 0777
+}
+color UT_Color RGB 0.8 0.8 0.8 
+delscript ""
+exprlanguage hscript
+end
+HouNC1033600bb405ee720910b64dde45obj/grid1/primitive1.chn {
+    channel px {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = $CEX }
+    }
+    channel py {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = $CEY }
+    }
+    channel pz {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = $CEZ }
+    }
+    channel upvectorx {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = @N.x }
+    }
+    channel upvectory {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = @N.y }
+    }
+    channel upvectorz {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = @N.z }
+    }
+    channel diffr {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = @Cd.r }
+    }
+    channel diffg {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = @Cd.g }
+    }
+    channel diffb {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = @Cd.b }
+    }
+    channel alpha {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = @Alpha }
+    }
+    channel crease {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = @creaseweight }
+    }
+    channel metaweight {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = $WEIGHT }
+    }
+    channel prblur {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = 1/$FPS }
+    }
+    channel ty {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = @height }
+    }
+  }
+HouNC1033600bb705ee720910264e4c9dobj/grid1/primitive1.parm {
+version 0.8
+group	[ 0	locks=0 ]	(	""	)
+templateGrp	[ 0	locks=0 ]	(	""	)
+stdswitcher	[ 0	locks=0 ]	(	0	0	0	0	0	0	)
+doxform	[ 0	locks=0 ]	(	"on"	)
+dorot	[ 0	locks=0 ]	(	"off"	)
+xOrd	[ 0	locks=0 ]	(	"srt"	)
+rOrd	[ 0	locks=0 ]	(	"xyz"	)
+t	[ 8	locks=0 ]	(	0	[ ty	0.70057541131973267 ] 	0	)
+r	[ 0	locks=0 ]	(	0	0	0	)
+s	[ 0	locks=0 ]	(	1	1	1	)
+shear	[ 0	locks=0 ]	(	0	0	0	)
+parmgroup_pivotxform	[ 0	locks=0 ]	(	0	)
+p	[ 0	locks=0 ]	(	[ px	4.736842155456543 ] 	[ py	1 ] 	[ pz	4.736842155456543 ] 	)
+pr	[ 0	locks=0 ]	(	0	0	0	)
+lookatpath	[ 0	locks=0 ]	(	""	)
+upvector	[ 0	locks=0 ]	(	[ upvectorx	0 ] 	[ upvectory	0 ] 	[ upvectorz	0 ] 	)
+attribslabel	[ 0	locks=0 ]	(	)
+xformattribs	[ 0	locks=0 ]	(	N	)
+doclr	[ 0	locks=0 ]	(	"off"	)
+diff	[ 0	locks=0 ]	(	[ diffr	0 ] 	[ diffg	0 ] 	[ diffb	0 ] 	)
+doalpha	[ 0	locks=0 ]	(	"off"	)
+alpha	[ 0	locks=0 ]	(	[ alpha	0 ] 	)
+docrease	[ 0	locks=0 ]	(	"off"	)
+crease	[ 0	locks=0 ]	(	[ crease	0 ] 	)
+dotexture	[ 0	locks=0 ]	(	"off"	)
+texture	[ 0	locks=0 ]	(	""	)
+pshapeu	[ 0	locks=0 ]	(	"off"	)
+pshapev	[ 0	locks=0 ]	(	"off"	)
+closeu	[ 0	locks=0 ]	(	"sameclosure"	)
+closev	[ 0	locks=0 ]	(	"sameclosure"	)
+clampu	[ 0	locks=0 ]	(	"sameclamp"	)
+clampv	[ 0	locks=0 ]	(	"sameclamp"	)
+vtxsort	[ 0	locks=0 ]	(	"samevertex"	)
+vtxuoff	[ 0	locks=0 ]	(	0	)
+vtxvoff	[ 0	locks=0 ]	(	0	)
+doweight	[ 0	locks=0 ]	(	"off"	)
+metaweight	[ 0	locks=0 ]	(	[ metaweight	0 ] 	)
+doprender	[ 0	locks=0 ]	(	"off"	)
+prtype	[ 0	locks=0 ]	(	"sphere"	)
+prsize	[ 0	locks=0 ]	(	0.050000000000000003	)
+prblur	[ 0	locks=0 ]	(	[ prblur	0.041666666666666664 ] 	)
+dovolvis	[ 0	locks=0 ]	(	"off"	)
+volvis	[ 0	locks=0 ]	(	"smoke"	)
+volvisiso	[ 0	locks=0 ]	(	0	)
+volvisdensity	[ 0	locks=0 ]	(	1	)
+dotaper	[ 0	locks=0 ]	(	"off"	)
+taper	[ 0	locks=0 ]	(	1	1	)
+volswitcher	[ 0	locks=0 ]	(	0	0	)
+dovolume	[ 0	locks=0 ]	(	"off"	)
+volborder	[ 0	locks=0 ]	(	"constant"	)
+volborderval	[ 0	locks=0 ]	(	0	)
+dovoltol	[ 0	locks=0 ]	(	"off"	)
+voltol	[ 0	locks=0 ]	(	0	)
+dovdbclass	[ 0	locks=0 ]	(	"off"	)
+vdbclass	[ 0	locks=0 ]	(	"unknown"	)
+dovdbcreator	[ 0	locks=0 ]	(	"off"	)
+vdbcreator	[ 0	locks=0 ]	(	""	)
+dovdbtransform	[ 0	locks=0 ]	(	"off"	)
+vdbtransform	[ 0	locks=0 ]	(	"off"	)
+dovdbvectype	[ 0	locks=0 ]	(	"off"	)
+vdbvectype	[ 0	locks=0 ]	(	"invariant"	)
+dovdbhalf	[ 0	locks=0 ]	(	"off"	)
+vdbhalf	[ 0	locks=0 ]	(	"off"	)
+}
+HouNC1033600bb305ee720910470a3781obj/grid1/primitive1.userdata     
+___Version___    18.0.287HouNC1033600bb705ee7209100563244bobj/grid1/pointvop2.order 4
+geometryvopglobal1
+geometryvopoutput1
+vectofloat1
+ramp1
+HouNC1033600bb505ee7209107f0a9cf0obj/grid1/pointvop2.net 1
+HouNC1033600bb805ee72091055e097dcobj/grid1/null1.init type = null
+matchesdef = 0
+HouNC1033600bb905ee7209104e67b883obj/grid1/null1.def sopflags sopflags = 
+comment ""
+position -1.16115 -8.79682
+connectornextid 1
+flags =  lock off model off template off footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
+outputsNamed3
+{
+}
+inputsNamed3
+{
+0 	pointvop2 1 1 "input1"
+}
+inputs
+{
+0 	pointvop2 0 1
+}
+stat
+{
+  create 1592205362
+  modify 1592205369
+  author wanshihui@cnshaw1892.virtuosgames.com
+  access 0777
+}
+color UT_Color RGB 0.6 0.7 0.77 
+delscript ""
+exprlanguage hscript
+end
+HouNC1033600bb805ee720910e8677030obj/grid1/null1.parm {
+version 0.8
+copyinput	[ 0	locks=0 ]	(	"on"	)
+cacheinput	[ 0	locks=0 ]	(	"off"	)
+}
+HouNC1033600bb405ee720910ae938a4cobj/grid1/null1.userdata     
+___Version___    18.0.287HouNC1033600bbd05ee72091087eb62abobj/grid1.order 10
+grid1
+facet1
+pointvop1
+facet2
+edit1
+primitive1
+extrudevolume1
+pointvop2
+color1
+null1
+HouNC1033600ba305ee720910f18062cfobj/grid1.net 1
+HouNC1033600ba505ee720910048e5fbeobj.net 1
+HouNC1033600ba505ee7209109156a467out.def comment ""
+position 0 1.5
+connectornextid 0
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+outputsNamed3
+{
+}
+inputsNamed3
+{
+}
+inputs
+{
+}
+stat
+{
+  create 1591944261
+  modify 1591944263
+  author wanshihui@cnshaw1892.virtuosgames.com
+  access 0777
+}
+color UT_Color RGB 0.8 0.8 0.8 
+delscript ""
+exprlanguage hscript
+end
+HouNC1033600ba405ee720910d5970f51out.parm {
+version 0.8
+}
+HouNC1033600ba005ee720910009b79cfout.userdata     
+___Version___    18.0.287HouNC1033600ba505ee7209105f48a655out.net 1
+HouNC1033600baa05ee720910563971d0ch.def comment ""
+position 0 0.75
+connectornextid 0
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+outputsNamed3
+{
+}
+inputsNamed3
+{
+}
+inputs
+{
+}
+stat
+{
+  create 1591944261
+  modify 1591944263
+  author wanshihui@cnshaw1892.virtuosgames.com
+  access 0777
+}
+color UT_Color RGB 0.8 0.8 0.8 
+delscript ""
+exprlanguage hscript
+end
+HouNC1033600ba505ee72091008c4757bch.parm {
+version 0.8
+}
+HouNC1033600ba105ee72091064685c3cch.userdata     
+___Version___    18.0.287HouNC1033600baa05ee7209101e49fb68ch.net 1
+HouNC1033600ba405ee72091076989a43shop.def comment ""
+position 0 2.25
+connectornextid 0
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+outputsNamed3
+{
+}
+inputsNamed3
+{
+}
+inputs
+{
+}
+stat
+{
+  create 1591944261
+  modify 1591944263
+  author wanshihui@cnshaw1892.virtuosgames.com
+  access 0777
+}
+color UT_Color RGB 0.8 0.8 0.8 
+delscript ""
+exprlanguage hscript
+end
+HouNC1033600ba705ee7209102c7d5db5shop.parm {
+version 0.8
+}
+HouNC1033600ba305ee720910240584c2shop.userdata     
+___Version___    18.0.287HouNC1033600ba405ee720910ca38512fshop.net 1
+HouNC1033600ba505ee720910c132d21dimg.def comment ""
+position 0 3
+connectornextid 0
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+outputsNamed3
+{
+}
+inputsNamed3
+{
+}
+inputs
+{
+}
+stat
+{
+  create 1591944261
+  modify 1591944277
+  author wanshihui@cnshaw1892.virtuosgames.com
+  access 0777
+}
+color UT_Color RGB 0.8 0.8 0.8 
+delscript ""
+exprlanguage hscript
+end
+HouNC1033600ba405ee7209100c04e9b6img.parm {
+version 0.8
+}
+HouNC1033600ba005ee720910c0f67cc3img.userdata     
+___Version___    18.0.287HouNC1033600ba205ee7209104ae9db06img/comp1.init type = img
+matchesdef = 0
+HouNC1033600ba305ee720910e2aa0b39img/comp1.def comment ""
+position 0 0
+connectornextid 0
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+outputsNamed3
+{
+}
+inputsNamed3
+{
+}
+inputs
+{
+}
+stat
+{
+  create 1591944277
+  modify 1591944277
+  author wanshihui@cnshaw1892.virtuosgames.com
+  access 0777
+}
+color UT_Color RGB 0.8 0.8 0.8 
+delscript ""
+exprlanguage hscript
+end
+HouNC1033600ba205ee72091027482685img/comp1.parm {
+version 0.8
+}
+HouNC1033600bbe05ee7209103d76e141img/comp1.userdata     
+___Version___    18.0.287HouNC1033600ba305ee7209104fbca55fimg/comp1.net 1
+HouNC1033600ba505ee720910e8f4ceb3img.net 1
+HouNC1033600ba505ee7209103d423678vex.net 1
+HouNC1033600ba505ee7209104f7fd12dmat.net 1
+HouNC1033600ba705ee720910134c5926stage.def comment ""
+position 0 4.5
+connectornextid 0
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on debug off
+outputsNamed3
+{
+}
+inputsNamed3
+{
+}
+inputs
+{
+}
+stat
+{
+  create 1591944261
+  modify 1591944263
+  author wanshihui@cnshaw1892.virtuosgames.com
+  access 0777
+}
+color UT_Color RGB 0.8 0.8 0.8 
+delscript ""
+exprlanguage hscript
+end
+HouNC1033600ba605ee72091089b122destage.parm {
+version 0.8
+resolvercontextassetpath	[ 0	locks=0 ]	(	""	)
+}
+HouNC1033600ba205ee720910c521ad85stage.userdata     
+___Version___    18.0.287HouNC1033600bbc05ee7209106bf67a33stage.datablocks         __onload__.expansion 	expansion       NSJb{+ expanded& 1} __onload__.loadmasks 	loadmasks       g{
+	"populateall":true,
+	"populatepaths":[
+	],
+	"mutelayers":[
+	],
+	"loadall":true,
+	"loadpaths":[
+	]
+}
+HouNC1033600ba705ee72091085fbb0d4stage.net 1
+HouNC1033600ba705ee7209103a684e1dtasks.def comment ""
+position 0 5.25
+connectornextid 0
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+outputsNamed3
+{
+}
+inputsNamed3
+{
+}
+inputs
+{
+}
+stat
+{
+  create 1591944263
+  modify 1591944277
+  author wanshihui@cnshaw1892.virtuosgames.com
+  access 0777
+}
+color UT_Color RGB 0.8 0.8 0.8 
+delscript ""
+exprlanguage hscript
+end
+HouNC1033600ba605ee7209107ddb51d6tasks.parm {
+version 0.8
+}
+HouNC1033600ba205ee720910967a83e6tasks.userdata     
+___Version___    18.0.287HouNC1033600bbe05ee7209101ea51163tasks/topnet1.init type = topnet
+matchesdef = 0
+HouNC1033600bbf05ee72091000d09643tasks/topnet1.def comment ""
+position 0 0
+connectornextid 0
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress off colordefault on exposed on
+outputsNamed3
+{
+}
+inputsNamed3
+{
+}
+inputs
+{
+}
+stat
+{
+  create 1591944277
+  modify 1591944280
+  author wanshihui@cnshaw1892.virtuosgames.com
+  access 0777
+}
+color UT_Color RGB 0.8 0.8 0.8 
+delscript ""
+exprlanguage hscript
+end
+HouNC1033600bbe05ee720910744b4461tasks/topnet1.parm {
+version 0.8
+cookcontrolssection	[ 0	locks=0 ]	(	0	)
+generatestatic	[ 0	locks=0 ]	(	0	)
+cookbutton	[ 0	locks=0 ]	(	0	)
+dirtybutton	[ 0	locks=0 ]	(	0	)
+cancelbutton	[ 0	locks=0 ]	(	0	)
+taskgraphsection	[ 0	locks=0 ]	(	0	)
+savetaskgraph	[ 0	locks=0 ]	(	0	)
+loadtaskgraph	[ 0	locks=0 ]	(	0	)
+taskgraphfile	[ 0	locks=0 ]	(	$HIP/$HIPNAME.taskgraph.$F.py	)
+taskgraphautosave	[ 0	locks=0 ]	(	"off"	)
+taskgraphsaverate	[ 0	locks=0 ]	(	10	)
+schedulersection	[ 0	locks=0 ]	(	0	)
+topscheduler	[ 0	locks=0 ]	(	localscheduler	)
+}
+HouNC1033600bba05ee7209107f8642fatasks/topnet1.userdata     
+___Version___    18.0.287HouNC1033600b8f05ee72091025393678tasks/topnet1/localscheduler.init type = localscheduler
+matchesdef = 0
+HouNC1033600b8c05ee720910a722442ctasks/topnet1/localscheduler.def comment ""
+position 0 0
+connectornextid 0
+flags =  lock off model off template off footprint off xray off bypass off display on render on highlight off unload off savedata off compress off colordefault on exposed on
+outputsNamed3
+{
+}
+inputsNamed3
+{
+}
+inputs
+{
+}
+stat
+{
+  create 1591944277
+  modify 1591944282
+  author wanshihui@cnshaw1892.virtuosgames.com
+  access 0777
+}
+color UT_Color RGB 0.478 0.478 0.478 
+delscript ""
+exprlanguage hscript
+end
+HouNC1033600b8f05ee720910b315926ftasks/topnet1/localscheduler.parm {
+version 0.8
+folder0	[ 0	locks=0 ]	(	0	0	)
+pdg_workingdir	[ 0	locks=0 ]	(	$HIP	)
+folder1	[ 0	locks=0 ]	(	0	)
+tempdirmenu	[ 0	locks=0 ]	(	"1"	)
+tempdirappendpid	[ 0	locks=0 ]	(	"on"	)
+tempdircustom	[ 0	locks=0 ]	(	$HOUDINI_TEMP_DIR/$HIPNAME/pdgtemp	)
+maxprocsmenu	[ 0	locks=0 ]	(	"0"	)
+maxprocs	[ 0	locks=0 ]	(	1	)
+socketcallbacks	[ 0	locks=0 ]	(	1	)
+local_single	[ 0	locks=0 ]	(	"off"	)
+local_is_CPU_number_set	[ 0	locks=0 ]	(	"off"	)
+local_CPUs_to_use	[ 0	locks=0 ]	(	1	)
+local_usehoudinimaxthreads	[ 0	locks=0 ]	(	"off"	)
+local_houdinimaxthreads	[ 0	locks=0 ]	(	0	)
+local_envmulti	[ 0	locks=0 ]	(	0	)
+}
+HouNC1033600b8b05ee720910270f4442tasks/topnet1/localscheduler.userdata     
+___Version___     HouNC1033600bbf05ee72091037bae678tasks/topnet1.net 1
+HouNC1033600ba705ee720910cc34da38tasks.net 1
+HouNC1033600bbb05ee72091050fced75.scenefilevisualizers HouNC1033600ba005ee720910babafb92.application networkeditor -p '{\n}\n'viewerstow -b stow -x open -l stow -m hide -c hide -d open Build.panetab1.world
+vieweroption -a 2 -h 0 -m 1 -r 'View: Mantra' Build.panetab1.world
+viewergrouplist -g off -s 0 0 -c  on -t matchselect -m '*' -e on -p off -h on Build.panetab1.world
+vieweroption -p 0 -P '+geo -cam -light -muscle -bone -null -blend -other' Build.panetab1.world
+viewlayout -s 2 Build.panetab1.world
+viewerinspect Build.panetab1.world mode ( objects ) object_properties ( ) prim_properties ( ) enable ( 0 ) magnify ( 1 )
+viewtype -t perspective Build.panetab1.world.`vpname("Build.panetab1.world",2)`
+viewtype -t ortho_top Build.panetab1.world.`vpname("Build.panetab1.world",1)`
+viewtype -t ortho_front Build.panetab1.world.`vpname("Build.panetab1.world",3)`
+viewtype -t ortho_right Build.panetab1.world.`vpname("Build.panetab1.world",4)`
+viewname -l on -n aaaa3 Build.panetab1.world.`vpname("Build.panetab1.world",2)`
+viewname -l on -n aaaa2 Build.panetab1.world.`vpname("Build.panetab1.world",1)`
+viewname -l on -n aaaa1 Build.panetab1.world.`vpname("Build.panetab1.world",3)`
+viewname -l on -n aaaa0 Build.panetab1.world.`vpname("Build.panetab1.world",4)`
+viewname -l off -n persp1 Build.panetab1.world.`vpname("Build.panetab1.world",2)`
+viewname -l off -n top1 Build.panetab1.world.`vpname("Build.panetab1.world",1)`
+viewname -l off -n front1 Build.panetab1.world.`vpname("Build.panetab1.world",3)`
+viewname -l off -n right1 Build.panetab1.world.`vpname("Build.panetab1.world",4)`
+viewdispset -m off always -n off always -c off always -u off always -x off always -N off always -C off always -b off always -M off always -v off always -V off always -U off always -h off -P off -p off -f off -o off -w off -s shade -F off -l on -L on -G off -B none -d uv -r unique scene Build.panetab1.world.persp1
+viewdispset -m off always -n off always -c off always -u off always -x off always -N off always -C off always -b off always -M off always -v off always -V off always -U off always -h off -P off -p off -f off -o off -w off -s shade -F off -l on -L on -G off -B none -d uv -r scene selectscene Build.panetab1.world.persp1
+viewdispset -m off always -n off always -c off always -u off always -x off always -N off always -C off always -b off always -M off always -v off always -V off always -U off always -h off -P off -p off -f off -o off -w off -s shade -F off -l on -L off -G on -B none -d uv -r unique ghostscene Build.panetab1.world.persp1
+viewdispset -m off always -n on always -c off always -u off always -x off always -N off always -C off always -b off always -M off always -v off always -V on always -U off always -h off -P on -p off -f off -o off -w on -s shade_wire -F off -l on -L on -G off -B none -d uv -r unique display Build.panetab1.world.persp1
+viewdispset -m off always -n off always -c off always -u off always -x off always -N off always -C off always -b off always -M off always -v off always -V off always -U off always -h off -P on -p off -f off -o off -w off -s wire -F off -l on -L off -G off -B none -d uv -r unique current Build.panetab1.world.persp1
+viewdispset -m off always -n off always -c off always -u off always -x off always -N off always -C off always -b off always -M off always -v off always -V off always -U off always -h off -P off -p off -f off -o off -w off -s wire -F on -l on -L off -G on -B none -d uv -r unique template Build.panetab1.world.persp1
+viewdisplay -B dark -b off -d off -C 2 -e 1 -F on -f off -g on -G '*' -h off -H on -j off -J off -L on -n 0.2 -o off -O on -q on -r on -s off -t on -V 2 -z off -y off -x off -X off -U 4 -Y 4 -T on -R on -i on -D on -k off Build.panetab1.world.persp1
+viewdisplay -Q on -m on -v on Build.panetab1.world.persp1
+viewdisplay -W  off 0 0 Build.panetab1.world.persp1
+viewdisplay -c on -l1 -K on -P points -p 3 Build.panetab1.world.persp1
+viewdispopts -a on -b current -c 1 -C 60  -d  on -D 1 -g on -i on -n on -N 1000000 -o off -p 10 -P off -r off -R off -S 512 -m 0.05 -s on -u uv -w 0.1 -W 0.9 -x on -X off Build.panetab1.world.persp1
+vieweffect -a 2 -A 4 -b on -B 0 -d on -D on off -e 0.8 -E -30 -30 -100 -f 1 -F 0 -g 2.2 -G 0 -h 1 -H on -i on -I 1 -j on -J 20 -K 2 -k 1 -l '' -m on -M 512 -o off -O 3 -p off -P 3 -q 1 -Q 2 -r 1024 1024 -s 2 -t 100 -T 100 -u off -U off -v 128 128 128 -w 0.05 -W off -x 0.4 0.4 0.4 -X 0.4 0.4 0.4 -y 0.4 0.4 0.4 -Y 0.0025 0.0025 0.0025 -z 0.01 -Z 1 Build.panetab1.world.persp1
+viewinfotext -m off -s off -t on Build.panetab1.world.persp1
+viewlight  -a on -d on -e on -h off -l on -n 8 -s on Build.panetab1.world.persp1
+viewbackground -b on -e on -q 1 -i off -m 0 0 -M 1 1 Build.panetab1.world.persp1
+viewroto  -S file -F '' -C '' -a on -o 0 0 -s 1 1 -B 1 -e off persp Build.panetab1.world.persp1
+viewroto  -S file -F '' -C '' -a on -o 0 0 -s 1 1 -B 1 -e off cam Build.panetab1.world.persp1
+viewroto  -S file -F '' -C '' -a on -o 0 0 -s 1 1 -B 1 -e off top Build.panetab1.world.persp1
+viewroto  -S file -F '' -C '' -a on -o 0 0 -s 1 1 -B 1 -e off front Build.panetab1.world.persp1
+viewroto  -S file -F '' -C '' -a on -o 0 0 -s 1 1 -B 1 -e off right Build.panetab1.world.persp1
+viewroto  -S file -F '' -C '' -a on -o 0 0 -s 1 1 -B 1 -e off bottom Build.panetab1.world.persp1
+viewroto  -S file -F '' -C '' -a on -o 0 0 -s 1 1 -B 1 -e off back Build.panetab1.world.persp1
+viewroto  -S file -F '' -C '' -a on -o 0 0 -s 1 1 -B 1 -e off left Build.panetab1.world.persp1
+viewroto  -S file -F '$HH/pic/uvgrid_grey.pic' -C '' -a on -o 0 0 -s 1 1 -B 0.2 -e off uv Build.panetab1.world.persp1
+viewroto  -S file -F '' -C '' -a on -o 0 0 -s 1 1 -B 1 -e off image Build.panetab1.world.persp1
+viewtransform Build.panetab1.world.persp1 version ( 3 )  flag ( F )  orthowidth ( 2.22222 )  focal ( 50 )  aperture ( 41.4214 )  window ( 0 1 0 1 )  winroll ( 0 )  clear ( 1 )  nearfar ( 0.0218355 3467.78 )  aspect ( 1.33333 )  pixelaspect ( 1 )  txyz ( -2.01261 3.44774 12.1678 )  pxyz ( -1.37782 0.613067 -5.00703 )  rotation ( -0.907361 0.0965975 -0.409103 -4.62151e-07 0.973237 0.229802 0.420353 0.208513 -0.883077  )  homedistance ( 18.4123 )  homeadjboxwidth ( 11.1111 )  homeorthowidth ( 11.1111 )  homeradius ( 14.1421 )  homeaxis ( 0 )  homecustom ( 0.707107 -0.353553 0.612372 0 0.866025 0.5 -0.707107 -0.353553 0.612372  )  adjustlimits ( 3 )  
+viewcamera -c '' Build.panetab1.world.persp1
+vieworthogrid -d on -o 0 0 0 -s 0.2 0.2 -r 5 5 -R 1 Build.panetab1.world.persp1
+viewuvgrid -r on -s 0.1 0.1 -P off -S 64 64 -O 0 0 -C on -t on Build.panetab1.world.persp1
+viewagentopts  -L on -b 0 -d 1 -l 0 -m 4 -p 1000 -w 1 Build.panetab1.world.persp1
+viewonionskin  -e on -a 4 -b 4 -i 6 -o 0.5 -A 1 1 1 -B 1 1 1 Build.panetab1.world.persp1
+viewdispset -m off always -n off always -c off always -u off always -x off always -N off always -C off always -b off always -M off always -v off always -V off always -U off always -h off -P off -p off -f off -o off -w off -s shade -F off -l on -L on -G off -B none -d uv -r unique scene Build.panetab1.world.top1
+viewdispset -m off always -n off always -c off always -u off always -x off always -N off always -C off always -b off always -M off always -v off always -V off always -U off always -h off -P off -p off -f off -o off -w off -s shade -F off -l on -L on -G off -B none -d uv -r scene selectscene Build.panetab1.world.top1
+viewdispset -m off always -n off always -c off always -u off always -x off always -N off always -C off always -b off always -M off always -v off always -V off always -U off always -h off -P off -p off -f off -o off -w off -s shade -F off -l on -L off -G on -B none -d uv -r unique ghostscene Build.panetab1.world.top1
+viewdispset -m off always -n on always -c off always -u off always -x off always -N off always -C off always -b off always -M off always -v off always -V on always -U off always -h off -P on -p off -f off -o off -w on -s shade_wire -F off -l on -L on -G off -B none -d uv -r unique display Build.panetab1.world.top1
+viewdispset -m off always -n off always -c off always -u off always -x off always -N off always -C off always -b off always -M off always -v off always -V off always -U off always -h off -P on -p off -f off -o off -w off -s wire -F off -l on -L off -G off -B none -d uv -r unique current Build.panetab1.world.top1
+viewdispset -m off always -n off always -c off always -u off always -x off always -N off always -C off always -b off always -M off always -v off always -V off always -U off always -h off -P off -p off -f off -o off -w off -s wire -F on -l on -L off -G on -B none -d uv -r unique template Build.panetab1.world.top1
+viewdisplay -B dark -b off -d off -C 2 -e 1 -F on -f off -g on -G '*' -h off -H on -j off -J off -L on -n 0.2 -o off -O on -q on -r on -s off -t on -V 2 -z off -y off -x off -X off -U 4 -Y 4 -T on -R on -i on -D on -k off Build.panetab1.world.top1
+viewdisplay -Q on -m on -v on Build.panetab1.world.top1
+viewdisplay -W  off 0 0 Build.panetab1.world.top1
+viewdisplay -c on -l1 -K on -P points -p 3 Build.panetab1.world.top1
+viewdispopts -a on -b current -c 1 -C 60  -d  on -D 1 -g on -i on -n on -N 1000000 -o off -p 10 -P off -r off -R off -S 512 -m 0.05 -s on -u uv -w 0.1 -W 0.9 -x on -X off Build.panetab1.world.top1
+vieweffect -a 2 -A 4 -b on -B 0 -d on -D on off -e 0.8 -E -30 -30 -100 -f 1 -F 0 -g 2.2 -G 0 -h 1 -H on -i on -I 1 -j on -J 20 -K 2 -k 1 -l '' -m on -M 512 -o off -O 3 -p off -P 3 -q 1 -Q 2 -r 1024 1024 -s 2 -t 100 -T 100 -u off -U off -v 128 128 128 -w 0.05 -W off -x 0.4 0.4 0.4 -X 0.4 0.4 0.4 -y 0.4 0.4 0.4 -Y 0.0025 0.0025 0.0025 -z 0.01 -Z 1 Build.panetab1.world.top1
+viewinfotext -m off -s off -t on Build.panetab1.world.top1
+viewlight  -a on -d on -e on -h off -l on -n 8 -s on Build.panetab1.world.top1
+viewbackground -b on -e on -q 1 -i off -m 0 0 -M 1 1 Build.panetab1.world.top1
+viewroto  -S file -F '' -C '' -a on -o 0 0 -s 1 1 -B 1 -e off persp Build.panetab1.world.top1
+viewroto  -S file -F '' -C '' -a on -o 0 0 -s 1 1 -B 1 -e off cam Build.panetab1.world.top1
+viewroto  -S file -F '' -C '' -a on -o 0 0 -s 1 1 -B 1 -e off top Build.panetab1.world.top1
+viewroto  -S file -F '' -C '' -a on -o 0 0 -s 1 1 -B 1 -e off front Build.panetab1.world.top1
+viewroto  -S file -F '' -C '' -a on -o 0 0 -s 1 1 -B 1 -e off right Build.panetab1.world.top1
+viewroto  -S file -F '' -C '' -a on -o 0 0 -s 1 1 -B 1 -e off bottom Build.panetab1.world.top1
+viewroto  -S file -F '' -C '' -a on -o 0 0 -s 1 1 -B 1 -e off back Build.panetab1.world.top1
+viewroto  -S file -F '' -C '' -a on -o 0 0 -s 1 1 -B 1 -e off left Build.panetab1.world.top1
+viewroto  -S file -F '$HH/pic/uvgrid_grey.pic' -C '' -a on -o 0 0 -s 1 1 -B 0.2 -e off uv Build.panetab1.world.top1
+viewroto  -S file -F '' -C '' -a on -o 0 0 -s 1 1 -B 1 -e off image Build.panetab1.world.top1
+viewtransform Build.panetab1.world.top1 version ( 3 )  flag ( Fo )  orthowidth ( 2.22222 )  focal ( 50 )  aperture ( 41.4214 )  window ( 0 1 0 1 )  winroll ( 0 )  clear ( 1 )  nearfar ( 0.0218355 3467.78 )  aspect ( 1.33333 )  pixelaspect ( 1 )  txyz ( 0 0 3.68246 )  pxyz ( 0 0 0 )  rotation ( 1 0 0 0 1.19209e-07 1 0 -1 1.19209e-07  )  homedistance ( 3.68246 )  homeadjboxwidth ( 2.22222 )  homeorthowidth ( 2.22222 )  homeradius ( 3.4641 )  homeaxis ( 0 )  homecustom ( 0.707107 -0.353553 0.612372 0 0.866025 0.5 -0.707107 -0.353553 0.612372  )  adjustlimits ( 3 )  
+vieworthogrid -d on -o 0 0 0 -s 0.2 0.2 -r 5 5 -R 1 Build.panetab1.world.top1
+viewuvgrid -r on -s 0.1 0.1 -P off -S 64 64 -O 0 0 -C on -t on Build.panetab1.world.top1
+viewagentopts  -L on -b 0 -d 1 -l 0 -m 4 -p 1000 -w 1 Build.panetab1.world.top1
+viewonionskin  -e on -a 4 -b 4 -i 6 -o 0.5 -A 1 1 1 -B 1 1 1 Build.panetab1.world.top1
+viewdispset -m off always -n off always -c off always -u off always -x off always -N off always -C off always -b off always -M off always -v off always -V off always -U off always -h off -P off -p off -f off -o off -w off -s shade -F off -l on -L on -G off -B none -d uv -r unique scene Build.panetab1.world.front1
+viewdispset -m off always -n off always -c off always -u off always -x off always -N off always -C off always -b off always -M off always -v off always -V off always -U off always -h off -P off -p off -f off -o off -w off -s shade -F off -l on -L on -G off -B none -d uv -r scene selectscene Build.panetab1.world.front1
+viewdispset -m off always -n off always -c off always -u off always -x off always -N off always -C off always -b off always -M off always -v off always -V off always -U off always -h off -P off -p off -f off -o off -w off -s shade -F off -l on -L off -G on -B none -d uv -r unique ghostscene Build.panetab1.world.front1
+viewdispset -m off always -n on always -c off always -u off always -x off always -N off always -C off always -b off always -M off always -v off always -V on always -U off always -h off -P on -p off -f off -o off -w on -s shade_wire -F off -l on -L on -G off -B none -d uv -r unique display Build.panetab1.world.front1
+viewdispset -m off always -n off always -c off always -u off always -x off always -N off always -C off always -b off always -M off always -v off always -V off always -U off always -h off -P on -p off -f off -o off -w off -s wire -F off -l on -L off -G off -B none -d uv -r unique current Build.panetab1.world.front1
+viewdispset -m off always -n off always -c off always -u off always -x off always -N off always -C off always -b off always -M off always -v off always -V off always -U off always -h off -P off -p off -f off -o off -w off -s wire -F on -l on -L off -G on -B none -d uv -r unique template Build.panetab1.world.front1
+viewdisplay -B dark -b off -d off -C 2 -e 1 -F on -f off -g on -G '*' -h off -H on -j off -J off -L on -n 0.2 -o off -O on -q on -r on -s off -t on -V 2 -z off -y off -x off -X off -U 4 -Y 4 -T on -R on -i on -D on -k off Build.panetab1.world.front1
+viewdisplay -Q on -m on -v on Build.panetab1.world.front1
+viewdisplay -W  off 0 0 Build.panetab1.world.front1
+viewdisplay -c on -l1 -K on -P points -p 3 Build.panetab1.world.front1
+viewdispopts -a on -b current -c 1 -C 60  -d  on -D 1 -g on -i on -n on -N 1000000 -o off -p 10 -P off -r off -R off -S 512 -m 0.05 -s on -u uv -w 0.1 -W 0.9 -x on -X off Build.panetab1.world.front1
+vieweffect -a 2 -A 4 -b on -B 0 -d on -D on off -e 0.8 -E -30 -30 -100 -f 1 -F 0 -g 2.2 -G 0 -h 1 -H on -i on -I 1 -j on -J 20 -K 2 -k 1 -l '' -m on -M 512 -o off -O 3 -p off -P 3 -q 1 -Q 2 -r 1024 1024 -s 2 -t 100 -T 100 -u off -U off -v 128 128 128 -w 0.05 -W off -x 0.4 0.4 0.4 -X 0.4 0.4 0.4 -y 0.4 0.4 0.4 -Y 0.0025 0.0025 0.0025 -z 0.01 -Z 1 Build.panetab1.world.front1
+viewinfotext -m off -s off -t on Build.panetab1.world.front1
+viewlight  -a on -d on -e on -h off -l on -n 8 -s on Build.panetab1.world.front1
+viewbackground -b on -e on -q 1 -i off -m 0 0 -M 1 1 Build.panetab1.world.front1
+viewroto  -S file -F '' -C '' -a on -o 0 0 -s 1 1 -B 1 -e off persp Build.panetab1.world.front1
+viewroto  -S file -F '' -C '' -a on -o 0 0 -s 1 1 -B 1 -e off cam Build.panetab1.world.front1
+viewroto  -S file -F '' -C '' -a on -o 0 0 -s 1 1 -B 1 -e off top Build.panetab1.world.front1
+viewroto  -S file -F '' -C '' -a on -o 0 0 -s 1 1 -B 1 -e off front Build.panetab1.world.front1
+viewroto  -S file -F '' -C '' -a on -o 0 0 -s 1 1 -B 1 -e off right Build.panetab1.world.front1
+viewroto  -S file -F '' -C '' -a on -o 0 0 -s 1 1 -B 1 -e off bottom Build.panetab1.world.front1
+viewroto  -S file -F '' -C '' -a on -o 0 0 -s 1 1 -B 1 -e off back Build.panetab1.world.front1
+viewroto  -S file -F '' -C '' -a on -o 0 0 -s 1 1 -B 1 -e off left Build.panetab1.world.front1
+viewroto  -S file -F '$HH/pic/uvgrid_grey.pic' -C '' -a on -o 0 0 -s 1 1 -B 0.2 -e off uv Build.panetab1.world.front1
+viewroto  -S file -F '' -C '' -a on -o 0 0 -s 1 1 -B 1 -e off image Build.panetab1.world.front1
+viewtransform Build.panetab1.world.front1 version ( 3 )  flag ( Fo )  orthowidth ( 2.22222 )  focal ( 50 )  aperture ( 41.4214 )  window ( 0 1 0 1 )  winroll ( 0 )  clear ( 1 )  nearfar ( 0.0218355 3467.78 )  aspect ( 1.33333 )  pixelaspect ( 1 )  txyz ( 0 0 3.68246 )  pxyz ( 0 0 0 )  rotation ( 1 0 0 0 1 0 0 0 1  )  homedistance ( 3.68246 )  homeadjboxwidth ( 2.22222 )  homeorthowidth ( 2.22222 )  homeradius ( 3.4641 )  homeaxis ( 0 )  homecustom ( 0.707107 -0.353553 0.612372 0 0.866025 0.5 -0.707107 -0.353553 0.612372  )  adjustlimits ( 3 )  
+vieworthogrid -d on -o 0 0 0 -s 0.2 0.2 -r 5 5 -R 1 Build.panetab1.world.front1
+viewuvgrid -r on -s 0.1 0.1 -P off -S 64 64 -O 0 0 -C on -t on Build.panetab1.world.front1
+viewagentopts  -L on -b 0 -d 1 -l 0 -m 4 -p 1000 -w 1 Build.panetab1.world.front1
+viewonionskin  -e on -a 4 -b 4 -i 6 -o 0.5 -A 1 1 1 -B 1 1 1 Build.panetab1.world.front1
+viewdispset -m off always -n off always -c off always -u off always -x off always -N off always -C off always -b off always -M off always -v off always -V off always -U off always -h off -P off -p off -f off -o off -w off -s shade -F off -l on -L on -G off -B none -d uv -r unique scene Build.panetab1.world.right1
+viewdispset -m off always -n off always -c off always -u off always -x off always -N off always -C off always -b off always -M off always -v off always -V off always -U off always -h off -P off -p off -f off -o off -w off -s shade -F off -l on -L on -G off -B none -d uv -r scene selectscene Build.panetab1.world.right1
+viewdispset -m off always -n off always -c off always -u off always -x off always -N off always -C off always -b off always -M off always -v off always -V off always -U off always -h off -P off -p off -f off -o off -w off -s shade -F off -l on -L off -G on -B none -d uv -r unique ghostscene Build.panetab1.world.right1
+viewdispset -m off always -n on always -c off always -u off always -x off always -N off always -C off always -b off always -M off always -v off always -V on always -U off always -h off -P on -p off -f off -o off -w on -s shade_wire -F off -l on -L on -G off -B none -d uv -r unique display Build.panetab1.world.right1
+viewdispset -m off always -n off always -c off always -u off always -x off always -N off always -C off always -b off always -M off always -v off always -V off always -U off always -h off -P on -p off -f off -o off -w off -s wire -F off -l on -L off -G off -B none -d uv -r unique current Build.panetab1.world.right1
+viewdispset -m off always -n off always -c off always -u off always -x off always -N off always -C off always -b off always -M off always -v off always -V off always -U off always -h off -P off -p off -f off -o off -w off -s wire -F on -l on -L off -G on -B none -d uv -r unique template Build.panetab1.world.right1
+viewdisplay -B dark -b off -d off -C 2 -e 1 -F on -f off -g on -G '*' -h off -H on -j off -J off -L on -n 0.2 -o off -O on -q on -r on -s off -t on -V 2 -z off -y off -x off -X off -U 4 -Y 4 -T on -R on -i on -D on -k off Build.panetab1.world.right1
+viewdisplay -Q on -m on -v on Build.panetab1.world.right1
+viewdisplay -W  off 0 0 Build.panetab1.world.right1
+viewdisplay -c on -l1 -K on -P points -p 3 Build.panetab1.world.right1
+viewdispopts -a on -b current -c 1 -C 60  -d  on -D 1 -g on -i on -n on -N 1000000 -o off -p 10 -P off -r off -R off -S 512 -m 0.05 -s on -u uv -w 0.1 -W 0.9 -x on -X off Build.panetab1.world.right1
+vieweffect -a 2 -A 4 -b on -B 0 -d on -D on off -e 0.8 -E -30 -30 -100 -f 1 -F 0 -g 2.2 -G 0 -h 1 -H on -i on -I 1 -j on -J 20 -K 2 -k 1 -l '' -m on -M 512 -o off -O 3 -p off -P 3 -q 1 -Q 2 -r 1024 1024 -s 2 -t 100 -T 100 -u off -U off -v 128 128 128 -w 0.05 -W off -x 0.4 0.4 0.4 -X 0.4 0.4 0.4 -y 0.4 0.4 0.4 -Y 0.0025 0.0025 0.0025 -z 0.01 -Z 1 Build.panetab1.world.right1
+viewinfotext -m off -s off -t on Build.panetab1.world.right1
+viewlight  -a on -d on -e on -h off -l on -n 8 -s on Build.panetab1.world.right1
+viewbackground -b on -e on -q 1 -i off -m 0 0 -M 1 1 Build.panetab1.world.right1
+viewroto  -S file -F '' -C '' -a on -o 0 0 -s 1 1 -B 1 -e off persp Build.panetab1.world.right1
+viewroto  -S file -F '' -C '' -a on -o 0 0 -s 1 1 -B 1 -e off cam Build.panetab1.world.right1
+viewroto  -S file -F '' -C '' -a on -o 0 0 -s 1 1 -B 1 -e off top Build.panetab1.world.right1
+viewroto  -S file -F '' -C '' -a on -o 0 0 -s 1 1 -B 1 -e off front Build.panetab1.world.right1
+viewroto  -S file -F '' -C '' -a on -o 0 0 -s 1 1 -B 1 -e off right Build.panetab1.world.right1
+viewroto  -S file -F '' -C '' -a on -o 0 0 -s 1 1 -B 1 -e off bottom Build.panetab1.world.right1
+viewroto  -S file -F '' -C '' -a on -o 0 0 -s 1 1 -B 1 -e off back Build.panetab1.world.right1
+viewroto  -S file -F '' -C '' -a on -o 0 0 -s 1 1 -B 1 -e off left Build.panetab1.world.right1
+viewroto  -S file -F '$HH/pic/uvgrid_grey.pic' -C '' -a on -o 0 0 -s 1 1 -B 0.2 -e off uv Build.panetab1.world.right1
+viewroto  -S file -F '' -C '' -a on -o 0 0 -s 1 1 -B 1 -e off image Build.panetab1.world.right1
+viewtransform Build.panetab1.world.right1 version ( 3 )  flag ( Fo )  orthowidth ( 2.22222 )  focal ( 50 )  aperture ( 41.4214 )  window ( 0 1 0 1 )  winroll ( 0 )  clear ( 1 )  nearfar ( 0.0218355 3467.78 )  aspect ( 1.33333 )  pixelaspect ( 1 )  txyz ( 0 0 3.68246 )  pxyz ( 0 0 0 )  rotation ( 6.12323e-17 0 1 0 1 0 -1 0 6.12323e-17  )  homedistance ( 3.68246 )  homeadjboxwidth ( 2.22222 )  homeorthowidth ( 2.22222 )  homeradius ( 3.4641 )  homeaxis ( 0 )  homecustom ( 0.707107 -0.353553 0.612372 0 0.866025 0.5 -0.707107 -0.353553 0.612372  )  adjustlimits ( 3 )  
+vieworthogrid -d on -o 0 0 0 -s 0.2 0.2 -r 5 5 -R 1 Build.panetab1.world.right1
+viewuvgrid -r on -s 0.1 0.1 -P off -S 64 64 -O 0 0 -C on -t on Build.panetab1.world.right1
+viewagentopts  -L on -b 0 -d 1 -l 0 -m 4 -p 1000 -w 1 Build.panetab1.world.right1
+viewonionskin  -e on -a 4 -b 4 -i 6 -o 0.5 -A 1 1 1 -B 1 1 1 Build.panetab1.world.right1
+viewsnapshotoption -s off -h off -a 1 -v '*' -m 0 Build.panetab1.world
+cplane -o 0 0 0 -n 4.37114e-08 1 -4.37114e-08 -x 1.91069e-15 4.37114e-08 1 -l n -s 0.1 0.1 -c 40 40 -r 10 10 -d off Build.panetab1.world
+glcache -t 1228 -v 4915
+panepath -d Build -f -p panetab1 /obj/grid1/null1
+panepath -d Build -f -p panetab7 /obj/grid1/null1
+panepath -d Build -f -p panetab9 /obj/grid1/null1
+panepath -d Build -f -p panetab15 /obj/grid1/null1
+panepath -d Build -f -p panetab5 /obj/grid1/null1
+panepath -d Build -f -p panetab2 /obj/grid1/null1
+panepath -d Build -f -p panetab3 /obj/grid1/null1
+desk set Build
+viewupdate -u always
+audiopanel -s p ''
+audiopanel -s r off
+audiopanel -s s 24
+audiopanel -s f 24
+audiopanel -t p stop
+audiopanel -t l off
+audiopanel -t r on
+audiopanel -o m off
+audiopanel -o t on
+audiopanel -o u on
+audiopanel -o l 1
+audiopanel -o r 1
+audiopanel -o d 0
+audiopanel -r d 0.2
+audiopanel -m 0
+audiopanel -a ''
+audiopanel -f 1
+audiopanel -O 0
+colorsettings -p -R
+colorsettings -p -R
+colorsettings -p -R
+colorsettings -p -R
+colorsettings -p -R
+colorsettings -D -A -g 2.2 -l "" -p -s -v -i -r -c -f
+compproject -r 1920 1080 -a 1 -d fp16 -p 0 1 -P full -f 0 -F 0 -l on
+texcache  -a off -r 2147483647 2147483647 -m 10000 -M 8110
+shopvisible +I3D +VMantra +RIB
+HouNC1033600baa05ee720910bf442759.takes HoudiniTakeFile 1.0
+take name Main kids 0
+   e
+HouNC1033600ba505ee7209106cd4f6d0.styles NSJb{}HouNC1033600bbd05ee7209103504820d.contextoptions [
+]
+HouNC1033600ba805ee72091024f702c4.cwd opcf /
+takeset Main
+HouNC1033600bba05ee7209108919230fNON_COMMERCIAL_FILE!!! 
